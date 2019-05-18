@@ -42,23 +42,23 @@ public class NormalCandy extends Candy{
     pop = false;
   }
   public static NormalCandy randomCandy(int xvalue,int yvalue){
-    int temp = ran.nextInt();
-    if (temp % colors == 0 || temp % colors == -0) {
+    int temp = ran.nextInt(6);
+    if (temp % colors == 0){
       return new NormalCandy(xvalue,yvalue,"Red");
     }
-    if (temp % colors == 1 || temp % colors == -1) {
+    if (temp % colors == 1) {
       return new NormalCandy(xvalue,yvalue,"Blue");
     }
-    if (temp % colors == 2 || temp % colors == -2) {
+    if (temp % colors == 2) {
       return new NormalCandy(xvalue,yvalue,"Green");
     }
-    if (temp % colors == 3 || temp % colors == -3) {
+    if (temp % colors == 3) {
       return new NormalCandy(xvalue,yvalue,"Yellow");
     }
-    if (temp % colors == 4 || temp % colors == -4) {
+    if (temp % colors == 4) {
       return new NormalCandy(xvalue,yvalue,"Purple");
     }
-    if (temp % colors == 5 || temp % colors == -5) {
+    if (temp % colors == 5) {
       return new NormalCandy(xvalue,yvalue,"Pink");
     }
     return null;
