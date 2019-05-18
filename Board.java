@@ -10,6 +10,9 @@ public class Board{
         }
       }
   }
+  public void reset() {
+    board = new Candy[board.length][board[0].length];
+  }
   public String toString() {
     String output = "[";
     for(int row = 0; row < board.length; row++) {
