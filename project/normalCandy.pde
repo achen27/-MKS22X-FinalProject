@@ -35,9 +35,9 @@ class NormalCandy extends Candy{
       colors = 8388758;
       name = "Purple";
     }
-    if (scolor.equals("Pink")) {
-      colors = 16711808;
-      name = "Pink";
+    if (scolor.equals("Orange")) {
+      colors = 16744448;
+      name = "Orange";
     }
     pop = false;
   }
