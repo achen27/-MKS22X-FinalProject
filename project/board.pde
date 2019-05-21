@@ -58,7 +58,7 @@ class Board {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
-        fill(board[i][j].getColor());
+        fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
         circle(x+len/2,y+len/2, len/2);
         x += len;
       }

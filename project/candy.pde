@@ -13,7 +13,7 @@ abstract class Candy{
     ycor = yvalue;
   }
   
-  int getColor(){
+  int[] getColor(){
     return colors;
   }
   
