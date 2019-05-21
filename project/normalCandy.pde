@@ -1,6 +1,5 @@
 class NormalCandy extends Candy{
   
-  int colors;
   String name;
   int color1 = 6;
   
@@ -16,28 +15,40 @@ class NormalCandy extends Candy{
     xcor = xvalue;
     ycor = yvalue;
     if (scolor.equals("Red")) {
-      colors = 16711680;
+      colors[0] = 235;
+      colors[1] = 50;
+      colors[3] = 35;
       name = "Red";
     }
+    if (scolor.equals("Orange")) {
+      colors[0] = 240;
+      colors[1] = 144;
+      colors[3] = 55;
+      name = "Orange";
+    }
+    if (scolor.equals("Yellow")) {
+      colors[0] = 250;
+      colors[1] = 235;
+      colors[3] = 80;
+      name = "Yellow";
+    }
     if (scolor.equals("Green")) {
-      colors = 32768;
+      colors[0] = 110;
+      colors[1] = 210;
+      colors[3] = 65;
       name = "Green";
     }
     if (scolor.equals("Blue")) {
-      colors = 255;
+      colors[0] = 60;
+      colors[1] = 140;
+      colors[3] = 240;
       name = "Blue";
     }
-    if (scolor.equals("Yellow")) {
-      colors = 16776960;
-      name = "Yellow";
-    }
     if (scolor.equals("Purple")) {
-      colors = 8388758;
+      colors[0] = 200;
+      colors[1] = 60;
+      colors[3] = 250;
       name = "Purple";
-    }
-    if (scolor.equals("Orange")) {
-      colors = 16744448;
-      name = "Orange";
     }
     pop = false;
   }

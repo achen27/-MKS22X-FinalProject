@@ -3,7 +3,7 @@ abstract class Candy{
   int xcor;
   int ycor;
   boolean pop;
-  int colors;
+  int[] colors = new int[3];
   
   void setXCor(int xvalue) {
     xcor = xvalue;
