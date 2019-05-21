@@ -1,19 +1,48 @@
-public class Board{
+class Board {
   Candy[][] board;
-  public Board(int rows,int cols) {
+  Random ran = new Random();
+  
+  Board(int rows,int cols) {
     board = new Candy[rows][cols];
   }
-  public void fillempty() {
-      for(int row = 0; row < board.length; row++) {
-        for(int col = 0; col < board[0].length; col++) {
-          board[row][col] = NormalCandy.randomCandy(row,col);
-        }
+  
+  void fillempty() {
+    for(int row = 0; row < board.length; row++) {
+      for(int col = 0; col < board[0].length; col++) {
+        board[row][col] = randomCandy(row,col);
       }
+    }
   }
-  public void reset() {
+  
+  NormalCandy randomCandy(int xvalue,int yvalue){
+    int temp = ran.nextInt(6);
+    if (temp % 6 == 0){
+      return new NormalCandy(xvalue,yvalue,"Red");
+    }
+    if (temp % 6 == 1) {
+      return new NormalCandy(xvalue,yvalue,"Blue");
+    }
+    if (temp % 6 == 2) {
+      return new NormalCandy(xvalue,yvalue,"Green");
+    }
+    if (temp % 6 == 3) {
+      return new NormalCandy(xvalue,yvalue,"Yellow");
+    }
+    if (temp % 6 == 4) {
+      return new NormalCandy(xvalue,yvalue,"Purple");
+    }
+    if (temp % 6 == 5) {
+      return new NormalCandy(xvalue,yvalue,"Pink");
+    }
+    return null;
+  }
+  
+  
+  void reset() {
     board = new Candy[board.length][board[0].length];
   }
-  public String toString() {
+  
+  String toString() {
     String output = "[";
     for(int row = 0; row < board.length; row++) {
       for(int col = 0; col < board[0].length; col++) {
