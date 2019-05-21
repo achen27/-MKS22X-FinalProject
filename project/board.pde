@@ -42,14 +42,15 @@ class Board {
     board = new Candy[board.length][board[0].length];
   }
   
-  String toString() {
-    String output = "[";
-    for(int row = 0; row < board.length; row++) {
-      for(int col = 0; col < board[0].length; col++) {
-        output += board[row][col] + "   ";
+  void toDraw(int x, int y, int len) {
+    int oriX = x;
+    for (int i = 0; i < 9; i++){
+      for (int j = 0; j < 9; j++){
+        square(x,y,len);
+        x += len;
       }
-      output += "\n";
+      y += len;
+      x = oriX;
     }
-    return output + "]";
   }
 }

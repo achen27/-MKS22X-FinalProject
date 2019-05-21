@@ -1,26 +1,19 @@
 import java.util.*;
 
-class Game {
-  Board candyBoard;
-    
-  Game(int xcor,int ycor) {
-    candyBoard = new Board(xcor,ycor);
-  }
-
-}
-  
-Game g;
+Board b;
 PImage bg;
 
 void setup() {
   size(960, 540);
-  g = new Game(9,9);
+  b = new Board(9,9);
   bg = loadImage("background.jpg");
   bg.resize(960, 540);
-  fill(93,115,129,80);
-  square(10,10,5);
+  background(bg);
+  fill(75,150);
+  //square(50,80,52);
+  b.toDraw(250,50,50);
 }
 
 void draw() {
-  background(bg);
+  
 }
