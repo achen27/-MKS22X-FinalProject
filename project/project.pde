@@ -11,7 +11,7 @@ void setup() {
   background(bg);
   fill(75,150);
   //square(50,80,52);
-  b.toDraw(250,50,50);
+  b.toDrawBoard(250,50,50);
   b.fillempty();
 }
 

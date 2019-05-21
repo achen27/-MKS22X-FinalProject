@@ -42,6 +42,10 @@ class NormalCandy extends Candy{
     pop = false;
   }
   
+  int getColor(){
+    return colors;
+  }
+  
   String toString() {
     if (name == null) {
       return "Normal " + colors;
