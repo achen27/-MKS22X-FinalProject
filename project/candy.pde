@@ -13,6 +13,10 @@ abstract class Candy{
     ycor = yvalue;
   }
   
+  int getColor(){
+    return colors;
+  }
+  
   boolean pop() {
     pop = true;
     return pop;
