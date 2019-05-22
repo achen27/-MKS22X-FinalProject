@@ -1,6 +1,5 @@
 class NormalCandy extends Candy{
   
-  String name;
   int color1 = 6;
   
   NormalCandy(int xvalue,int yvalue, String scolor) {
@@ -44,7 +43,7 @@ class NormalCandy extends Candy{
     }
     pop = false;
   }
-  
+   
   String toString() {
     if (name == null) {
       return "Normal " + colors;

@@ -2,8 +2,7 @@ class SpecialCandy extends Candy{
   
   int type;
   int colors;
-  String Name;
-  SpecialCandy(int xvalue,int yvalue, int typevalue) {
+  SpecialCandy(int xvalue,int yvalue, int typevalue, int ) {
     xcor = xvalue;
     ycor = yvalue;
     type = typevalue;

@@ -54,13 +54,28 @@ class Board {
     }
   }
   
-<<<<<<< HEAD
+
   void check() {
-     for(int r = 0; r < board.length; r++) {
+     for(int r = 0; r < board.length - 2; r++) {
        for(int c = 0; c < board[0].length; c++) {
-         board[r][c].
+         if (board[r][c].getName().equals(board[r + 1][c]) && board[r][c].getName().equals(board[r + 2][c])) {
+           board[r][c].pop();
+           board[r + 1][c].pop();
+           board[r + 2][c].pop();
+         }
+       }
+     }
+     for(int r = 0; r < board.length; r++) {
+       for(int c = 0; c < board[0].length - 2; c++) {
+         if (board[r][c].getName().equals(board[r + 1][c]) && board[r][c].getName().equals(board[r + 2][c])) {
+           board[r][c].pop();
+           board[r][c + 1].pop();
+           board[r][c + 2].pop();
+         }
+       }
+     }
 }
-=======
+
   void toDrawCandy(int x, int y, int len) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
@@ -74,4 +89,3 @@ class Board {
     }
   }
 }
->>>>>>> refs/remotes/origin/master
