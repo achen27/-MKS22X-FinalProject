@@ -20,19 +20,19 @@ class Board {
       return new NormalCandy(xvalue,yvalue,"Red");
     }
     if (temp % 6 == 1) {
-      return new NormalCandy(xvalue,yvalue,"Blue");
+      return new NormalCandy(xvalue,yvalue,"Orange");
     }
     if (temp % 6 == 2) {
-      return new NormalCandy(xvalue,yvalue,"Green");
-    }
-    if (temp % 6 == 3) {
       return new NormalCandy(xvalue,yvalue,"Yellow");
     }
+    if (temp % 6 == 3) {
+      return new NormalCandy(xvalue,yvalue,"Green");
+    }
     if (temp % 6 == 4) {
-      return new NormalCandy(xvalue,yvalue,"Purple");
+      return new NormalCandy(xvalue,yvalue,"Blue");
     }
     if (temp % 6 == 5) {
-      return new NormalCandy(xvalue,yvalue,"Pink");
+      return new NormalCandy(xvalue,yvalue,"Purple");
     }
     return null;
   }
@@ -42,7 +42,7 @@ class Board {
     board = new Candy[board.length][board[0].length];
   }
   
-  void toDraw(int x, int y, int len) {
+  void toDrawBoard(int x, int y, int len) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
@@ -54,8 +54,24 @@ class Board {
     }
   }
   
+<<<<<<< HEAD
   void check() {
      for(int r = 0; r < board.length; r++) {
        for(int c = 0; c < board[0].length; c++) {
          board[r][c].
 }
+=======
+  void toDrawCandy(int x, int y, int len) {
+    int oriX = x;
+    for (int i = 0; i < 9; i++){
+      for (int j = 0; j < 9; j++){
+        fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
+        circle(x+len/2,y+len/2, len/2);
+        x += len;
+      }
+      y += len;
+      x = oriX;
+    }
+  }
+}
+>>>>>>> refs/remotes/origin/master

@@ -2,6 +2,9 @@ import java.util.*;
 
 Board b;
 PImage bg;
+int x = 250;
+int y = 50;
+int len = 50;
 
 void setup() {
   size(960, 540);
@@ -11,9 +14,11 @@ void setup() {
   background(bg);
   fill(75,150);
   //square(50,80,52);
-  b.toDraw(250,50,50);
+  b.toDrawBoard(x,y,len);
+  b.fillempty();
+  //b.toDrawCandy(x,y,len);
 }
 
 void draw() {
-  
+  b.toDrawCandy(x,y,len);
 }
