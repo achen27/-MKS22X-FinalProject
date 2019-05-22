@@ -53,4 +53,9 @@ class Board {
       x = oriX;
     }
   }
+  
+  void check() {
+     for(int r = 0; r < board.length; r++) {
+       for(int c = 0; c < board[0].length; c++) {
+         board[r][c].
 }
