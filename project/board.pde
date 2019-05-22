@@ -56,12 +56,14 @@ class Board {
   
 
   boolean check() {
+    boolean output;
      for(int r = 0; r < board.length - 2; r++) {
        for(int c = 0; c < board[0].length; c++) {
          if (board[r][c].getName().equals(board[r + 1][c]) && board[r][c].getName().equals(board[r + 2][c])) {
            board[r][c].setPop();
            board[r + 1][c].setPop();
            board[r + 2][c].setPop();
+           output = true;
          }
        }
      }
@@ -70,7 +72,8 @@ class Board {
          if (board[r][c].getName().equals(board[r + 1][c].getName()) && board[r][c].getName().equals(board[r + 2][c].getName())) {
            board[r][c].setPop();
            board[r][c + 1].setPop();
-           board[r][c + 2].setPop();
+           board[r][c + 2].setPop();      
+           output = true;
          }
        }
      }
@@ -82,7 +85,9 @@ class Board {
          }
        }
      }
-
+  void fall() {
+    
+  }
   void toDrawCandy(int x, int y, int len) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
