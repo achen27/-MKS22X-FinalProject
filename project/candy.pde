@@ -18,7 +18,7 @@ abstract class Candy{
     return colors;
   }
   
-  boolean pop() {
+  boolean setPop() {
     pop = true;
     return pop;
   }
