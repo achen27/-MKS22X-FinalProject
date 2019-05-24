@@ -12,3 +12,6 @@ Amanda: I moved all the code to Processing and formatted it so it works properly
 
 Date: 05/21/19
 Amanda: I modeified some variables to add colors to the candies and had the candies show up on the board.
+
+Date: 05/22/19
+Amanda: I started writing the swap code
