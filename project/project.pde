@@ -7,12 +7,23 @@ int y = 50;
 int len = 50;
 boolean once = false;
 
+boolean first = true;
 int swapx1;
 int swapy1;
 int swapx2;
 int swapy2;
 
-void mouseclciked()
+void mouseClicked(){
+  if (first){
+    swapx1 = (mouseX - x) / 50;
+    swapy1 = (mouseY - y) / 50;
+    first = false;
+  } else {
+    swapx2 = (mouseX - x) / 50;
+    swapy2 = (mouseY - y) / 50;
+    first = true;
+  }
+}
 
 void setup() {
   size(960, 540);
@@ -28,13 +39,11 @@ void setup() {
 }
 
 void draw() {
-  if (!once) {
-  b.check();
-  System.out.println(b.toString2());
-  b.pop();  
-  b.fall();
+  text(swapx1, 10, 10);
   b.toDrawCandy(x,y,len);
   System.out.println(b);
-  once = true;
+  if (first){
+    b.swap(swapx1,swapy1,swapx2,swapy2);
+    b.toDrawCandy(x,y,len);
   }
 }

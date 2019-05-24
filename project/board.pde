@@ -9,7 +9,7 @@ class Board {
   void fillempty() {
     for(int row = 0; row < board.length; row++) {
       for(int col = 0; col < board[0].length; col++) {
-        board[row][col] = randomCandy(row,col);
+        board[row][col] = randomCandy();
       }
     }
   }
@@ -100,9 +100,9 @@ class Board {
            first = true;
        }
       for(int r = board.length - 1; r > 0; r--) {
-        for(int c = 0; c < board[0].length; c++) {
+        for(int c = 0; c < board[0].length - 1; c++) {
           if(board[r][c] == null) {
-            temp = NormalCandy(board[r - 1][c].getName());
+            temp = new NormalCandy(board[r - 1][c].getName());
             board[r][c] = temp;
             board[r - 1][c] = null;
         }
