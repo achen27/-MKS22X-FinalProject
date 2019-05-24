@@ -8,6 +8,7 @@ int len = 50;
 boolean once = false;
 
 boolean first = true;
+boolean run = false;
 int swapx1;
 int swapy1;
 int swapx2;
@@ -15,13 +16,16 @@ int swapy2;
 
 void mouseClicked(){
   if (first){
-    swapx1 = (mouseX - x) / 50;
-    swapy1 = (mouseY - y) / 50;
+    swapy1 = (mouseX - x) / 50;
+    swapx1 = (mouseY - y) / 50;
     first = false;
   } else {
-    swapx2 = (mouseX - x) / 50;
-    swapy2 = (mouseY - y) / 50;
+    swapy2 = (mouseX - x) / 50;
+    swapx2 = (mouseY - y) / 50;
     first = true;
+    fill(0);
+    rect(0,0, 100,100);
+    run = true;
   }
 }
 
@@ -39,11 +43,22 @@ void setup() {
 }
 
 void draw() {
+  
+    fill(0);
+  rect(0,0, 100,100);
+  fill(255);
   text(swapx1, 10, 10);
+  text(swapy1, 10, 40);
+  text(swapx2, 20, 10);
+  text(swapy2, 20, 40);
+  text(mouseX, 40, 10);
+  text(mouseY, 40, 40);
   b.toDrawCandy(x,y,len);
   System.out.println(b);
-  if (first){
+  if (run){
     b.swap(swapx1,swapy1,swapx2,swapy2);
+    System.out.println("aidj");
     b.toDrawCandy(x,y,len);
+    run = false;
   }
 }
