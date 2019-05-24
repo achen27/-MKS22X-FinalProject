@@ -56,7 +56,7 @@ class Board {
   
 
   boolean check() {
-    boolean output;
+    boolean output = false;
      for(int r = 0; r < board.length - 2; r++) {
        for(int c = 0; c < board[0].length; c++) {
          if (board[r][c].getName().equals(board[r + 1][c]) && board[r][c].getName().equals(board[r + 2][c])) {
@@ -67,23 +67,29 @@ class Board {
          }
        }
      }
-     for(int r = 0; r < board.length; r++) {
-       for(int c = 0; c < board[0].length - 2; c++) {
-         if (board[r][c].getName().equals(board[r + 1][c].getName()) && board[r][c].getName().equals(board[r + 2][c].getName())) {
+     for(int c = 0; c < board[0].length - 2; c++) {
+       for(int r = 0; r < board.length; r++) {
+         if (board[r][c].getName().equals(board[r][c + 1].getName()) && board[r][c].getName().equals(board[r][c + 2].getName())) {
+           System.out.println("hi");
            board[r][c].setPop();
+           System.out.println(board[r][c].getPop());
            board[r][c + 1].setPop();
            board[r][c + 2].setPop();      
            output = true;
          }
        }
      }
+     return output;
 }
   boolean pop() {
     for(int r = 0; r < board.length; r++) {
        for(int c = 0; c < board[0].length; c++) {
+         if(board[r][c].getPop()) {
          board[r][c] = null;
          }
+         }
        }
+       return true;
      }
   void fall() {
     
@@ -92,12 +98,24 @@ class Board {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
+        if(board[i][j] != null) {
         fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
         circle(x+len/2,y+len/2, len/2);
         x += len;
       }
+      }
       y += len;
       x = oriX;
     }
+  }
+  String toString() {
+    String output = "";
+    for(int r = 0; r < board.length; r++) {
+      for(int c = 0; c < board[0].length; c++) {
+        output += board[r][c];
+      }
+      output += "\n";
+    }
+    return output;
   }
 }

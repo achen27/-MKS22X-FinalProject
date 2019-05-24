@@ -5,6 +5,7 @@ PImage bg;
 int x = 250;
 int y = 50;
 int len = 50;
+boolean once = false;
 
 void setup() {
   size(960, 540);
@@ -20,5 +21,12 @@ void setup() {
 }
 
 void draw() {
+  if (!once) {
+  b.check();
+  b.pop();  
   b.toDrawCandy(x,y,len);
+  System.out.println(b);
+  once = true;
+  }
+  
 }

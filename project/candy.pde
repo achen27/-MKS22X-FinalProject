@@ -1,6 +1,6 @@
 abstract class Candy{
   
-  String Name;
+  String name;
   int xcor;
   int ycor;
   boolean pop;
@@ -22,8 +22,13 @@ abstract class Candy{
     pop = true;
     return pop;
   }
-  String getName(0 {
-    return Name;
+  boolean getPop() {
+    return pop;
   }
-  
+  String getName() {
+    return name;
+  }
+  String toString() {
+    return name;
+  }
 }
