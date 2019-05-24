@@ -55,8 +55,7 @@ void draw() {
   text(mouseY, 40, 40);
   b.toDrawCandy(x,y,len);
   System.out.println(b);
-  if (run){
-    b.swap(swapx1,swapy1,swapx2,swapy2);
+  if (run && b.swap(swapx1,swapy1,swapx2,swapy2)){
     System.out.println("aidj");
     b.toDrawCandy(x,y,len);
     run = false;
