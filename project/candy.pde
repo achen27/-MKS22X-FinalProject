@@ -1,8 +1,6 @@
 abstract class Candy{
   
   String name;
-  int xcor;
-  int ycor;
   boolean pop;
   int[] colors = new int[3];
   

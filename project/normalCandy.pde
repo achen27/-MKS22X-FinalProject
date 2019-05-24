@@ -2,9 +2,7 @@ class NormalCandy extends Candy{
   
   int color1 = 6;
   
-  NormalCandy(int xvalue,int yvalue, String scolor) {
-    xcor = xvalue;
-    ycor = yvalue;
+  NormalCandy(String scolor) {
     if (scolor.equals("Red")) {
       colors[0] = 235;
       colors[1] = 50;

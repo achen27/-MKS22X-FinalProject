@@ -23,9 +23,12 @@ void setup() {
 void draw() {
   if (!once) {
   b.check();
+  System.out.println(b.toString2());
   b.pop();  
+  b.fall();
   b.toDrawCandy(x,y,len);
   System.out.println(b);
+  
   once = true;
   }
   
