@@ -72,7 +72,10 @@ class Board {
       return false;
     }
     if ((x1 == x2 && Math.abs(y1-y2) == 1) && (y1 == y2 && Math.abs(x1-x2) == 1)){
-      
+      Candy temp = board[x1][y1];
+      board[x1][y1] = board[x2][y2];
+      board[x2][y2] = temp;
+      return true;
     } else {
       return false;
     }
