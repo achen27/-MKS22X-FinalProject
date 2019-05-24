@@ -7,6 +7,13 @@ int y = 50;
 int len = 50;
 boolean once = false;
 
+int swapx1;
+int swapy1;
+int swapx2;
+int swapy2;
+
+void mouseclciked()
+
 void setup() {
   size(960, 540);
   b = new Board(9,9);
@@ -28,8 +35,6 @@ void draw() {
   b.fall();
   b.toDrawCandy(x,y,len);
   System.out.println(b);
-  
   once = true;
   }
-  
 }

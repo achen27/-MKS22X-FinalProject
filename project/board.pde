@@ -56,12 +56,14 @@ class Board {
   
 
   boolean check() {
+    boolean output = false;
      for(int r = 0; r < board.length - 2; r++) {
        for(int c = 0; c < board[0].length; c++) {
          if (board[r][c].getName().equals(board[r + 1][c].getName()) && board[r][c].getName().equals(board[r + 2][c].getName())) {
            board[r][c].setPop();
            board[r + 1][c].setPop();
            board[r + 2][c].setPop();
+           output = true;
          }
        }
      }
@@ -71,10 +73,11 @@ class Board {
            board[r][c].setPop();
            board[r][c + 1].setPop();
            board[r][c + 2].setPop();
+           output = true;
          }
        }
      }
-    return true;
+    return output;
   }
   boolean pop() {
     for(int r = 0; r < board.length; r++) {
@@ -141,15 +144,19 @@ class Board {
       output += "\n";
     }
     return output;
+    
+  }
   
   boolean swap(int x1, int y1, int x2, int y2){
     if(x1 == x2 && y1 == y2){
       return false;
     }
     if ((x1 == x2 && Math.abs(y1-y2) == 1) && (y1 == y2 && Math.abs(x1-x2) == 1)){
+      
       Candy temp = board[x1][y1];
       board[x1][y1] = board[x2][y2];
       board[x2][y2] = temp;
+      
       return true;
     } else {
       return false;
