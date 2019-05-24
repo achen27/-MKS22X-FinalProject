@@ -121,6 +121,7 @@ class Board {
       x = oriX;
     }
   }
+
   String toString() {
     String output = "";
     for(int r = 0; r < board.length; r++) {
@@ -140,5 +141,18 @@ class Board {
       output += "\n";
     }
     return output;
+  
+  boolean swap(int x1, int y1, int x2, int y2){
+    if(x1 == x2 && y1 == y2){
+      return false;
+    }
+    if ((x1 == x2 && Math.abs(y1-y2) == 1) && (y1 == y2 && Math.abs(x1-x2) == 1)){
+      Candy temp = board[x1][y1];
+      board[x1][y1] = board[x2][y2];
+      board[x2][y2] = temp;
+      return true;
+    } else {
+      return false;
+    }
   }
 }
