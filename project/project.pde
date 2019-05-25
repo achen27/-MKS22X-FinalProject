@@ -41,7 +41,14 @@ void setup() {
   b.fillempty();
   //b.toDrawCandy(x,y,len);
 }
-
+void game() {
+  b.pop();
+  b.fall();
+  if (b.check()) {
+    game();
+  }
+  
+}
 void draw() {
   
     fill(0);
@@ -59,5 +66,6 @@ void draw() {
     System.out.println("aidj");
     b.toDrawCandy(x,y,len);
     run = false;
+    game();
   }
 }
