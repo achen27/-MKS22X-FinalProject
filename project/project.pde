@@ -39,6 +39,7 @@ void setup() {
   //square(50,80,52);
   b.toDrawBoard(x,y,len);
   b.fillempty();
+  game();
   //b.toDrawCandy(x,y,len);
 }
 void game() {

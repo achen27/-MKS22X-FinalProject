@@ -90,6 +90,7 @@ class Board {
        }
        return true;
      }
+     
   void fall() {
     boolean first = true;
     Candy temp;
