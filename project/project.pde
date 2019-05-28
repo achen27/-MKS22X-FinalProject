@@ -40,6 +40,7 @@ void setup() {
   b.toDrawBoard(x,y,len);
   b.fillempty();
   //b.toDrawCandy(x,y,len);
+  game();
 }
 void game() {
   b.pop();
@@ -61,9 +62,7 @@ void draw() {
   text(mouseX, 40, 10);
   text(mouseY, 40, 40);
   b.toDrawCandy(x,y,len);
-  System.out.println(b);
   if (run && b.swap(swapx1,swapy1,swapx2,swapy2)){
-    System.out.println("aidj");
     b.toDrawCandy(x,y,len);
     run = false;
     game();

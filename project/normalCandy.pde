@@ -1,6 +1,11 @@
 class NormalCandy extends Candy{
   
-  int color1 = 6;
+  /* Normal Candy Constructor
+    Functions:
+    It uses a String as a input. This is used so we can name each of the orbs.
+    It also makes it easier to add new colors/candies in the future.
+    It detects the String and saves the rbg into it so it display the color later.
+  */
   
   NormalCandy(String scolor) {
     if (scolor.equals("Red")) {
@@ -41,7 +46,12 @@ class NormalCandy extends Candy{
     }
     pop = false;
   }
-   
+  
+  /*
+    toString returns the type and the color of the candy.
+    It is only used for testing purposes.
+  */
+
   String toString() {
     if (name == null) {
       return "Normal " + colors;

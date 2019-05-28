@@ -46,7 +46,7 @@ class Board {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
-        square(x,y,len);
+        rect(x,y,len,len);
         x += len;
       }
       y += len;
@@ -57,7 +57,6 @@ class Board {
 
   boolean check() {
     boolean output = false;
-    System.out.print(b);
      for(int r = 0; r < board.length - 2; r++) {
        for(int c = 0; c < board[0].length; c++) {
          if (board[r][c].getName().equals(board[r + 1][c].getName()) && board[r][c].getName().equals(board[r + 2][c].getName())) {
@@ -125,7 +124,7 @@ class Board {
       for (int j = 0; j < 9; j++){
         if(board[i][j] != null) {
         fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
-        circle(x+len/2 + len * j,y+len/2, len/2);
+        ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
       }
       }
       y += len;
