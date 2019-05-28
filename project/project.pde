@@ -30,6 +30,7 @@ void mouseClicked(){
 }
 
 void setup() {
+  frameRate(4);
   size(960, 540);
   b = new Board(9,9);
   bg = loadImage("background.jpg");
@@ -42,9 +43,10 @@ void setup() {
   game();
   //b.toDrawCandy(x,y,len);
 }
+
 void game() {
   b.pop();
-  b.fall();
+  b.fall(x,y,len);
   if (b.check()) {
     game();
   }
@@ -52,7 +54,7 @@ void game() {
 }
 void draw() {
   
-    fill(0);
+  fill(0);
   rect(0,0, 100,100);
   fill(255);
   text(swapx1, 10, 10);
@@ -61,8 +63,9 @@ void draw() {
   text(swapy2, 20, 40);
   text(mouseX, 40, 10);
   text(mouseY, 40, 40);
+  
   b.toDrawCandy(x,y,len);
-  System.out.println(b);
+  //System.out.println(b);
   if (run && b.swap(swapx1,swapy1,swapx2,swapy2)){
     System.out.println("aidj");
     b.toDrawCandy(x,y,len);

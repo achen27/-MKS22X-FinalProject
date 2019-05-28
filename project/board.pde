@@ -91,35 +91,36 @@ class Board {
        return true;
      }
      
-  void fall() {
+  void fall(int x, int y, int len) {
     boolean first = true;
     Candy temp;
+    
     while (first) {
-       first = false;
-       for(int i = 0; i < board[0].length; i++) {
-         if(board[0][i] == null) {
-           board[0][i] = randomCandy();       
+      first = false;
+      
+      for(int i = 0; i < board[0].length; i++) {
+        if(board[0][i] == null) {
+           board[0][i] = randomCandy();
            first = true;
-       }
-      for(int r = board.length - 1; r > 0; r--) {
-        for(int c = 0; c < board[0].length; c++) {
-          if(board[r][c] == null) {
-            first = true;
-            if (board[r - 1][c] != null) {
-            {
-            temp = new NormalCandy(board[r - 1][c].getName());
-            board[r][c] = temp;
-            board[r - 1][c] = null;
-            first = true;
-            }
+         }
+         
+        for(int r = board.length - 1; r > 0; r--) {
+          for(int c = 0; c < board[0].length; c++) {
+            if(board[r][c] == null) {
+              first = true;
+              
+              if (board[r - 1][c] != null) {
+                temp = new NormalCandy(board[r - 1][c].getName());
+                board[r][c] = temp;
+                board[r - 1][c] = null;
+                first = true;                      
+              }
             }
           }
         }
-            }
-        
+      }
+    }
   }
-            }
-          }
   void toDrawCandy(int x, int y, int len) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
