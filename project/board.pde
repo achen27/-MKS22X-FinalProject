@@ -121,6 +121,7 @@ class Board {
       }
     }
   }
+  
   void toDrawCandy(int x, int y, int len) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
