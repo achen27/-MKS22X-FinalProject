@@ -80,6 +80,7 @@ class Board {
      }
     return output;
   }
+  
   boolean pop() {
     for(int r = 0; r < board.length; r++) {
        for(int c = 0; c < board[0].length; c++) {
@@ -103,7 +104,8 @@ class Board {
            board[0][i] = randomCandy();
            first = true;
          }
-         
+         toDrawCandy(x,y,len);
+         //delay(100);
         for(int r = board.length - 1; r > 0; r--) {
           for(int c = 0; c < board[0].length; c++) {
             if(board[r][c] == null) {
@@ -113,12 +115,16 @@ class Board {
                 temp = new NormalCandy(board[r - 1][c].getName());
                 board[r][c] = temp;
                 board[r - 1][c] = null;
-                first = true;                      
+                first = true;
               }
+              
             }
           }
         }
       }
+      
+        toDrawCandy(x,y,len);
+        //delay(100);
     }
   }
   
@@ -127,9 +133,11 @@ class Board {
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
         if(board[i][j] != null) {
-        fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
-        circle(x+len/2 + len * j,y+len/2, len/2);
-      }
+          fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
+          circle(x+len/2 + len * j,y+len/2, len/2);  
+        } else {
+          fill(75,150);
+        }
       }
       y += len;
       x = oriX;
@@ -166,6 +174,8 @@ class Board {
       Candy temp = board[x1][y1];
       board[x1][y1] = board[x2][y2];
       board[x2][y2] = temp;
+      toDrawCandy(x,y,len);
+      //delay(100);
       if (check()){
         return true;
       }
