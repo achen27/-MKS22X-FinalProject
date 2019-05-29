@@ -15,8 +15,7 @@ Date: 05/21/19
 
 Date: 05/22/19
 🐳Amanda🐳: I started writing the swap code
-🦊Kevin🦊: ->Added a Check Function that sets pop to true.
-       ->Fixed some broken code and merge errors
+🦊Kevin🦊: Added a Check Function that sets pop to true and fixed some broken code and merge errors
        
 Date: 05/23/19
 🦊Kevin🦊: Finished the pop() function.
