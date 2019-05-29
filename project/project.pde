@@ -30,6 +30,7 @@ void mouseClicked(){
 }
 
 void setup() {
+  frameRate(3);
   size(960, 540);
   b = new Board(9,9);
   bg = loadImage("background.jpg");
@@ -45,6 +46,8 @@ void setup() {
 
 void game() {
   b.pop();
+  b.toDrawCandy(x,y,len);
+  delay(1000);
   b.fall(x,y,len);
   if (b.check()) {
     game();

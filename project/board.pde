@@ -86,8 +86,10 @@ class Board {
        for(int c = 0; c < board[0].length; c++) {
          if(board[r][c].getPop()) {
          board[r][c] = null;
+         System.out.println("row: " +r+" col: " + c);
+         toDrawCandy(250,50,50);
          }
-         }
+        }
        }
        return true;
      }
@@ -136,7 +138,9 @@ class Board {
           fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
           circle(x+len/2 + len * j,y+len/2, len/2);  
         } else {
-          fill(75,150);
+          System.out.println("oijwnfdeionsdf");
+          fill(255,0,0);
+          square(x,y,len);
         }
       }
       y += len;
