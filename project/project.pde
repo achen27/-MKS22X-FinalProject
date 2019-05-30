@@ -78,12 +78,14 @@ void draw() {
   text(swapy2, 20, 40);
   text(mouseX, 40, 10);
   text(mouseY, 40, 40);
-  if (gamestep != 2) {
+  /*if (gamestep != 1) {
     update();
   } else {
     update2();
+    gamestep += 1;
     delay(500);
-  }
+  }*/
+  update();
   //delay(100);
   
   if(gamestep == 0) {
@@ -92,6 +94,7 @@ void draw() {
     }
   } else if (gamestep == 1) {
     b.pop();
+    update2();
     gamestep += 1;
   } else if(gamestep == 2) {
     if(b.fall() == false) {
