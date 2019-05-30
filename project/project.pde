@@ -15,6 +15,8 @@ int swapy1;
 int swapx2;
 int swapy2;
 int gamestep = 1;
+PImage puff;
+
 
 
 
@@ -49,6 +51,8 @@ void setup() {
   b.toDrawBoard(x,y,len);
   b.fillempty();
   //b.toDrawCandy(x,y,len
+  puff = loadImage("puffofsmoke.png");
+  puff.resize(0,50);
 }
 
 
@@ -56,6 +60,12 @@ void update() {
   fill(190);
   b.toDrawBoard(x,y,len);
   b.toDrawCandy(x,y,len);
+}
+
+void update2() {
+  fill(190);
+  b.toDrawBoard(x,y,len);
+  b.toDrawCandy2(x,y,len, puff);
 }
 
 void draw() {
@@ -68,27 +78,29 @@ void draw() {
   text(swapy2, 20, 40);
   text(mouseX, 40, 10);
   text(mouseY, 40, 40);
-  update();
-  delay(100);
+  if (gamestep != 2) {
+    update();
+  } else {
+    update2();
+    delay(500);
+  }
+  //delay(100);
+  
   if(gamestep == 0) {
     if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
       gamestep += 1;
     }
-  }
-  else if (gamestep == 1) {
+  } else if (gamestep == 1) {
     b.pop();
     gamestep += 1;
-  }
-  else if(gamestep == 2) {
+  } else if(gamestep == 2) {
     if(b.fall() == false) {
      gamestep += 1; 
     }
-  }
-  else if(gamestep == 3) {
+  } else if(gamestep == 3) {
     if(b.check()) {
       gamestep = 1;
-    }
-    else {
+    } else {
      gamestep = 0; 
     }
   }

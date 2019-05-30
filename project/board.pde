@@ -93,7 +93,7 @@ class Board {
      }
      
   boolean fall() {
-    delay(300);
+    delay(200);
     boolean output = false;
     Candy temp;
       for(int i = 0; i < board[0].length; i++) {
@@ -135,6 +135,25 @@ class Board {
           System.out.println("oijwnfdeionsdf");
           fill(190);
           rect(x +  len * j,y,len,len);
+          //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
+        }
+      }
+      y += len;
+      x = oriX;
+    }
+  }
+  
+  void toDrawCandy2(int x, int y, int len, PImage p) {
+    int oriX = x;
+    for (int i = 0; i < 9; i++){
+      for (int j = 0; j < 9; j++){
+        if(board[i][j] != null) {
+        fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
+        ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
+        } else {
+          System.out.println("oijwnfdeionsdf");
+          //fill(190);
+          image(puff, x +  len * j,y);
           //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         }
       }
