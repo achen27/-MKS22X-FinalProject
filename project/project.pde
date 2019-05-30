@@ -10,6 +10,7 @@ boolean dogame = false;
 
 boolean first = true;
 boolean run = false;
+boolean run2 = false;
 int swapx1;
 int swapy1;
 int swapx2;
@@ -42,18 +43,16 @@ void setup() {
   b.toDrawBoard(x,y,len);
   b.fillempty();
   game0();
-  //b.toDrawCandy(x,y,len);
-  game();
+  b.toDrawCandy(x,y,len);
+  //game0();
 }
 
 void game0() {
   b.pop();
   System.out.println(b.toString());
-  fill(190);
-  b.toDrawBoard(x,y,len);
-  b.toDrawCandy(x,y,len);
   System.out.println("NULLLL");
   dogame = true;
+  //update();
 }
 
 void update() {
@@ -84,18 +83,24 @@ void draw() {
   text(mouseX, 40, 10);
   text(mouseY, 40, 40);
 
-
-  if (run && b.swap(swapx1,swapy1,swapx2,swapy2)){
+  update();
+  if (b.swap(swapx1,swapy1,swapx2,swapy2)){
+    run2 = true;
+  }
+  update();
+  if (run && run2){
     System.out.println("aidj");
     run = false;
+    run2 = false;
     game0();
   }
   update();
-  delay(500);
+  //delay(500);
   
   if(dogame) {
     System.out.println("pt2 " + dogame);
     game1();
-    delay(500);
+    //delay(500);
   }
+  update();
 }
