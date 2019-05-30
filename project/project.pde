@@ -6,6 +6,7 @@ int x = 250;
 int y = 50;
 int len = 50;
 boolean once = false;
+boolean dogame = false;
 
 boolean first = true;
 boolean run = false;
@@ -30,7 +31,7 @@ void mouseClicked(){
 }
 
 void setup() {
-  frameRate(3);
+  //frameRate(3);
   size(960, 540);
   b = new Board(9,9);
   bg = loadImage("background.jpg");
@@ -43,17 +44,33 @@ void setup() {
   game();
   //b.toDrawCandy(x,y,len);
 }
-
-void game() {
+void game1() {
   b.pop();
+  System.out.println(b.toString());
+  fill(190);
+  b.toDrawBoard(x,y,len);
   b.toDrawCandy(x,y,len);
-  delay(1000);
-  b.fall(x,y,len);
-  if (b.check()) {
-    game();
-  }
+  System.out.println("NULLLL");
   
 }
+
+void update() {
+  fill(190);
+  b.toDrawBoard(x,y,len);
+  b.toDrawCandy(x,y,len);
+}
+
+void game() {
+  b.fall(x,y,len);
+  fill(190);
+    b.toDrawBoard(x,y,len);
+    b.toDrawCandy(x,y,len);
+  dogame = false;
+  if(b.check()) {
+    dogame = true;
+}
+}
+
 void draw() {
   
   fill(0);
@@ -66,11 +83,26 @@ void draw() {
   text(mouseX, 40, 10);
   text(mouseY, 40, 40);
   
-  b.toDrawCandy(x,y,len);
-  //System.out.println(b);
+  
+  fill(190);
+    b.toDrawBoard(x,y,len);
+    b.toDrawCandy(x,y,len);
+  if(dogame) {
+    game1();
+    
+    delay(1000);
+    fill(190);
+    b.toDrawBoard(x,y,len);
+    b.toDrawCandy(x,y,len);
+    game();
+    
+    fill(190);
+    b.toDrawBoard(x,y,len);
+    b.toDrawCandy(x,y,len);
+    delay(300);
+  }
   if (run && b.swap(swapx1,swapy1,swapx2,swapy2)){
     System.out.println("aidj");
-    b.toDrawCandy(x,y,len);
     run = false;
     game();
   }

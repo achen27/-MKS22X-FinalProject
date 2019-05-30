@@ -87,7 +87,7 @@ class Board {
          if(board[r][c].getPop()) {
          board[r][c] = null;
          System.out.println("row: " +r+" col: " + c);
-         toDrawCandy(250,50,50);
+         //toDrawCandy(250,50,50);
          }
         }
        }
@@ -95,6 +95,7 @@ class Board {
      }
      
   void fall(int x, int y, int len) {
+    delay(300);
     boolean first = true;
     Candy temp;
     
@@ -106,7 +107,7 @@ class Board {
            board[0][i] = randomCandy();
            first = true;
          }
-         toDrawCandy(x,y,len);
+         //toDrawCandy(x,y,len);
          //delay(100);
         for(int r = board.length - 1; r > 0; r--) {
           for(int c = 0; c < board[0].length; c++) {
@@ -125,7 +126,7 @@ class Board {
         }
       }
       
-        toDrawCandy(x,y,len);
+        //toDrawCandy(x,y,len);
         //delay(100);
     }
   }
@@ -136,11 +137,12 @@ class Board {
       for (int j = 0; j < 9; j++){
         if(board[i][j] != null) {
           fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
-          circle(x+len/2 + len * j,y+len/2, len/2);  
+          ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         } else {
           System.out.println("oijwnfdeionsdf");
-          fill(255,0,0);
-          square(x,y,len);
+          fill(0);
+          //square(x +  len * j,y,len);
+          ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         }
       }
       y += len;
@@ -178,7 +180,7 @@ class Board {
       Candy temp = board[x1][y1];
       board[x1][y1] = board[x2][y2];
       board[x2][y2] = temp;
-      toDrawCandy(x,y,len);
+      //toDrawCandy(x,y,len);
       //delay(100);
       if (check()){
         return true;
