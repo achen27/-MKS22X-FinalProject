@@ -41,10 +41,11 @@ void setup() {
   //square(50,80,52);
   b.toDrawBoard(x,y,len);
   b.fillempty();
-  game();
+  game0();
   //b.toDrawCandy(x,y,len);
 }
-void game1() {
+
+void game0() {
   b.pop();
   System.out.println(b.toString());
   fill(190);
@@ -60,12 +61,13 @@ void update() {
   b.toDrawCandy(x,y,len);
 }
 
-void game() {
+void game1() {
   b.fall(x,y,len);
   dogame = false;
+  System.out.println(dogame);
   if(b.check()) {
     System.out.println("Loooppp");
-    dogame = true;
+    game0();
   }
 }
 
@@ -81,16 +83,17 @@ void draw() {
   text(mouseX, 40, 10);
   text(mouseY, 40, 40);
   
-  update();
-  
-  if(dogame) {
-    game();
-    delay(300);
-  }
-  update();
   if (run && b.swap(swapx1,swapy1,swapx2,swapy2)){
     System.out.println("aidj");
     run = false;
+    game0();
+  }
+  update();
+  delay(500);
+  
+  if(dogame) {
+    System.out.println("pt2 " + dogame);
     game1();
+    delay(500);
   }
 }

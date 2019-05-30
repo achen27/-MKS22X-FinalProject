@@ -140,9 +140,9 @@ class Board {
           ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         } else {
           System.out.println("oijwnfdeionsdf");
-          fill(0);
-          //square(x +  len * j,y,len);
-          ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
+          fill(190);
+          square(x +  len * j,y,len);
+          //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         }
       }
       y += len;
