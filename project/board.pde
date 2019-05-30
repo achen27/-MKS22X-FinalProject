@@ -85,7 +85,6 @@ class Board {
        for(int c = 0; c < board[0].length; c++) {
          if(board[r][c].getPop()) {
          board[r][c] = null;
-         System.out.println("row: " +r+" col: " + c);
          //toDrawCandy(250,50,50);
          }
         }
@@ -93,42 +92,37 @@ class Board {
        return true;
      }
      
-  void fall(int x, int y, int len) {
+  boolean fall() {
     delay(300);
-    boolean first = true;
+    boolean output = false;
     Candy temp;
-    
-    while (first) {
-      first = false;
-      
       for(int i = 0; i < board[0].length; i++) {
         if(board[0][i] == null) {
            board[0][i] = randomCandy();
-           first = true;
+           output = true;
          }
          //toDrawCandy(x,y,len);
          //delay(100);
-        for(int r = board.length - 1; r > 0; r--) {
+        for(int r = 1; r > board.length; r++) {
           for(int c = 0; c < board[0].length; c++) {
             if(board[r][c] == null) {
-              first = true;
+              output = true;
               
               if (board[r - 1][c] != null) {
                 temp = new NormalCandy(board[r - 1][c].getName());
                 board[r][c] = temp;
                 board[r - 1][c] = null;
-                first = true;
+                output = true;
               }
               
             }
           }
         }
       }
-      
         //toDrawCandy(x,y,len);
         //delay(100);
+        return output;
     }
-  }
   
   void toDrawCandy(int x, int y, int len) {
     int oriX = x;
@@ -140,7 +134,7 @@ class Board {
         } else {
           System.out.println("oijwnfdeionsdf");
           fill(190);
-          square(x +  len * j,y,len);
+          rect(x +  len * j,y,len,len);
           //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         }
       }
