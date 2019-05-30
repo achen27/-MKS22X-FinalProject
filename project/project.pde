@@ -57,13 +57,15 @@ void setup() {
 
 
 void update() {
-  fill(190);
+  background(bg);
+  fill(75,150);
   b.toDrawBoard(x,y,len);
   b.toDrawCandy(x,y,len);
 }
 
 void update2() {
-  fill(190);
+  background(bg);
+  fill(75,150);
   b.toDrawBoard(x,y,len);
   b.toDrawCandy2(x,y,len, puff);
 }

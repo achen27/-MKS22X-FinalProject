@@ -46,6 +46,7 @@ class Board {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
+        fill(75,150);
         rect(x,y,len,len);
         x += len;
       }
@@ -133,7 +134,7 @@ class Board {
         ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         } else {
           System.out.println("oijwnfdeionsdf");
-          fill(190);
+          fill(75,0);
           rect(x +  len * j,y,len,len);
           //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         }
