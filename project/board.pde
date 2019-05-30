@@ -103,8 +103,8 @@ class Board {
          }
          //toDrawCandy(x,y,len);
          //delay(100);
-        for(int r = 1; r > board.length; r++) {
-          for(int c = 0; c < board[0].length; c++) {
+        for(int r = 1; r < board.length; r++) {
+          for(int c = board[0].length - 1; c >= 0; c--) {
             if(board[r][c] == null) {
               output = true;
               
