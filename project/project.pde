@@ -14,6 +14,13 @@ int swapx1;
 int swapy1;
 int swapx2;
 int swapy2;
+int gamestep = 1;
+
+
+
+
+
+
 
 void mouseClicked(){
   if (first){
@@ -41,20 +48,9 @@ void setup() {
   //square(50,80,52);
   b.toDrawBoard(x,y,len);
   b.fillempty();
-  game0();
-  //b.toDrawCandy(x,y,len);
-  game();
+  //b.toDrawCandy(x,y,len
 }
 
-void game0() {
-  b.pop();
-  System.out.println(b.toString());
-  fill(190);
-  b.toDrawBoard(x,y,len);
-  b.toDrawCandy(x,y,len);
-  System.out.println("NULLLL");
-  dogame = true;
-}
 
 void update() {
   fill(190);
@@ -62,18 +58,7 @@ void update() {
   b.toDrawCandy(x,y,len);
 }
 
-void game1() {
-  b.fall(x,y,len);
-  dogame = false;
-  System.out.println(dogame);
-  if(b.check()) {
-    System.out.println("Loooppp");
-    game0();
-  }
-}
-
 void draw() {
-  
   fill(0);
   rect(0,0, 100,100);
   fill(255);
@@ -83,19 +68,28 @@ void draw() {
   text(swapy2, 20, 40);
   text(mouseX, 40, 10);
   text(mouseY, 40, 40);
-
-
-  if (run && b.swap(swapx1,swapy1,swapx2,swapy2)){
-    System.out.println("aidj");
-    run = false;
-    game0();
-  }
   update();
-  delay(500);
-  
-  if(dogame) {
-    System.out.println("pt2 " + dogame);
-    game1();
-    delay(500);
+  delay(100);
+  if(gamestep == 0) {
+    if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
+      gamestep += 1;
+    }
+  }
+  else if (gamestep == 1) {
+    b.pop();
+    gamestep += 1;
+  }
+  else if(gamestep == 2) {
+    if(b.fall() == false) {
+     gamestep += 1; 
+    }
+  }
+  else if(gamestep == 3) {
+    if(b.check()) {
+      gamestep = 1;
+    }
+    else {
+     gamestep = 0; 
+    }
   }
 }
