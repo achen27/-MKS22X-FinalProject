@@ -71,6 +71,7 @@ void update2() {
 }
 
 void draw() {
+  update();
   fill(0);
   rect(0,0, 100,100);
   fill(255);
@@ -87,11 +88,14 @@ void draw() {
     gamestep += 1;
     delay(500);
   }*/
-  update();
   //delay(100);
   
   if(gamestep == 0) {
     if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
+      swapx1 = -1;
+      swapy1 = -1;
+      swapx2 = -1;
+      swapy2 = -1;
       gamestep += 1;
     }
   } else if (gamestep == 1) {
