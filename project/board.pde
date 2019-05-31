@@ -50,10 +50,10 @@ class Board {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
-        System.out.println("x: "+ x);
-        System.out.println("y: "+ y);
-        System.out.println(highlight(x,y,x1,y1));
-        if (highlight(x,y,x1,y1) || highlight(x,y,x2,y2)){
+        //System.out.println("x: "+ x);
+        //System.out.println("y: "+ y);
+        //System.out.println(highlight(x,y,x1,y1));
+        if (highlight(i,j,x1,y1) || highlight(i,j,x2,y2)){
           System.out.println("highlight");
           fill(75,255);
         } else {
