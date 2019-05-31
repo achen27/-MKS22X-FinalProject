@@ -30,3 +30,8 @@ Amanda: Changed layout of board for easier animation in the future and fixed rea
 
 Date: 05/29/19
 Amanda: Split game function into two so the board now shows empty squares before candy falls.
+
+Date: 05/29/19
+Amanda: Puff of smoke appears when orbs are popped.
+        Board is now transparent again.
+        Selected squares are now highlighted and disappear after two clicks.
