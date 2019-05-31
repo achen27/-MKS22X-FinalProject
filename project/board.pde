@@ -100,7 +100,7 @@ class Board {
     if( c - 1 > -1 && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
       input.link += check3(r,c - 1,board[r][c - 1],input.name);
     }
-    if( c + 1 > board[0].length && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
+    if( c + 1 < board[0].length && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
       input.link += check3(r,c + 1,board[r][c + 1],input.name);
     }
     if(input.link == 3) {
@@ -127,7 +127,7 @@ class Board {
     if( c - 1 > -1 && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
       counter += check3(r,c - 1,board[r][c - 1],name);
     }
-    if( c + 1 > board[0].length && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
+    if( c + 1 < board[0].length && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
       counter += check3(r,c + 1,board[r][c + 1],name);
     }
     return counter;
