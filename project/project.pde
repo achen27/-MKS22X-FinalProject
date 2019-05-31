@@ -61,11 +61,15 @@ void update() {
   fill(75,150);
   b.toDrawBoard(x,y,len);
   b.toDrawCandy(x,y,len);
+  textSize(20);
+  text(b.points, 10, 30); 
 }
 
 void update2() {
   background(bg);
   fill(75,150);
+  textSize(20);
+  text(b.points, 10, 30); 
   b.toDrawBoard(x,y,len);
   b.toDrawCandy2(x,y,len, puff);
 }

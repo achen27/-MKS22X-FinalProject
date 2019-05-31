@@ -78,9 +78,10 @@ class Board {
          }
        }
      }
-     for(int r = 0; r < board.length - 2; r++) {
+     for(int r = 0; r < board.length; r++) {
        for(int c = 0; c < board[0].length; c++) {
          if (board[r][c].pop && board[r][c].link == 0) {
+           System.out.println("link#" + board[r][c].link);
            check2(r,c,board[r][c]);
          }
        }
@@ -89,18 +90,18 @@ class Board {
   }
   
   void check2(int r,int c,Candy input) {
-  input.link = 1;
-    if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
-      input.link += check3(r - 1,c,input,input.name);
+  board[r][c].link = 1;
+    if( r - 1 > -1 && board[r - 1][c].link == 0 && board[r-1][c].name.equals(input.name)) {
+      input.link += check3(r - 1,c,board[r - 1][c],input.name);
     }
     if( r + 1 < board.length && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
-      input.link += check3(r + 1,c,input,input.name);
+      input.link += check3(r + 1,c,board[r + 1][c],input.name);
     }
     if( c - 1 > -1 && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
-      input.link += check3(r,c - 1,input,input.name);
+      input.link += check3(r,c - 1,board[r][c - 1],input.name);
     }
     if( c + 1 > board[0].length && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
-      input.link += check3(r,c + 1,input,input.name);
+      input.link += check3(r,c + 1,board[r][c + 1],input.name);
     }
     if(input.link == 3) {
       points += 300;
@@ -111,22 +112,23 @@ class Board {
     if(input.link >= 5) {
       points += 150 * input.link;
     }
+    System.out.println(input.link);
   }
   
   int check3(int r, int c,Candy input, String name) {
-    input.link  = -1;
+    board[r][c].link = -1;
     int counter  = 1;
-    if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
-      counter += check3(r - 1,c,input,input.name);
+    if( r - 1 > -1 && board[r - 1][c].link == 0 && board[r-1][c].name.equals(input.name)) {
+      counter += check3(r - 1,c,board[r - 1][c],name);
     }
     if( r + 1 < board.length && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
-      counter += check3(r + 1,c,input,input.name);
+      counter += check3(r + 1,c,board[r + 1][c],name);
     }
     if( c - 1 > -1 && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
-      counter += check3(r,c - 1,input,input.name);
+      counter += check3(r,c - 1,board[r][c - 1],name);
     }
     if( c + 1 > board[0].length && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
-      counter += check3(r,c + 1,input,input.name);
+      counter += check3(r,c + 1,board[r][c + 1],name);
     }
     return counter;
     
@@ -187,7 +189,7 @@ class Board {
         fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
         ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         } else {
-          System.out.println("oijwnfdeionsdf");
+          //System.out.println("oijwnfdeionsdf");
           fill(75,0);
           rect(x +  len * j,y,len,len);
           //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
@@ -206,7 +208,7 @@ class Board {
         fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
         ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         } else {
-          System.out.println("oijwnfdeionsdf");
+          //System.out.println("oijwnfdeionsdf");
           //fill(190);
           image(puff, x +  len * j,y);
           //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
