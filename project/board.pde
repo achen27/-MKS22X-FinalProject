@@ -1,7 +1,7 @@
 class Board {
   Candy[][] board;
   Random ran = new Random();
-  
+  int points;
   Board(int rows,int cols) {
     board = new Candy[rows][cols];
   }
@@ -78,38 +78,59 @@ class Board {
          }
        }
      }
+     for(int r = 0; r < board.length - 2; r++) {
+       for(int c = 0; c < board[0].length; c++) {
+         if (board[r][c].pop && board[r][c].link == 0) {
+           check2(r,c,board[r][c]);
+         }
+       }
+     }
     return output;
   }
   
   void check2(int r,int c,Candy input) {
   input.link = 1;
-  if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
-    input.link += check3(r - 1,c,input,input.name);
-  }
-  if( r + 1 < board.length && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
-    input.link += check3(r + 1,c,input,input.name);
-  }
-  if( c - 1 > -1 && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
-    input.link += check3(r,c - 1,input,input.name);
-  }
-  if( c + 1 > board[0].length && board[r][c + 1].link  == 0 && board[r-1][c + 1].name.equals(input.name)) {
-    input.link += check3(r,c + 1,input,input.name);
-  }
-  /*
+    if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
+      input.link += check3(r - 1,c,input,input.name);
+    }
+    if( r + 1 < board.length && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
+      input.link += check3(r + 1,c,input,input.name);
+    }
+    if( c - 1 > -1 && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
+      input.link += check3(r,c - 1,input,input.name);
+    }
+    if( c + 1 > board[0].length && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
+      input.link += check3(r,c + 1,input,input.name);
+    }
     if(input.link == 3) {
-      input.setPop();
+      points += 300;
     }
     if(input.link == 4) {
-      input.setPop();
+      points += 500;
     }
     if(input.link >= 5) {
-      input.setPop();
+      points += 150 * input.link;
     }
-  */
-  input.setPop();
   }
   
-  
+  int check3(int r, int c,Candy input, String name) {
+    input.link  = -1;
+    int counter  = 1;
+    if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
+      counter += check3(r - 1,c,input,input.name);
+    }
+    if( r + 1 < board.length && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
+      counter += check3(r + 1,c,input,input.name);
+    }
+    if( c - 1 > -1 && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
+      counter += check3(r,c - 1,input,input.name);
+    }
+    if( c + 1 > board[0].length && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
+      counter += check3(r,c + 1,input,input.name);
+    }
+    return counter;
+    
+  }
   
   
   
