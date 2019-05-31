@@ -91,16 +91,16 @@ class Board {
   
   void check2(int r,int c,Candy input) {
   board[r][c].link = 1;
-    if( r - 1 > -1 && board[r - 1][c].link == 0 && board[r-1][c].name.equals(input.name)) {
+    if( r - 1 > -1 && board[r-1][c].pop && board[r - 1][c].link == 0 && board[r-1][c].name.equals(input.name)) {
       input.link += check3(r - 1,c,board[r - 1][c],input.name);
     }
-    if( r + 1 < board.length && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
+    if( r + 1 < board.length && board[r+1][c].pop && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
       input.link += check3(r + 1,c,board[r + 1][c],input.name);
     }
-    if( c - 1 > -1 && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
+    if( c - 1 > -1 && board[r][c - 1].pop && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
       input.link += check3(r,c - 1,board[r][c - 1],input.name);
     }
-    if( c + 1 < board[0].length && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
+    if( c + 1 < board[0].length && board[r][c + 1].pop && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
       input.link += check3(r,c + 1,board[r][c + 1],input.name);
     }
     if(input.link == 3) {
@@ -118,16 +118,16 @@ class Board {
   int check3(int r, int c,Candy input, String name) {
     board[r][c].link = -1;
     int counter  = 1;
-    if( r - 1 > -1 && board[r - 1][c].link == 0 && board[r-1][c].name.equals(input.name)) {
+    if( r - 1 > -1 && board[r - 1][c].pop && board[r - 1][c].link == 0 && board[r-1][c].name.equals(input.name)) {
       counter += check3(r - 1,c,board[r - 1][c],name);
     }
-    if( r + 1 < board.length && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
+    if( r + 1 < board.length && board[r+1][c].pop && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
       counter += check3(r + 1,c,board[r + 1][c],name);
     }
-    if( c - 1 > -1 && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
+    if( c - 1 > -1 && board[r][c - 1].pop && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
       counter += check3(r,c - 1,board[r][c - 1],name);
     }
-    if( c + 1 < board[0].length && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
+    if( c + 1 < board[0].length && board[r][c + 1].pop && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
       counter += check3(r,c + 1,board[r][c + 1],name);
     }
     return counter;
