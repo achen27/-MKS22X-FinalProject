@@ -84,19 +84,29 @@ class Board {
   void check2(int r,int c,Candy input) {
   input.link = 1;
   if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
-    input.link += check3(r - 1,c,input,input,input.name);
+    input.link += check3(r - 1,c,input,input.name);
   }
   if( r + 1 < board.length && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
-    input.link += check3(r + 1,c,input,input,input.name);
+    input.link += check3(r + 1,c,input,input.name);
   }
-  if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
-    input.link += check3(r,c,input,input,input.name);
+  if( c - 1 > -1 && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
+    input.link += check3(r,c - 1,input,input.name);
   }
-  if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
-    input.link += check3(r,c,input,input,input.name);
+  if( c + 1 > board[0].length && board[r][c + 1].link  == 0 && board[r-1][c + 1].name.equals(input.name)) {
+    input.link += check3(r,c + 1,input,input.name);
   }
-  
-  
+  /*
+    if(input.link == 3) {
+      input.setPop();
+    }
+    if(input.link == 4) {
+      input.setPop();
+    }
+    if(input.link >= 5) {
+      input.setPop();
+    }
+  */
+  input.setPop();
   }
   
   
