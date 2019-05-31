@@ -42,11 +42,23 @@ class Board {
     board = new Candy[board.length][board[0].length];
   }
   
-  void toDrawBoard(int x, int y, int len) {
+  boolean highlight(int x, int y, int x1, int y1){
+    return x == x1 && y == y1;
+  }
+  
+  void toDrawBoard(int x, int y, int len, int x1, int y1, int x2, int y2) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
-        fill(75,150);
+        System.out.println("x: "+ x);
+        System.out.println("y: "+ y);
+        System.out.println(highlight(x,y,x1,y1));
+        if (highlight(x,y,x1,y1) || highlight(x,y,x2,y2)){
+          System.out.println("highlight");
+          fill(75,255);
+        } else {
+          fill(75,150);
+        }
         rect(x,y,len,len);
         x += len;
       }
@@ -133,7 +145,7 @@ class Board {
         fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
         ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         } else {
-          System.out.println("oijwnfdeionsdf");
+          //System.out.println("oijwnfdeionsdf");
           fill(75,0);
           rect(x +  len * j,y,len,len);
           //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
@@ -152,7 +164,7 @@ class Board {
         fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
         ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         } else {
-          System.out.println("oijwnfdeionsdf");
+          //System.out.println("oijwnfdeionsdf");
           //fill(190);
           image(puff, x +  len * j,y);
           //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);

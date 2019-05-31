@@ -10,10 +10,10 @@ boolean dogame = false;
 
 boolean first = true;
 boolean run = false;
-int swapx1;
-int swapy1;
-int swapx2;
-int swapy2;
+int swapx1 = -1;
+int swapy1 = -1;
+int swapx2 = -1;
+int swapy2 = -1;
 int gamestep = 1;
 PImage puff;
 
@@ -29,6 +29,7 @@ void mouseClicked(){
     swapy1 = (mouseX - x) / 50;
     swapx1 = (mouseY - y) / 50;
     first = false;
+    update();
   } else {
     swapy2 = (mouseX - x) / 50;
     swapx2 = (mouseY - y) / 50;
@@ -36,6 +37,7 @@ void mouseClicked(){
     fill(0);
     rect(0,0, 100,100);
     run = true;
+    update();
   }
 }
 
@@ -48,7 +50,7 @@ void setup() {
   background(bg);
   fill(190);
   //square(50,80,52);
-  b.toDrawBoard(x,y,len);
+  b.toDrawBoard(x,y,len,swapx1,swapy1,swapx2,swapy2);
   b.fillempty();
   //b.toDrawCandy(x,y,len
   puff = loadImage("puffofsmoke.png");
@@ -59,14 +61,14 @@ void setup() {
 void update() {
   background(bg);
   fill(75,150);
-  b.toDrawBoard(x,y,len);
+  b.toDrawBoard(x,y,len,swapx1,swapy1,swapx2,swapy2);
   b.toDrawCandy(x,y,len);
 }
 
 void update2() {
   background(bg);
   fill(75,150);
-  b.toDrawBoard(x,y,len);
+  b.toDrawBoard(x,y,len,swapx1,swapy1,swapx2,swapy2);
   b.toDrawCandy2(x,y,len, puff);
 }
 
