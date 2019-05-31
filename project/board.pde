@@ -1,7 +1,7 @@
 class Board {
   Candy[][] board;
   Random ran = new Random();
-  
+  int points;
   Board(int rows,int cols) {
     board = new Candy[rows][cols];
   }
@@ -96,8 +96,64 @@ class Board {
          }
        }
      }
+     for(int r = 0; r < board.length; r++) {
+       for(int c = 0; c < board[0].length; c++) {
+         if (board[r][c].pop && board[r][c].link == 0) {
+           System.out.println("link#" + board[r][c].link);
+           check2(r,c,board[r][c]);
+         }
+       }
+     }
     return output;
   }
+  
+  void check2(int r,int c,Candy input) {
+  board[r][c].link = 1;
+    if( r - 1 > -1 && board[r-1][c].pop && board[r - 1][c].link == 0 && board[r-1][c].name.equals(input.name)) {
+      input.link += check3(r - 1,c,board[r - 1][c],input.name);
+    }
+    if( r + 1 < board.length && board[r+1][c].pop && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
+      input.link += check3(r + 1,c,board[r + 1][c],input.name);
+    }
+    if( c - 1 > -1 && board[r][c - 1].pop && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
+      input.link += check3(r,c - 1,board[r][c - 1],input.name);
+    }
+    if( c + 1 < board[0].length && board[r][c + 1].pop && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
+      input.link += check3(r,c + 1,board[r][c + 1],input.name);
+    }
+    if(input.link == 3) {
+      points += 300;
+    }
+    if(input.link == 4) {
+      points += 500;
+    }
+    if(input.link >= 5) {
+      points += 150 * input.link;
+    }
+    System.out.println(input.link);
+  }
+  
+  int check3(int r, int c,Candy input, String name) {
+    board[r][c].link = -1;
+    int counter  = 1;
+    if( r - 1 > -1 && board[r - 1][c].pop && board[r - 1][c].link == 0 && board[r-1][c].name.equals(input.name)) {
+      counter += check3(r - 1,c,board[r - 1][c],name);
+    }
+    if( r + 1 < board.length && board[r+1][c].pop && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
+      counter += check3(r + 1,c,board[r + 1][c],name);
+    }
+    if( c - 1 > -1 && board[r][c - 1].pop && board[r][c - 1].link  == 0 && board[r][c - 1].name.equals(input.name)) {
+      counter += check3(r,c - 1,board[r][c - 1],name);
+    }
+    if( c + 1 < board[0].length && board[r][c + 1].pop && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
+      counter += check3(r,c + 1,board[r][c + 1],name);
+    }
+    return counter;
+    
+  }
+  
+  
+  
   
   boolean pop() {
     for(int r = 0; r < board.length; r++) {
