@@ -10,7 +10,7 @@ abstract class Candy{
   String name;
   boolean pop;
   int[] colors = new int[3];
-  
+  int link;
   /*
     getColor is an accessor function. It is only used for testing.
   */

@@ -81,6 +81,29 @@ class Board {
     return output;
   }
   
+  void check2(int r,int c,Candy input) {
+  input.link = 1;
+  if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
+    input.link += check3(r - 1,c,input,input,input.name);
+  }
+  if( r + 1 < board.length && board[r + 1][c].link  == 0 && board[r+1][c].name.equals(input.name)) {
+    input.link += check3(r + 1,c,input,input,input.name);
+  }
+  if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
+    input.link += check3(r,c,input,input,input.name);
+  }
+  if( r - 1 > -1 && board[r - 1][c].link  == 0 && board[r-1][c].name.equals(input.name)) {
+    input.link += check3(r,c,input,input,input.name);
+  }
+  
+  
+  }
+  
+  
+  
+  
+  
+  
   boolean pop() {
     for(int r = 0; r < board.length; r++) {
        for(int c = 0; c < board[0].length; c++) {
