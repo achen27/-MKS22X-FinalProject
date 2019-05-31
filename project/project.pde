@@ -74,6 +74,7 @@ void update2() {
 
 void draw() {
   update();
+  //delay(200);
   fill(0);
   rect(0,0, 100,100);
   fill(255);
@@ -109,6 +110,7 @@ void draw() {
       run = false;
     }
   } else if (gamestep == 1) {
+    delay(200);
     b.pop();
     update2();
     gamestep += 1;
