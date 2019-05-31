@@ -99,7 +99,14 @@ void draw() {
       swapx2 = -1;
       swapy2 = -1;
       gamestep += 1;
+    } else if (run){
+      swapx1 = -1;
+      swapy1 = -1;
+      swapx2 = -1;
+      swapy2 = -1;
       update();
+      delay(200);
+      run = false;
     }
   } else if (gamestep == 1) {
     b.pop();
