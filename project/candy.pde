@@ -60,7 +60,7 @@ abstract class Candy{
         return true;
       }
       if(endX < xCor) {
-        xCor += 5;
+        xCor -= 5;
         return true;
       }
       if(endY < yCor) {

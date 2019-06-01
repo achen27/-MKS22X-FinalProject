@@ -6,7 +6,7 @@ int x = 250;
 int y = 50;
 
 boolean once = false;
-boolean dogame = false;
+boolean moving = false;
 
 boolean first = true;
 boolean run = false;
@@ -44,7 +44,7 @@ void mouseClicked(){
 void setup() {
   //frameRate(3);
   size(960, 540);
-  b = new Board(9,9);
+  b = new Board(9,9,50);
   bg = loadImage("background.jpg");
   bg.resize(960, 540);
   background(bg);
@@ -106,8 +106,11 @@ void draw() {
     delay(500);
   }*/
   //delay(100);
-  
-  if(gamestep == 0) {
+  if (moving) {
+    moving = b.move();
+  }
+  else {
+    if (gamestep == 0) {
     if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
       update(1);
       delay(200);
@@ -136,8 +139,8 @@ void draw() {
     } else {
      gamestep = 0; 
     }
+    
   }
-  
   if (gamestep == 0 && run){
     update(2);
     delay(200);
@@ -145,5 +148,8 @@ void draw() {
   } else if (gamestep == 1){
     update(1);
     delay(200);
+  }
+  b.updatecor(x,y);
+  moving = true;
   }
 }
