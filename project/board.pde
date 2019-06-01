@@ -280,4 +280,16 @@ class Board {
       return false;
     }
   }
+  
+  boolean move() {
+    boolean output = false;
+     for(int r = 0; r < board.length; r++) {
+       for(int c = 0 ; c < board[0].length; c++) {
+          if(board[r][c].move()) {
+           output = true; 
+          }
+       }
+     }
+     return output;
+  }
 }
