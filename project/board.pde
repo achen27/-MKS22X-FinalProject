@@ -2,7 +2,9 @@ class Board {
   Candy[][] board;
   Random ran = new Random();
   int points;
-  Board(int rows,int cols) {
+  int len;
+  Board(int rows,int cols,int leng) {
+    len = leng;
     board = new Candy[rows][cols];
   }
   
@@ -46,7 +48,7 @@ class Board {
     return x == x1 && y == y1;
   }
   
-  void toDrawBoard(int x, int y, int len, int x1, int y1, int x2, int y2, int c) {
+  void toDrawBoard(int x, int y, int x1, int y1, int x2, int y2, int c) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
@@ -199,7 +201,7 @@ class Board {
         return output;
     }
   
-  void toDrawCandy(int x, int y, int len) {
+  void toDrawCandy(int x, int y) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
@@ -218,7 +220,7 @@ class Board {
     }
   }
   
-  void toDrawCandy2(int x, int y, int len, PImage p) {
+  void toDrawCandy2(int x, int y,PImage p) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
@@ -292,4 +294,22 @@ class Board {
      }
      return output;
   }
+  
+  void updatecor(int x, int y) {
+    for(int r = 0; r < board.length;r++) {
+      for(int c = 0; c < board[0].length; c ++) {
+        board[r][c].endX = x + r;
+      }
+    }
+  }
+    
+    
+    
+    
+  }
+  
+  
+  
+  
+  
 }

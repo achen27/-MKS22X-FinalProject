@@ -4,7 +4,7 @@ Board b;
 PImage bg;
 int x = 250;
 int y = 50;
-int len = 50;
+
 boolean once = false;
 boolean dogame = false;
 
@@ -50,7 +50,7 @@ void setup() {
   background(bg);
   fill(190);
   //square(50,80,52);
-  b.toDrawBoard(x,y,len,swapx1,swapy1,swapx2,swapy2,0);
+  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2,0);
   b.fillempty();
   //b.toDrawCandy(x,y,len
   puff = loadImage("puffofsmoke.png");
@@ -61,8 +61,8 @@ void setup() {
 void update(int t) {
   background(bg);
   fill(75,150);
-  b.toDrawBoard(x,y,len,swapx1,swapy1,swapx2,swapy2,t);
-  b.toDrawCandy(x,y,len);
+  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2,t);
+  b.toDrawCandy(x,y);
   textSize(20);
   text(b.points, 10, 200); 
 }
@@ -70,10 +70,10 @@ void update(int t) {
 void update2() {
   background(bg);
   fill(75,150);
-  b.toDrawBoard(x,y,len,swapx1,swapy1,swapx2,swapy2,0);
+  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2,0);
   textSize(20);
   text(b.points, 10, 200); 
-  b.toDrawCandy2(x,y,len, puff);
+  b.toDrawCandy2(x,y, puff);
 }
 
 void draw() {
