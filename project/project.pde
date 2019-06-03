@@ -26,28 +26,37 @@ PFont font;
 
 
 void mouseClicked(){
-  if (!end && click){
-    if (first){
-      swapy1 = (mouseX - x) / 50;
-      swapx1 = (mouseY - y) / 50;
-      first = false;
-      update(false);
+  if (click){
+    if (!end){
+      if (first){
+        swapy1 = (mouseX - x) / 50;
+        swapx1 = (mouseY - y) / 50;
+        first = false;
+        update(false);
+      } else {
+        swapy2 = (mouseX - x) / 50;
+        swapx2 = (mouseY - y) / 50;
+        first = true;
+        fill(0);
+        rect(0,0, 100,100);
+        run = true;
+        update(false);
+      }
+      if (mouseX >= 80 && mouseX <= 160 && mouseY >= 275 && mouseY <= 350){
+        click = false;
+        b.shuffle();
+        gamestep = 1;
+      }
+      if (mouseX >= 750 && mouseX <= 910 && mouseY >= 250 && mouseY <= 310){
+        click = false;
+        setup();
+      }
     } else {
-      swapy2 = (mouseX - x) / 50;
-      swapx2 = (mouseY - y) / 50;
-      first = true;
-      fill(0);
-      rect(0,0, 100,100);
-      run = true;
-      update(false);
+      if (mouseX >= 750 && mouseX <= 910 && mouseY >= 250 && mouseY <= 310){
+        click = false;
+        setup();
+      }
     }
-    if (mouseX >= 80 && mouseX <= 160 && mouseY >= 275 && mouseY <= 350){
-      click = false;
-      b.shuffle();
-      gamestep = 1;
-    }
-  } else {
-    
   }
 }
 
@@ -77,6 +86,7 @@ void setup() {
   puff.resize(0,50);
   font = createFont("sweetlyBroken.ttf", 32);
   b.updatecor(x,y);
+  update(false);
 }
 
 
@@ -91,6 +101,7 @@ void update(boolean p) {
 
 void draw() {
   //delay(50);
+  System.out.println(click);
   update(false);
   if(puffed){
       update(true);
@@ -125,6 +136,7 @@ void draw() {
       click = true;
       if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
         gamestep += 1;
+        click = false;
       } else if (run){
         swapx1 = -1;
         swapy1 = -1;
@@ -161,7 +173,7 @@ void draw() {
       click = true;
     }
     
-    System.out.println(gamestep);
+    //System.out.println(gamestep);
     
     b.updatecor(x,y);
     moving = true;

@@ -63,13 +63,13 @@ class Board {
   }
   
   void drawRestart(){
-    fill(203,69,204);
+    fill(235,70,250);
     stroke(120,28,178);
-    rect(750, 250, 150, 60);
+    rect(750, 250, 160, 60,20,20,20,20);
     textAlign(CENTER);
-    fill(0);
-    textSize(50);
-    text("new game", 825, 280);
+    fill(255);
+    textSize(70);
+    text("Restart", 830, 295);
   }
   
   void fillempty() {
