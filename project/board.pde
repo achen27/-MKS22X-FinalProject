@@ -13,13 +13,19 @@ class Board {
   }
   
   void shuffle(){
-    List<Candy[]> b = new ArrayList<>();
+    List<Candy> b = new ArrayList();
     for (int i = 0; i < 9; i++){
-       b.add(board[i]);
+      for(int j = 0; j < 9; j++){
+       b.add(board[i][j]);
+      }
     }
     Collections.shuffle(b);
+    int a = 0;
     for (int i = 0; i < 9; i++){
-       board[i] = b.get(i);
+      for(int j = 0; j < 9; j++){
+        board[i][j] = b.get(a);
+        a++;
+      }
     }
   }
   

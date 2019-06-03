@@ -12,6 +12,7 @@ boolean end = false;
 boolean once = false;
 boolean moving = false;
 boolean puffed = false;
+boolean click = false;
 
 boolean first = true;
 boolean run = false;
@@ -25,7 +26,7 @@ PFont font;
 
 
 void mouseClicked(){
-  if (!end){
+  if (!end && click){
     if (first){
       swapy1 = (mouseX - x) / 50;
       swapx1 = (mouseY - y) / 50;
@@ -39,6 +40,11 @@ void mouseClicked(){
       rect(0,0, 100,100);
       run = true;
       update(false);
+    }
+    if (mouseX >= 80 && mouseX <= 160 && mouseY >= 275 && mouseY <= 350){
+      click = false;
+      b.shuffle();
+      gamestep = 1;
     }
   } else {
     
@@ -98,21 +104,23 @@ void draw() {
   }
   
   //delay(200);
-  /*fill(0);
-  rect(0,0, 100,100);
+  fill(0);
+  shapeMode(CORNER);
+  rect(0,0,100,100);
   fill(255);
-  text(swapx1, 10, 10);
-  text(swapy1, 10, 40);
-  text(swapx2, 20, 10);
-  text(swapy2, 20, 40);
-  text(mouseX, 40, 10);
-  text(mouseY, 40, 40);
-  text(mouseY, 40, 40);*/
+  text(swapx1, 10, 20);
+  text(swapy1, 10, 50);
+  text(swapx2, 20, 20);
+  text(swapy2, 20, 50);
+  text(mouseX, 40, 20);
+  text(mouseY, 40, 50);
+  text(mouseY, 40, 50);
   
   if (moving) {
     moving = b.move(5);
   } else {
     if (gamestep == 0) {
+      click = true;
       if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
         gamestep += 1;
       } else if (run){
@@ -143,6 +151,7 @@ void draw() {
     if (gamestep == 0 && run){
       //update();
       run = false;
+      click = true;
       if (b.moves == 0){
         b.endgame();
         end = true;
