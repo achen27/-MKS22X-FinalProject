@@ -1,4 +1,7 @@
 import java.util.*;
+import processing.sound.*;
+
+SoundFile file;
 
 Board b;
 PImage bg;
@@ -87,6 +90,8 @@ void setup() {
   font = createFont("sweetlyBroken.ttf", 32);
   b.updatecor(x,y);
   update(false);
+  file = new SoundFile(this, "music.mp3");
+  file.play();
 }
 
 

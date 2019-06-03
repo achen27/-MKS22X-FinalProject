@@ -95,11 +95,7 @@ class Board {
   }
   
   NormalCandy randomCandy(){
-<<<<<<< HEAD
-    int temp = ran.nextInt(3);
-=======
     int temp = ran.nextInt(6);
->>>>>>> a03190fe08bfb1ec337bf777ca090ac125f43577
     NormalCandy output = null;
     if (temp == 0){
       output = new NormalCandy("Red");
