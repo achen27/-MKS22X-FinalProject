@@ -116,9 +116,7 @@ class Board {
          }
        }
      }
-     scheck();
-     scheck();
-     scheck();
+     scheck(0);
     return output;
   }
   
@@ -278,8 +276,9 @@ class Board {
     }
   }
   
-  boolean move() {
+  boolean move(int x) {
     boolean output = false;
+    for(int i = 0; i < x; i++) {
      for(int r = 0; r < board.length; r++) {
        for(int c = 0 ; c < board[0].length; c++) {
           if(board[r][c] != null && board[r][c].move()) {
@@ -287,6 +286,7 @@ class Board {
           }
        }
      }
+    }
      return output;
   }
   
@@ -341,7 +341,7 @@ class Board {
   }
   
   
-  void scheck() {
+  void scheck(int checker) {
     int[][] cordinates = new int[board.length*board[0].length][3];
     int counter = 0;
     for(int r = 0; r < board.length;r++) {
@@ -363,7 +363,10 @@ class Board {
      if(cordinates[i][2] == 3) {
        bomb(cordinates[i][0],cordinates[i][1]); 
      }
-    }  
+    }
+    if (checker != counter) {
+     scheck(counter); 
+    }
    }
 
 }
