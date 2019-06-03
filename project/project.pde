@@ -7,6 +7,7 @@ PImage scoreboard;
 int x = 250;
 int y = 50;
 int len = 50;
+boolean end = false;
 
 boolean once = false;
 boolean moving = false;
@@ -24,19 +25,23 @@ PFont font;
 
 
 void mouseClicked(){
-  if (first){
-    swapy1 = (mouseX - x) / 50;
-    swapx1 = (mouseY - y) / 50;
-    first = false;
-    update(false);
+  if (!end){
+    if (first){
+      swapy1 = (mouseX - x) / 50;
+      swapx1 = (mouseY - y) / 50;
+      first = false;
+      update(false);
+    } else {
+      swapy2 = (mouseX - x) / 50;
+      swapx2 = (mouseY - y) / 50;
+      first = true;
+      fill(0);
+      rect(0,0, 100,100);
+      run = true;
+      update(false);
+    }
   } else {
-    swapy2 = (mouseX - x) / 50;
-    swapx2 = (mouseY - y) / 50;
-    first = true;
-    fill(0);
-    rect(0,0, 100,100);
-    run = true;
-    update(false);
+    
   }
 }
 
@@ -138,6 +143,10 @@ void draw() {
     if (gamestep == 0 && run){
       //update();
       run = false;
+      if (b.moves == 0){
+        b.endgame();
+        end = true;
+      }
     }
     
     b.updatecor(x,y);

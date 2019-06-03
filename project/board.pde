@@ -9,7 +9,20 @@ class Board {
     len = leng;
     board = new Candy[rows][cols];
     points = 0;
-    moves = 20;
+    moves = 5;
+  }
+  
+  void clear(){
+    for (int i = 0; i < 9; i++){
+      for (int j = 0; j < 9; j++){
+        board[i][j] = null;
+      }
+      
+    }
+  }
+  
+  void endgame(){
+    clear();
   }
   
   void drawScoreBoard(PImage scoreboard){
