@@ -143,11 +143,11 @@ class Board {
       points += input.link * 100;
     }
     if(input.link == 4) {
-      board[r][c] = new SpecialCandy(1 + ran.nextInt(2),board[r][c].name,board[r][c].xCor,board[r][c].yCor);
+      board[r][c] = new SpecialCandy(1 + ran.nextInt(2),board[r][c].name,board[r][c].xCor,board[r][c].yCor,board[r][c].id+((int)Math.random()+2));
       points += 500;
     }
     if(input.link >= 5) {
-      board[r][c] = new SpecialCandy(3,board[r][c].name,board[r][c].xCor,board[r][c].yCor);
+      board[r][c] = new SpecialCandy(3,board[r][c].name,board[r][c].xCor,board[r][c].yCor,board[r][c].id+1);
       points += 150 * input.link;
     }
     System.out.println(input.link);
@@ -370,6 +370,6 @@ class Board {
        bomb(cordinates[i][0],cordinates[i][1]); 
      }
     }  
-    }
+   }
 
 }

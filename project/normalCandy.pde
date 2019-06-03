@@ -22,35 +22,35 @@ class NormalCandy extends Candy{
       colors[1] = 144;
       colors[2] = 55;
       name = "Orange";
-      id = 1;
+      id = 4;
     }
     if (scolor.equals("Yellow")) {
       colors[0] = 250;
       colors[1] = 235;
       colors[2] = 80;
       name = "Yellow";
-      id = 2;
+      id = 8;
     }
     if (scolor.equals("Green")) {
       colors[0] = 110;
       colors[1] = 210;
       colors[2] = 65;
       name = "Green";
-      id = 3;
+      id = 12;
     }
     if (scolor.equals("Blue")) {
       colors[0] = 60;
       colors[1] = 140;
       colors[2] = 240;
       name = "Blue";
-      id = 4;
+      id = 16;
     }
     if (scolor.equals("Purple")) {
       colors[0] = 200;
       colors[1] = 60;
       colors[2] = 250;
       name = "Purple";
-      id = 5;
+      id = 20;
     }
     pop = false;
   }
@@ -68,35 +68,35 @@ class NormalCandy extends Candy{
       colors[1] = 144;
       colors[2] = 55;
       name = "Orange";
-      id = 1;
+      id = 4;
     }
     if (scolor.equals("Yellow")) {
       colors[0] = 250;
       colors[1] = 235;
       colors[2] = 80;
       name = "Yellow";
-      id = 2;
+      id = 8;
     }
     if (scolor.equals("Green")) {
       colors[0] = 110;
       colors[1] = 210;
       colors[2] = 65;
       name = "Green";
-      id = 3;
+      id = 12;
     }
     if (scolor.equals("Blue")) {
       colors[0] = 60;
       colors[1] = 140;
       colors[2] = 240;
       name = "Blue";
-      id = 4;
+      id = 16;
     }
     if (scolor.equals("Purple")) {
       colors[0] = 200;
       colors[1] = 60;
       colors[2] = 250;
       name = "Purple";
-      id = 5;
+      id = 20;
     }
     pop = false;
     xCor = xcor;

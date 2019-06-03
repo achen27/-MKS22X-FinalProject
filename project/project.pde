@@ -2,7 +2,7 @@ import java.util.*;
 
 Board b;
 PImage bg;
-PImage[] candies = new PImage[6];
+PImage[] candies = new PImage[25];
 int x = 250;
 int y = 50;
 int len = 50;
