@@ -282,8 +282,9 @@ class Board {
     }
   }
   
-  boolean move() {
+  boolean move(int x) {
     boolean output = false;
+    for(int i = 0; i < x; i++) {
      for(int r = 0; r < board.length; r++) {
        for(int c = 0 ; c < board[0].length; c++) {
           if(board[r][c] != null && board[r][c].move()) {
@@ -291,6 +292,7 @@ class Board {
           }
        }
      }
+    }
      return output;
   }
   
