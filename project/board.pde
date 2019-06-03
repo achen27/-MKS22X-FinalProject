@@ -56,6 +56,7 @@ class Board {
     fill(0);
     textSize(40);
     text("shuffle", 120, 320);
+    textSize(35);
     fill(255);
     text(b.points, 120, 243);
     textSize(90);
@@ -66,7 +67,7 @@ class Board {
   
   void drawRestart(){
     fill(235,70,250);
-    stroke(120,28,178);
+    stroke(235,70,250);
     rect(750, 250, 160, 60,20,20,20,20);
     textAlign(CENTER);
     fill(255);
