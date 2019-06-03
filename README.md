@@ -35,3 +35,29 @@ Date: 05/29/19
 Amanda: Puff of smoke appears when orbs are popped.
         Board is now transparent again.
         Selected squares are now highlighted and disappear after two clicks.
+
+Date: 05/30/19
+Amanda: Added puff of smoke animation when orbs are popped.
+        Wrote highlight method to highlight sqaures after clicking on them.
+        
+Kevin: 
+        
+Date: 05/31/19
+Amanda: Changed location of score displayed on screen.
+        Downloaded all candy images into folder.
+        
+Date: 06/01/19
+Kevin: 
+
+Date: 06/2/19
+Amanda: Fixed fall animation.
+        Rewrote and combined repititive method.
+        
+Kevin: 
+
+Date: 06/02/19
+Amanda: Cleaned up uncessary code.
+        Fixed highlight,swap, and pop animation.
+        Replaced all orbs with pictures of candy and adjusted code to fit change.
+        
+Kevin:
