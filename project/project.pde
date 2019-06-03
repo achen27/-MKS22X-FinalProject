@@ -72,7 +72,7 @@ void setup() {
 void update(boolean p) {
   background(bg);
   fill(75,150);
-  b.drawScore(scoreboard);
+  b.drawScoreBoard(scoreboard);
   b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
   b.toDrawCandy(x,y, puff, p, candies);
 }
@@ -120,7 +120,7 @@ void draw() {
       //delay(200);
       b.pop();
       puffed = true;
-      System.out.println("pufff");
+      //System.out.println("pufff");
       gamestep += 1;
     } else if(gamestep == 2) {
       if(b.fall() == false) {
@@ -131,7 +131,7 @@ void draw() {
         gamestep = 1;
       } else {
         gamestep = 0; 
-        System.out.println(b.toString());
+        //System.out.println(b.toString());
       }
     }
   

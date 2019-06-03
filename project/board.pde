@@ -2,21 +2,25 @@ class Board {
   Candy[][] board;
   Random ran = new Random();
   int points;
+  int moves;
   int len;
   
   Board(int rows,int cols,int leng) {
     len = leng;
     board = new Candy[rows][cols];
+    points = 0;
+    moves = 20;
   }
   
-  void drawScore(PImage scoreboard){
+  void drawScoreBoard(PImage scoreboard){
     imageMode(CORNER);
     image(scoreboard,20,0);
     textSize(20);
     fill(255);
     textFont(font);
     textAlign(CENTER);
-    text(b.points, 120, 242); 
+    text(b.points, 120, 242);
+    text(b.moves, 120, 50);
   }
   
   void fillempty() {
@@ -39,7 +43,7 @@ class Board {
   }
   
   NormalCandy randomCandy(){
-    int temp = ran.nextInt(4)+2;
+    int temp = ran.nextInt(6);
     NormalCandy output = null;
     if (temp == 0){
       output = new NormalCandy("Red");
@@ -121,7 +125,7 @@ class Board {
      for(int r = 0; r < board.length; r++) {
        for(int c = 0; c < board[0].length; c++) {
          if (board[r][c].pop && board[r][c].link == 0) {
-           System.out.println("link#" + board[r][c].link);
+           //System.out.println("link#" + board[r][c].link);
            check2(r,c,board[r][c]);
          }
        }
@@ -157,7 +161,7 @@ class Board {
       board[r][c] = new SpecialCandy(3,board[r][c].name,board[r][c].xCor,board[r][c].yCor,board[r][c].id+1);
       points += 150 * input.link;
     }
-    System.out.println(input.link);
+    //System.out.println(input.link);
   }
   
   int check3(int r, int c, Candy input, String name) {
@@ -275,6 +279,7 @@ class Board {
       board[x1][y1] = board[x2][y2];
       board[x2][y2] = temp;
       if (check()){
+        moves--;
         return true;
       }
       temp = board[x1][y1];
