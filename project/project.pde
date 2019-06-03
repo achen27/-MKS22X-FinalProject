@@ -93,7 +93,7 @@ void draw() {
   }
   
   //delay(200);
-  fill(0);
+  /*fill(0);
   rect(0,0, 100,100);
   fill(255);
   text(swapx1, 10, 10);
@@ -102,10 +102,10 @@ void draw() {
   text(swapy2, 20, 40);
   text(mouseX, 40, 10);
   text(mouseY, 40, 40);
-  text(mouseY, 40, 40);
+  text(mouseY, 40, 40);*/
   
   if (moving) {
-    moving = b.move(6);
+    moving = b.move(5);
   } else {
     if (gamestep == 0) {
       if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
