@@ -3,16 +3,19 @@ class Board {
   Random ran = new Random();
   int points;
   int len;
+  
   Board(int rows,int cols,int leng) {
     len = leng;
     board = new Candy[rows][cols];
   }
+  
   void fillempty() {
     for(int row = 0; row < board.length; row++) {
       for(int col = 0; col < board[0].length; col++) {
         board[row][col] = randomCandy();
       }
     }
+    
     for(int r = 0; r < board.length;r++) {
       for(int c = 0; c < board[0].length; c ++) {
         if(board[r][c] != null) {
@@ -20,8 +23,8 @@ class Board {
         board[r][c].endY = y + len * r +  len/2;
         board[r][c].xCor = x + len/2 + len * c;
         board[r][c].yCor = y + len * r +  len/2;
+        }
       }
-     }
     }
   }
   
@@ -88,6 +91,7 @@ class Board {
 
   boolean check() {
     boolean output = false;
+    
      for(int r = 0; r < board.length - 2; r++) {
        for(int c = 0; c < board[0].length; c++) {
          if (board[r][c].getName().equals(board[r + 1][c].getName()) && board[r][c].getName().equals(board[r + 2][c].getName())) {
@@ -98,6 +102,7 @@ class Board {
          }
        }
      }
+     
      for(int r = 0; r < board.length; r++) {
        for(int c = 0; c < board[0].length - 2; c++) {
          if (board[r][c].getName().equals(board[r][c + 1].getName()) && board[r][c].getName().equals(board[r][c + 2].getName())) {
@@ -108,6 +113,7 @@ class Board {
          }
        }
      }
+     
      for(int r = 0; r < board.length; r++) {
        for(int c = 0; c < board[0].length; c++) {
          if (board[r][c].pop && board[r][c].link == 0) {
@@ -120,7 +126,7 @@ class Board {
   }
   
   void check2(int r,int c,Candy input) {
-  board[r][c].link = 1;
+    board[r][c].link = 1;
     if( r - 1 > -1 && board[r-1][c].pop && board[r - 1][c].link == 0 && board[r-1][c].name.equals(input.name)) {
       input.link += check3(r - 1,c,board[r - 1][c],input.name);
     }
@@ -164,20 +170,17 @@ class Board {
     
   }
   
-  
-  
-  
   boolean pop() {
     for(int r = 0; r < board.length; r++) {
-       for(int c = 0; c < board[0].length; c++) {
-         if(board[r][c].getPop()) {
-         board[r][c] = null;
+      for(int c = 0; c < board[0].length; c++) {
+        if(board[r][c].getPop()) {
+        board[r][c] = null;
          //toDrawCandy(250,50,50);
-         }
         }
-       }
+      }
+    }
        return true;
-     }
+  }
      
   boolean fall() {
     delay(200);
@@ -185,16 +188,16 @@ class Board {
     Candy temp;
       for(int i = 0; i < board[0].length; i++) {
         if(board[0][i] == null) {
-           board[0][i] = randomCandy();
-           board[0][i].endX = x + len/2 + len * i;
-           board[0][i].endY = y + len/2;
-           board[0][i].xCor = x + len/2 + len * i;
-           board[0][i].yCor = y + len/2 - 30;
-           output = true;
+          board[0][i] = randomCandy();
+          board[0][i].endX = x + len/2 + len * i;
+          board[0][i].endY = y + len/2;
+          board[0][i].xCor = x + len/2 + len * i;
+          board[0][i].yCor = y + len/2 - 30;
+          output = true;
          }
          //toDrawCandy(x,y,len);
          //delay(100);
-        for(int r = 1; r < board.length; r++) {
+         for(int r = 1; r < board.length; r++) {
           for(int c = board[0].length - 1; c >= 0; c--) {
             if(board[r][c] == null) {
               output = true;
@@ -203,41 +206,41 @@ class Board {
                 board[r][c] = new NormalCandy(board[r - 1][c].name,board[r - 1][c].xCor,board[r - 1][c].yCor);
                 board[r - 1][c] = null;
               }
-   }
+            }
+          }
         }
       }
-      }
-        //toDrawCandy(x,y,len);
-        //delay(100);
         return output;
     }
   
   void toDrawCandy(int x, int y) {
     int oriX = x;
+    
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
         if(board[i][j] != null) {
-        fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
-        ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
+          fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
+          ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
         } else {
           //System.out.println("oijwnfdeionsdf");
           fill(75,0);
           rect(x +  len * j,y,len,len);
           //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         }
+        
       }
       y += len;
       x = oriX;
     }
   }
   
-  void toDrawCandy2(int x, int y,PImage p) {
+  void toDrawCandy2(int x, int y, PImage puff) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
         if(board[i][j] != null) {
-        fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
-        ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
+          fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
+          ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
         } else {
           //System.out.println("oijwnfdeionsdf");
           //fill(190);
@@ -260,6 +263,7 @@ class Board {
     }
     return output;
   }
+  
   String toString2() {
     String output = "";
     for(int r = 0; r < board.length; r++) {
@@ -269,13 +273,13 @@ class Board {
       output += "\n";
     }
     return output;
-    
   }
   
   boolean swap(int x1, int y1, int x2, int y2){
     if(x1 == x2 && y1 == y2){
       return false;
     }
+    
     if ((x1 == x2 && Math.abs(y1-y2) == 1) || (y1 == y2 && Math.abs(x1-x2) == 1)){
       Candy temp = board[x1][y1];
       board[x1][y1] = board[x2][y2];
@@ -310,19 +314,11 @@ class Board {
     for(int r = 0; r < board.length;r++) {
       for(int c = 0; c < board[0].length; c ++) {
         if(board[r][c] != null) {
-        board[r][c].endX = x + len/2 + len * c;
-        board[r][c].endY = y + len * r +  len/2;
-      }
+          board[r][c].endX = x + len/2 + len * c;
+          board[r][c].endY = y + len * r +  len/2;
+        }
       }
     }
   }
     
-    
-    
-    
-  
-  
-  
-  
-  
 }

@@ -4,6 +4,7 @@ Board b;
 PImage bg;
 int x = 250;
 int y = 50;
+int len = 50;
 
 boolean once = false;
 boolean moving = false;
@@ -16,12 +17,7 @@ int swapx2 = -1;
 int swapy2 = -1;
 int gamestep = 1;
 PImage puff;
-
-
-
-
-
-
+PFont font;
 
 
 void mouseClicked(){
@@ -50,11 +46,12 @@ void setup() {
   background(bg);
   fill(190);
   //square(50,80,52);
-  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2,0);
+  b.toDrawBoard(x,y, swapx1,swapy1,swapx2,swapy2,0);
   b.fillempty();
   //b.toDrawCandy(x,y,len
   puff = loadImage("puffofsmoke.png");
   puff.resize(0,50);
+  font = createFont("sweetlyBroken.ttf", 32);
 }
 
 
@@ -64,6 +61,8 @@ void update(int t) {
   b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2,t);
   b.toDrawCandy(x,y);
   textSize(20);
+  fill(255);
+  textFont(font);
   text(b.points, 10, 200); 
 }
 
@@ -72,8 +71,10 @@ void update2() {
   fill(75,150);
   b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2,0);
   textSize(20);
+  fill(255);
+  textFont(font);
   text(b.points, 10, 200); 
-  b.toDrawCandy2(x,y, puff);
+  b.toDrawCandy2(x,y,puff);
 }
 
 void draw() {
@@ -106,6 +107,7 @@ void draw() {
     delay(500);
   }*/
   //delay(100);
+  
   if (moving) {
     moving = b.move();
   }
