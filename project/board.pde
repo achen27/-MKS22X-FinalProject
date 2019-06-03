@@ -61,7 +61,7 @@ class Board {
     return x == x1 && y == y1;
   }
   
-  void toDrawBoard(int x, int y, int x1, int y1, int x2, int y2) {
+  void toDrawBoard(int x, int y, int x1, int y1, int x2, int y2, int c) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
@@ -70,21 +70,15 @@ class Board {
         //System.out.println(highlight(x,y,x1,y1));
         if (highlight(i,j,x1,y1) || highlight(i,j,x2,y2)){
           System.out.println("highlight");
-          /*if (c == 0){
-            fill(240,150);
-          } else if (c == 1){
-            fill(0,255,0,150);
-          } else if (c == 2){
-            fill(255,0,0,150);
-          }
-        } else {*/
-          fill(75,150);
-        }
+          fill(240,150);
+         } else {
+           fill(75,150);
+         }
         rect(x,y,len,len);
         x += len;
       }
-      y += len;
-      x = oriX;
+       y += len;
+       x = oriX;
     }
   }
   
