@@ -61,7 +61,7 @@ class Board {
     return x == x1 && y == y1;
   }
   
-  void toDrawBoard(int x, int y, int x1, int y1, int x2, int y2, int c) {
+  void toDrawBoard(int x, int y, int x1, int y1, int x2, int y2) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
@@ -238,6 +238,8 @@ class Board {
         } else {
           //System.out.println("oijwnfdeionsdf");
           //fill(190);
+          fill(75,150);
+          rect(x +  len * j,y,len,len);
           image(puff, x +  len * j,y);
           //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
         }

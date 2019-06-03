@@ -25,7 +25,7 @@ void mouseClicked(){
     swapy1 = (mouseX - x) / 50;
     swapx1 = (mouseY - y) / 50;
     first = false;
-    update(0);
+    update();
   } else {
     swapy2 = (mouseX - x) / 50;
     swapx2 = (mouseY - y) / 50;
@@ -33,7 +33,7 @@ void mouseClicked(){
     fill(0);
     rect(0,0, 100,100);
     run = true;
-    update(0);
+    update();
   }
 }
 
@@ -46,7 +46,7 @@ void setup() {
   background(bg);
   fill(75,150);
   //square(50,80,52);
-  b.toDrawBoard(x,y, swapx1,swapy1,swapx2,swapy2,1);
+  b.toDrawBoard(x,y, swapx1,swapy1,swapx2,swapy2);
   b.fillempty();
   //b.toDrawCandy(x,y,len
   puff = loadImage("puffofsmoke.png");
@@ -55,10 +55,10 @@ void setup() {
 }
 
 
-void update(int c) {
+void update() {
   background(bg);
   fill(75,150);
-  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2,c);
+  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
   b.toDrawCandy(x,y);
   textSize(20);
   fill(255);
@@ -69,7 +69,7 @@ void update(int c) {
 void update2() {
   background(bg);
   fill(75,150);
-  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2,1);
+  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
   textSize(20);
   fill(255);
   textFont(font);
@@ -79,7 +79,9 @@ void update2() {
 
 void draw() {
   if (gamestep != 0 && gamestep != 1){
-    update(0);
+    update();
+  } else {
+    update2();
   }
   
   if (gamestep == 1){
@@ -110,48 +112,47 @@ void draw() {
   
   if (moving) {
     moving = b.move();
-  }
-  else {
+  } else {
     if (gamestep == 0) {
-    if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
-      update(1);
-      delay(100);
+      if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
+        update();
+        delay(100);
+        gamestep += 1;
+      } else if (run){
+        update();
+        swapx1 = -1;
+        swapy1 = -1;
+        swapx2 = -1;
+        swapy2 = -1;
+      }
+    } else if (gamestep == 1) {
+      //delay(200);
+      b.pop();
+      update2();
+      System.out.println("pufff");
       gamestep += 1;
-      
-    } else if (run){
-      update(1);
-      delay(1000);
-      swapx1 = -1;
-      swapy1 = -1;
-      swapx2 = -1;
-      swapy2 = -1;
+    } else if(gamestep == 2) {
+      delay(200);
+      if(b.fall() == false) {
+        gamestep += 1; 
+      }
+    } else if(gamestep == 3) {
+      if(b.check()) {
+        gamestep = 1;
+      } else {
+        gamestep = 0; 
+      }
     }
-  } else if (gamestep == 1) {
-    //delay(200);
-    b.pop();
-    update2();
-    gamestep += 1;
-  } else if(gamestep == 2) {
-    if(b.fall() == false) {
-     gamestep += 1; 
+  
+    if (gamestep == 0 && run){
+      update();
+      delay(100);
+      run = false;
+    } else if (gamestep == 1){
+      update();
+      delay(100);
     }
-  } else if(gamestep == 3) {
-    if(b.check()) {
-      gamestep = 1;
-    } else {
-     gamestep = 0; 
-    }
-    
-  }
-  if (gamestep == 0 && run){
-    update(1);
-    delay(100);
-    run = false;
-  } else if (gamestep == 1){
-    update(1);
-    delay(200);
-  }
-  b.updatecor(x,y);
-  moving = true;
+    b.updatecor(x,y);
+    moving = true;
   }
 }
