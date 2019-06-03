@@ -49,15 +49,18 @@ Amanda: Changed location of score displayed on screen.
 Date: 06/01/19
 Kevin: 
 
-Date: 06/2/19
+Date: 06/02/19
 Amanda: Fixed fall animation.
         Rewrote and combined repititive method.
-        
-Kevin: 
-
-Date: 06/02/19
-Amanda: Cleaned up uncessary code.
         Fixed highlight,swap, and pop animation.
         Replaced all orbs with pictures of candy and adjusted code to fit change.
+        
+Kevin:
+
+Date: 06/03/19
+Amanda: Recentered all images on board and fixed fall animation again.
+        Added moves and shuffle.
+        Added scoreboard to screen showing moves, score, and a shuffle button.
+        Added endgame method that clears board.
         
 Kevin:
