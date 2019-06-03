@@ -140,8 +140,9 @@ class Board {
     if( c + 1 < board[0].length && board[r][c + 1].pop && board[r][c + 1].link  == 0 && board[r][c + 1].name.equals(input.name)) {
       input.link += check3(r,c + 1,board[r][c + 1],input.name);
     }
-    if(input.link == 3) {
-      points += 300;
+    
+    if(input.link <= 3) {
+      points += input.link * 100;
     }
     if(input.link == 4) {
       board[r][c] = new SpecialCandy(1 + ran.nextInt(2),board[r][c].name,board[r][c].xCor,board[r][c].yCor);
@@ -328,14 +329,12 @@ class Board {
     for (int c = 0; c < board[0].length; c++) {
       board[r][c].setPop();
     }
-  points += 1000;
   }
   
   void vertical(int c) {
     for (int r = 0; r < board.length; r++) {
       board[r][c].setPop();
     }
-    points += 1000;
   }
   
   void bomb(int r,int c) {
@@ -363,7 +362,6 @@ class Board {
     if( r + 1 < board.length) {
       board[r+1][c].setPop();
     }
-    points += 1000;
   }
   
   
