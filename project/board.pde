@@ -143,7 +143,8 @@ class Board {
       points += input.link * 100;
     }
     if(input.link == 4) {
-      board[r][c] = new SpecialCandy(1 + ran.nextInt(2),board[r][c].name,board[r][c].xCor,board[r][c].yCor,board[r][c].id+((int)Math.random()+2));
+      int rand = ran.nextInt(2);
+      board[r][c] = new SpecialCandy(1 + rand,board[r][c].name,board[r][c].xCor,board[r][c].yCor,board[r][c].id+rand+2);
       points += 500;
     }
     if(input.link >= 5) {
@@ -153,7 +154,7 @@ class Board {
     System.out.println(input.link);
   }
   
-  int check3(int r, int c,Candy input, String name) {
+  int check3(int r, int c, Candy input, String name) {
     board[r][c].link = -1;
     int counter  = 1;
     if( r - 1 > -1 && board[r - 1][c].pop && board[r - 1][c].link == 0 && board[r-1][c].name.equals(input.name)) {
