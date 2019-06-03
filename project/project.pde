@@ -68,7 +68,9 @@ void update(boolean p) {
 }
 
 void draw() {
+  //delay(50);
   update(false);
+  
   if(puffed){
       update(true);
       puffed = false;
@@ -104,10 +106,8 @@ void draw() {
   } else {
     if (gamestep == 0) {
       if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
-        update(false);
         gamestep += 1;
       } else if (run){
-        update(false);
         swapx1 = -1;
         swapy1 = -1;
         swapx2 = -1;

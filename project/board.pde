@@ -177,16 +177,16 @@ class Board {
   }
      
   boolean fall() {
-    delay(200);
+    delay(150);
     boolean output = false;
-    Candy temp;
+    //Candy temp;
       for(int i = 0; i < board[0].length; i++) {
         if(board[0][i] == null) {
           board[0][i] = randomCandy();
           board[0][i].endX = x + len/2 + len * i;
           board[0][i].endY = y + len/2;
           board[0][i].xCor = x + len/2 + len * i;
-          board[0][i].yCor = y + len/2 - 30;
+          board[0][i].yCor = y + len/2 - 50;
           output = true;
          }
          //toDrawCandy(x,y,len);
