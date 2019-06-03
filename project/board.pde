@@ -73,7 +73,7 @@ class Board {
         //System.out.println("y: "+ y);
         //System.out.println(highlight(x,y,x1,y1));
         if (highlight(i,j,x1,y1) || highlight(i,j,x2,y2)){
-          System.out.println("highlight");
+          //System.out.println("highlight");
           fill(240,150);
          } else {
            fill(75,150);

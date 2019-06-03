@@ -28,6 +28,7 @@ void mouseClicked(){
     swapx1 = (mouseY - y) / 50;
     first = false;
     update(false);
+    System.out.println(b.board[swapx1][swapy1].id);
   } else {
     swapy2 = (mouseX - x) / 50;
     swapx2 = (mouseY - y) / 50;
@@ -36,6 +37,7 @@ void mouseClicked(){
     rect(0,0, 100,100);
     run = true;
     update(false);
+    System.out.println(b.board[swapx2][swapy2].id);
   }
 }
 
@@ -98,6 +100,7 @@ void draw() {
   text(swapx2, 20, 10);
   text(swapy2, 20, 40);
   text(mouseX, 40, 10);
+  text(mouseY, 40, 40);
   text(mouseY, 40, 40);
   
   if (moving) {
