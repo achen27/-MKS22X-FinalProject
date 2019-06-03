@@ -2,10 +2,12 @@ class SpecialCandy extends Candy{
   
   int type;
   int colors;
-  SpecialCandy(int typevalue, String scolor) {
+  SpecialCandy(int typevalue, String scolor,int xcor,int ycor) {
     type = typevalue;
     pop = false;
     name = scolor;
+    xCor = xcor;
+    yCor = ycor;
   }
   
   String toString() {
@@ -13,8 +15,7 @@ class SpecialCandy extends Candy{
   }
   
   Candy cloner() {
-   return this; 
-    
+   return new SpecialCandy(type,name,xCor,yCor); 
   }
   
 }
