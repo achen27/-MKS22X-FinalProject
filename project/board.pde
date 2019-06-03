@@ -12,6 +12,17 @@ class Board {
     moves = 5;
   }
   
+  void shuffle(){
+    List<Candy[]> b = new ArrayList<>();
+    for (int i = 0; i < 9; i++){
+       b.add(board[i]);
+    }
+    Collections.shuffle(b);
+    for (int i = 0; i < 9; i++){
+       board[i] = b.get(i);
+    }
+  }
+  
   void clear(){
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
