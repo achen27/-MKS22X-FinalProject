@@ -33,7 +33,7 @@ class Board {
   }
   
   NormalCandy randomCandy(){
-    int temp = ran.nextInt(6);
+    int temp = ran.nextInt(4);
     NormalCandy output = null;
     if (temp == 0){
       output = new NormalCandy("Red");
@@ -120,6 +120,8 @@ class Board {
          }
        }
      }
+     scheck();
+     scheck();
      scheck();
     return output;
   }
