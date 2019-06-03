@@ -200,7 +200,7 @@ class Board {
               output = true;
               
               if (board[r - 1][c] != null) {
-                board[r][c] = new NormalCandy(board[r - 1][c].name,board[r - 1][c].xCor,board[r - 1][c].yCor);
+                board[r][c] = board[r - 1][c].cloner();
                 board[r - 1][c] = null;
               }
    }

@@ -11,4 +11,10 @@ class SpecialCandy extends Candy{
   String toString() {
     return "Special " + type;
   }
+  
+  Candy cloner() {
+   return this; 
+    
+  }
+  
 }

@@ -93,7 +93,16 @@ class NormalCandy extends Candy{
     toString returns the type and the color of the candy.
     It is only used for testing purposes.
   */
-
+  
+  Candy cloner() {
+    Candy output;
+    output = new NormalCandy(name,xCor,yCor);
+    return output;
+  }
+  
+  
+  
+  
   String toString() {
     if (name == null) {
       return "Normal " + colors;
