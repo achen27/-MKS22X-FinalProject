@@ -86,6 +86,7 @@ void update(boolean p) {
   b.drawScoreBoard(scoreboard);
   b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
   b.toDrawCandy(x,y, puff, p, candies);
+  b.drawRestart();
 }
 
 void draw() {
@@ -104,17 +105,18 @@ void draw() {
   }
   
   //delay(200);
-  /*fill(0);
+  fill(0);
   shapeMode(CORNER);
   rect(0,0,100,100);
   fill(255);
+  textSize(20);
   text(swapx1, 10, 20);
   text(swapy1, 10, 50);
   text(swapx2, 20, 20);
   text(swapy2, 20, 50);
   text(mouseX, 40, 20);
   text(mouseY, 40, 50);
-  text(mouseY, 40, 50);*/
+  text(mouseY, 40, 50);
   
   if (moving) {
     moving = b.move(5);

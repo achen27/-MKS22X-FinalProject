@@ -9,7 +9,7 @@ class Board {
     len = leng;
     board = new Candy[rows][cols];
     points = 0;
-    moves = 5;
+    moves = 20;
   }
   
   boolean shuffle(){
@@ -60,6 +60,16 @@ class Board {
     text(b.points, 120, 243);
     textSize(70);
     text(b.moves, 120, 63);
+  }
+  
+  void drawRestart(){
+    fill(203,69,204);
+    stroke(120,28,178);
+    rect(750, 250, 150, 60);
+    textAlign(CENTER);
+    fill(0);
+    textSize(50);
+    text("new game", 825, 280);
   }
   
   void fillempty() {
@@ -118,6 +128,7 @@ class Board {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
+        stroke(0);
         //System.out.println("x: "+ x);
         //System.out.println("y: "+ y);
         //System.out.println(highlight(x,y,x1,y1));
