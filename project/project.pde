@@ -68,11 +68,7 @@ void update(boolean p) {
 }
 
 void draw() {
-  if (gamestep != 0 && gamestep != 1){
-    update(false);
-  } else {
-    update(true);
-  }
+  update(false);
   
   if (gamestep == 1){
     swapx1 = -1;
@@ -141,6 +137,7 @@ void draw() {
       //update();
       run = false;
     }
+    
     b.updatecor(x,y);
     moving = true;
   }
