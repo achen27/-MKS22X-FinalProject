@@ -143,6 +143,11 @@ void draw() {
       if(b.check()) {
         gamestep = 1;
       } else {
+        if (b.moves == 0){
+          b.endgame();
+          end = true;
+          System.out.println("end");
+        }
         gamestep = 0; 
         //System.out.println(b.toString());
       }
@@ -152,11 +157,9 @@ void draw() {
       //update();
       run = false;
       click = true;
-      if (b.moves == 0){
-        b.endgame();
-        end = true;
-      }
     }
+    
+    System.out.println(gamestep);
     
     b.updatecor(x,y);
     moving = true;

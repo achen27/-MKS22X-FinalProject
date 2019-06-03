@@ -12,21 +12,26 @@ class Board {
     moves = 5;
   }
   
-  void shuffle(){
-    List<Candy> b = new ArrayList();
-    for (int i = 0; i < 9; i++){
-      for(int j = 0; j < 9; j++){
-       b.add(board[i][j]);
+  boolean shuffle(){
+    if (moves >= 5){
+      List<Candy> b = new ArrayList();
+      for (int i = 0; i < 9; i++){
+        for(int j = 0; j < 9; j++){
+         b.add(board[i][j]);
+        }
       }
-    }
-    Collections.shuffle(b);
-    int a = 0;
-    for (int i = 0; i < 9; i++){
-      for(int j = 0; j < 9; j++){
-        board[i][j] = b.get(a);
-        a++;
+      Collections.shuffle(b);
+      int a = 0;
+      for (int i = 0; i < 9; i++){
+        for(int j = 0; j < 9; j++){
+          board[i][j] = b.get(a);
+          a++;
+        }
       }
+      moves -= 5;
+      return true;
     }
+    return false;
   }
   
   void clear(){
@@ -39,6 +44,7 @@ class Board {
   }
   
   void endgame(){
+    delay(200);
     clear();
   }
   
@@ -48,12 +54,12 @@ class Board {
     textFont(font);
     textAlign(CENTER);
     fill(0);
-    textSize(50);
-    text("shuffle", 120, 316);
+    textSize(40);
+    text("shuffle", 120, 320);
     fill(255);
-    text(b.points, 120, 242);
+    text(b.points, 120, 243);
     textSize(70);
-    text(b.moves, 120, 55);
+    text(b.moves, 120, 63);
   }
   
   void fillempty() {
