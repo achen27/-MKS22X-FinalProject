@@ -58,8 +58,10 @@ class Board {
     text("shuffle", 120, 320);
     fill(255);
     text(b.points, 120, 243);
-    textSize(70);
+    textSize(90);
     text(b.moves, 120, 63);
+    textSize(70);
+    text("20,000", 120, 165);
   }
   
   void drawRestart(){
