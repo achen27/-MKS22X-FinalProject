@@ -11,6 +11,7 @@ abstract class Candy{
   int endX;
   int endY;
   String name;
+  int id;
   boolean pop;
   int[] colors = new int[3];
   int link;

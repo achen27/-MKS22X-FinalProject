@@ -2,6 +2,7 @@ import java.util.*;
 
 Board b;
 PImage bg;
+PImage[] candies = new PImage[6];
 int x = 250;
 int y = 50;
 int len = 50;
@@ -41,6 +42,9 @@ void mouseClicked(){
 void setup() {
   //frameRate(3);
   size(960, 540);
+  for(int i=0;i<candies.length;i++){
+    candies[i]=loadImage(str(i) + ".png");
+  }
   b = new Board(9,9,50);
   bg = loadImage("background.jpg");
   bg.resize(960, 540);
@@ -61,7 +65,7 @@ void update(boolean p) {
   background(bg);
   fill(75,150);
   b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
-  b.toDrawCandy(x,y, puff, p);
+  b.toDrawCandy(x,y, puff, p, candies);
   textSize(20);
   fill(255);
   textFont(font);
@@ -94,14 +98,7 @@ void draw() {
   text(swapy2, 20, 40);
   text(mouseX, 40, 10);
   text(mouseY, 40, 40);
-  /*if (gamestep != 1) {
-    update();
-  } else {
-    update2();
-    gamestep += 1;
-    delay(500);
-  }*/
-  //delay(100);
+  
   if (moving) {
     moving = b.move();
   } else {

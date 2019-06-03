@@ -173,7 +173,6 @@ class Board {
       for(int c = 0; c < board[0].length; c++) {
         if(board[r][c].getPop()) {
         board[r][c] = null;
-         //toDrawCandy(250,50,50);
         }
       }
     }
@@ -193,8 +192,6 @@ class Board {
           board[0][i].yCor = y + len/2 - 50;
           output = true;
          }
-         //toDrawCandy(x,y,len);
-         //delay(100);
          for(int r = 1; r < board.length; r++) {
           for(int c = board[0].length - 1; c >= 0; c--) {
             if(board[r][c] == null) {
@@ -211,7 +208,7 @@ class Board {
         return output;
     }
   
-  void toDrawCandy(int x, int y, PImage puff, boolean p) {
+  void toDrawCandy(int x, int y, PImage puff, boolean p, PImage[] candies) {
     int oriX = x;
     
     for (int i = 0; i < 9; i++){
@@ -264,8 +261,6 @@ class Board {
       Candy temp = board[x1][y1];
       board[x1][y1] = board[x2][y2];
       board[x2][y2] = temp;
-      //toDrawCandy(x,y,len);
-      //delay(100);
       if (check()){
         return true;
       }
