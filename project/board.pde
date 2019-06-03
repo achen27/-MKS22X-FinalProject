@@ -10,11 +10,13 @@ class Board {
   }
   
   void drawScore(PImage scoreboard){
-    image(scoreboard,120,170);
+    imageMode(CORNER);
+    image(scoreboard,20,0);
     textSize(20);
     fill(255);
     textFont(font);
-    text(b.points, 10, 200); 
+    textAlign(CENTER);
+    text(b.points, 120, 242); 
   }
   
   void fillempty() {
