@@ -19,13 +19,17 @@ class Board {
     for(int r = 0; r < board.length;r++) {
       for(int c = 0; c < board[0].length; c ++) {
         if(board[r][c] != null) {
-          board[r][c].endX = x + len * c;
+          board[r][c].endX = x + len * c + 2;
           board[r][c].endY = y + len * r;
-          board[r][c].xCor = x + len * c;
+          board[r][c].xCor = x + len * c + 2;
           board[r][c].yCor = y + len * r;
-          if (board[r][c].id == 1 || board[r][c].id == 2){
-            board[r][c].endX += 5;
-            board[r][c].xCor += 5;
+          if (board[r][c].id == 4){
+            board[r][c].endX += 4;
+            board[r][c].xCor += 4;
+          }
+          if (board[r][c].id == 8){
+            board[r][c].endX += 3;
+            board[r][c].xCor += 3;
           }
         }
       }
@@ -193,13 +197,17 @@ class Board {
       for(int i = 0; i < board[0].length; i++) {
         if(board[0][i] == null) {
           board[0][i] = randomCandy();
-          board[0][i].endX = x + len * i;
+          board[0][i].endX = x + len * i + 2;
           board[0][i].endY = y;
-          board[0][i].xCor = x + len * i;
+          board[0][i].xCor = x + len * i + 2;
           board[0][i].yCor = y - 50;
-          if (board[0][i].id == 1 || board[0][i].id == 2){
-            board[0][i].endX += 5;
-            board[0][i].xCor += 5;
+          if (board[0][i].id == 4){
+            board[0][i].endX += 4;
+            board[0][i].xCor += 4;
+          }
+          if (board[0][i].id == 8){
+            board[0][i].endX += 3;
+            board[0][i].xCor += 3;
           }
           output = true;
          }
@@ -300,10 +308,13 @@ class Board {
     for(int r = 0; r < board.length;r++) {
       for(int c = 0; c < board[0].length; c ++) {
         if(board[r][c] != null) {
-          board[r][c].endX = x + len * c;
+          board[r][c].endX = x + len * c  + 2;
           board[r][c].endY = y + len * r;
-          if (board[r][c].id == 1 || board[r][c].id == 2){
-            board[r][c].endX += 5;
+          if (board[r][c].id == 4){
+            board[r][c].endX += 4;
+          }
+          if (board[r][c].id == 8){
+            board[r][c].endX += 3;
           }
         }
       }

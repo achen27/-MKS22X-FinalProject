@@ -28,7 +28,6 @@ void mouseClicked(){
     swapx1 = (mouseY - y) / 50;
     first = false;
     update(false);
-    System.out.println(b.board[swapx1][swapy1].id);
   } else {
     swapy2 = (mouseX - x) / 50;
     swapx2 = (mouseY - y) / 50;
@@ -37,7 +36,6 @@ void mouseClicked(){
     rect(0,0, 100,100);
     run = true;
     update(false);
-    System.out.println(b.board[swapx2][swapy2].id);
   }
 }
 
@@ -46,7 +44,11 @@ void setup() {
   size(960, 540);
   for(int i=0;i<candies.length;i++){
     candies[i]=loadImage(str(i) + ".png");
-    candies[i].resize(0, 50);
+    if ((i-1) % 4 == 0){
+      candies[i].resize(0, 35);
+    } else {
+      candies[i].resize(0, 50);
+    }
   }
   b = new Board(9,9,50);
   bg = loadImage("background.jpg");
