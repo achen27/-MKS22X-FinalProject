@@ -28,22 +28,22 @@ class Board {
   NormalCandy randomCandy(){
     int temp = ran.nextInt(6);
     NormalCandy output = null;
-    if (temp % 6 == 0){
+    if (temp == 0){
       output = new NormalCandy("Red");
     }
-    if (temp % 6 == 1) {
+    if (temp == 1) {
       output = new NormalCandy("Orange");
     }
-    if (temp % 6 == 2) {
+    if (temp == 2) {
       output = new NormalCandy("Yellow");
     }
-    if (temp % 6 == 3) {
+    if (temp == 3) {
       output = new NormalCandy("Green");
     }
-    if (temp % 6 == 4) {
+    if (temp == 4) {
       output = new NormalCandy("Blue");
     }
-    if (temp % 6 == 5) {
+    if (temp == 5) {
       output = new NormalCandy("Purple");
     }
     return output;
