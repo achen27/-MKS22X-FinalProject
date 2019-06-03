@@ -116,6 +116,7 @@ class Board {
          }
        }
      }
+     scheck();
     return output;
   }
   
@@ -137,9 +138,11 @@ class Board {
       points += 300;
     }
     if(input.link == 4) {
+      board[r][c] = new SpecialCandy(1 + ran.nextInt(2),board[r][c].name,board[r][c].xCor,board[r][c].yCor);
       points += 500;
     }
     if(input.link >= 5) {
+      board[r][c] = new SpecialCandy(3,board[r][c].name,board[r][c].xCor,board[r][c].yCor);
       points += 150 * input.link;
     }
     System.out.println(input.link);
@@ -316,13 +319,74 @@ class Board {
       }
     }
   }
-    
-    
-    
-    
+  
+  void horizontal(int r) {
+    for (int c = 0; c < board[0].length; c++) {
+      board[r][c].setPop();
+    }
+  points += 1000;
+  }
+  
+  void vertical(int c) {
+    for (int r = 0; r < board.length; r++) {
+      board[r][c].setPop();
+    }
+    points += 1000;
+  }
+  
+  void bomb(int r,int c) {
+    if( r - 1 > -1 && c - 1 > -1) {
+      board[r-1][c-1].setPop();
+    }
+    if( r - 1 > -1) {
+      board[r-1][c].setPop();
+    }
+    if( r - 1 > -1 && c + 1 < board[0].length) {
+      board[r-1][c+1].setPop();
+    }
+    if(c - 1 > -1) {
+      board[r][c-1].setPop();
+    }
+    if(c + 1 < board[0].length) {
+      board[r][c+1].setPop();
+    }
+    if( r + 1 < board.length && c - 1 > -1) {
+      board[r+1][c-1].setPop();
+    }
+    if( r + 1 < board.length && c + 1 < board[0].length) {
+      board[r+1][c+1].setPop();
+    }
+    if( r + 1 < board.length) {
+      board[r+1][c].setPop();
+    }
+    points += 1000;
+  }
   
   
-  
-  
+  void scheck() {
+    int[][] cordinates = new int[board.length*board[0].length][3];
+    int counter = 0;
+    for(int r = 0; r < board.length;r++) {
+      for(int c = 0; c < board[0].length; c ++) {
+        if(board[r][c].getPop() && board[r][c].special() > 0) {
+            cordinates[counter] = new int[]{r,c,board[r][c].special()};
+            counter += 1;
+           }
+        }
+      }
+      
+    for(int i = 0; i < counter; i++) {
+     if(cordinates[i][2] == 1) {
+       horizontal(cordinates[i][0]); 
+     }
+     if(cordinates[i][2] == 2) {
+       vertical(cordinates[i][1]); 
+     }
+     if(cordinates[i][2] == 3) {
+       bomb(cordinates[i][0],cordinates[i][1]); 
+     }
+    }  
+    }
+       
   
 }

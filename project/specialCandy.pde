@@ -14,6 +14,11 @@ class SpecialCandy extends Candy{
     return "Special " + type;
   }
   
+  
+  int special() {
+   return type; 
+  }
+  
   Candy cloner() {
    return new SpecialCandy(type,name,xCor,yCor); 
   }

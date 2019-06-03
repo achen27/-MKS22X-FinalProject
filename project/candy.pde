@@ -38,6 +38,11 @@ abstract class Candy{
     return pop;
   }
   
+  abstract int special();
+  
+  
+  
+  
   /*
     getName() gets the value of name.
   */

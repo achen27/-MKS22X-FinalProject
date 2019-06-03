@@ -97,7 +97,10 @@ class NormalCandy extends Candy{
   Candy cloner() {
     return new NormalCandy(name,xCor,yCor);
   }
-  
+   
+  int special() {
+   return 0; 
+  }
   
   
   
