@@ -64,19 +64,19 @@ abstract class Candy{
   
   boolean move() {
       if(endX > xCor) {
-        xCor += 10;
+        xCor += 5;
         return true;
       }
       if(endX < xCor) {
-        xCor -= 10;
+        xCor -= 5;
         return true;
       }
       if(endY < yCor) {
-        yCor -= 10;
+        yCor -= 5;
         return true;
       }
       if(endY > yCor) {
-        yCor += 10;
+        yCor += 5;
         return true;
       }
       return false;
