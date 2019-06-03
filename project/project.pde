@@ -105,7 +105,7 @@ void draw() {
   text(mouseY, 40, 40);
   
   if (moving) {
-    moving = b.move();
+    moving = b.move(6);
   } else {
     if (gamestep == 0) {
       if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
