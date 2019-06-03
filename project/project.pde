@@ -69,6 +69,10 @@ void update(boolean p) {
 
 void draw() {
   update(false);
+  if(puffed){
+      update(true);
+      puffed = false;
+   }
   
   if (gamestep == 1){
     swapx1 = -1;
@@ -112,7 +116,6 @@ void draw() {
     } else if (gamestep == 1) {
       //delay(200);
       b.pop();
-      update(true);
       puffed = true;
       System.out.println("pufff");
       gamestep += 1;
@@ -126,11 +129,6 @@ void draw() {
       } else {
         gamestep = 0; 
       }
-    }
-    
-    if(puffed){
-      delay(100);
-      puffed = false;
     }
   
     if (gamestep == 0 && run){
