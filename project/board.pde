@@ -19,18 +19,10 @@ class Board {
     for(int r = 0; r < board.length;r++) {
       for(int c = 0; c < board[0].length; c ++) {
         if(board[r][c] != null) {
-          board[r][c].endX = x + len * c + 2;
-          board[r][c].endY = y + len * r;
-          board[r][c].xCor = x + len * c + 2;
-          board[r][c].yCor = y + len * r;
-          if (board[r][c].id == 4){
-            board[r][c].endX += 4;
-            board[r][c].xCor += 4;
-          }
-          if (board[r][c].id == 8){
-            board[r][c].endX += 3;
-            board[r][c].xCor += 3;
-          }
+          board[r][c].endX = x + len/2 + len * c;
+          board[r][c].endY = y + len * r +  len/2;
+          board[r][c].xCor = x + len/2 + len * c;
+          board[r][c].yCor = y + len * r +  len/2;
         }
       }
     }
@@ -197,18 +189,10 @@ class Board {
       for(int i = 0; i < board[0].length; i++) {
         if(board[0][i] == null) {
           board[0][i] = randomCandy();
-          board[0][i].endX = x + len * i + 2;
-          board[0][i].endY = y;
-          board[0][i].xCor = x + len * i + 2;
-          board[0][i].yCor = y - 50;
-          if (board[0][i].id == 4){
-            board[0][i].endX += 4;
-            board[0][i].xCor += 4;
-          }
-          if (board[0][i].id == 8){
-            board[0][i].endX += 3;
-            board[0][i].xCor += 3;
-          }
+          board[0][i].endX = x + len/2 + len * i;
+          board[0][i].endY = y + len/2;
+          board[0][i].xCor = x + len/2 + len * i;
+          board[0][i].yCor = y + len/2 - 50;
           output = true;
          }
          for(int r = 1; r < board.length; r++) {
@@ -234,11 +218,13 @@ class Board {
       for (int j = 0; j < 9; j++){
         if(board[i][j] != null) {
           fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
+          imageMode(CENTER);
           image(candies[board[i][j].id], board[i][j].xCor,board[i][j].yCor);
         } else {
           fill(75,0);
           rect(x + len * j,y,len,len);
           if (p){
+            imageMode(CORNER);
             image(puff, x +  len * j,y);
           }
         }
@@ -308,14 +294,8 @@ class Board {
     for(int r = 0; r < board.length;r++) {
       for(int c = 0; c < board[0].length; c ++) {
         if(board[r][c] != null) {
-          board[r][c].endX = x + len * c  + 2;
-          board[r][c].endY = y + len * r;
-          if (board[r][c].id == 4){
-            board[r][c].endX += 4;
-          }
-          if (board[r][c].id == 8){
-            board[r][c].endX += 3;
-          }
+          board[r][c].endX = x + len/2 + len * c;
+          board[r][c].endY = y + len * r +  len/2;
         }
       }
     }

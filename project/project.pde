@@ -45,7 +45,7 @@ void setup() {
   for(int i=0;i<candies.length;i++){
     candies[i]=loadImage(str(i) + ".png");
     if ((i-1) % 4 == 0){
-      candies[i].resize(0, 35);
+      candies[i].resize(0, 37);
     } else {
       candies[i].resize(0, 50);
     }
