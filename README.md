@@ -62,5 +62,6 @@ Amanda: Recentered all images on board and fixed fall animation again.
         Added moves and shuffle.
         Added scoreboard to screen showing moves, score, and a shuffle button.
         Added endgame method that clears board.
+        Added restart game button.
         
 Kevin:
