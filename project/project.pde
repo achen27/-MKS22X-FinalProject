@@ -3,6 +3,7 @@ import java.util.*;
 Board b;
 PImage bg;
 PImage[] candies = new PImage[25];
+PImage scoreboard;
 int x = 250;
 int y = 50;
 int len = 50;
@@ -50,6 +51,8 @@ void setup() {
       candies[i].resize(0, 50);
     }
   }
+  scoreboard = loadImage("scoreboard.png");
+  scoreboard.resize(200,400);
   b = new Board(9,9,50);
   bg = loadImage("background.jpg");
   bg.resize(960, 540);
@@ -69,12 +72,9 @@ void setup() {
 void update(boolean p) {
   background(bg);
   fill(75,150);
+  b.drawScore(scoreboard);
   b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
   b.toDrawCandy(x,y, puff, p, candies);
-  textSize(20);
-  fill(255);
-  textFont(font);
-  text(b.points, 10, 200); 
 }
 
 void draw() {

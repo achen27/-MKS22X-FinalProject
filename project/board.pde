@@ -9,6 +9,14 @@ class Board {
     board = new Candy[rows][cols];
   }
   
+  void drawScore(PImage scoreboard){
+    image(scoreboard,120,170);
+    textSize(20);
+    fill(255);
+    textFont(font);
+    text(b.points, 10, 200); 
+  }
+  
   void fillempty() {
     for(int row = 0; row < board.length; row++) {
       for(int col = 0; col < board[0].length; col++) {
@@ -29,7 +37,7 @@ class Board {
   }
   
   NormalCandy randomCandy(){
-    int temp = ran.nextInt(6);
+    int temp = ran.nextInt(4)+2;
     NormalCandy output = null;
     if (temp == 0){
       output = new NormalCandy("Red");
