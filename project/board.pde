@@ -207,7 +207,7 @@ class Board {
         return output;
     }
   
-  void toDrawCandy(int x, int y) {
+  void toDrawCandy(int x, int y, PImage puff, boolean p) {
     int oriX = x;
     
     for (int i = 0; i < 9; i++){
@@ -216,33 +216,13 @@ class Board {
           fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
           ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
         } else {
-          //System.out.println("oijwnfdeionsdf");
           fill(75,0);
-          rect(x +  len * j,y,len,len);
-          //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
+          rect(x + len * j,y,len,len);
+          if (p){
+            image(puff, x +  len * j,y);
+          }
         }
         
-      }
-      y += len;
-      x = oriX;
-    }
-  }
-  
-  void toDrawCandy2(int x, int y, PImage puff) {
-    int oriX = x;
-    for (int i = 0; i < 9; i++){
-      for (int j = 0; j < 9; j++){
-        if(board[i][j] != null) {
-          fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
-          ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
-        } else {
-          //System.out.println("oijwnfdeionsdf");
-          //fill(190);
-          fill(75,150);
-          rect(x +  len * j,y,len,len);
-          image(puff, x +  len * j,y);
-          //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
-        }
       }
       y += len;
       x = oriX;

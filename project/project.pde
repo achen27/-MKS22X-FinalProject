@@ -8,6 +8,7 @@ int len = 50;
 
 boolean once = false;
 boolean moving = false;
+boolean puffed = false;
 
 boolean first = true;
 boolean run = false;
@@ -25,7 +26,7 @@ void mouseClicked(){
     swapy1 = (mouseX - x) / 50;
     swapx1 = (mouseY - y) / 50;
     first = false;
-    update();
+    update(false);
   } else {
     swapy2 = (mouseX - x) / 50;
     swapx2 = (mouseY - y) / 50;
@@ -33,7 +34,7 @@ void mouseClicked(){
     fill(0);
     rect(0,0, 100,100);
     run = true;
-    update();
+    update(false);
   }
 }
 
@@ -55,33 +56,22 @@ void setup() {
 }
 
 
-void update() {
+void update(boolean p) {
   background(bg);
   fill(75,150);
   b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
-  b.toDrawCandy(x,y);
+  b.toDrawCandy(x,y, puff, p);
   textSize(20);
   fill(255);
   textFont(font);
   text(b.points, 10, 200); 
-}
-
-void update2() {
-  background(bg);
-  fill(75,150);
-  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
-  textSize(20);
-  fill(255);
-  textFont(font);
-  text(b.points, 10, 200); 
-  b.toDrawCandy2(x,y,puff);
 }
 
 void draw() {
   if (gamestep != 0 && gamestep != 1){
-    update();
+    update(false);
   } else {
-    update2();
+    update(true);
   }
   
   if (gamestep == 1){
@@ -109,17 +99,15 @@ void draw() {
     delay(500);
   }*/
   //delay(100);
-  
   if (moving) {
     moving = b.move();
   } else {
     if (gamestep == 0) {
       if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
-        update();
-        delay(100);
+        update(false);
         gamestep += 1;
       } else if (run){
-        update();
+        update(false);
         swapx1 = -1;
         swapy1 = -1;
         swapx2 = -1;
@@ -128,11 +116,11 @@ void draw() {
     } else if (gamestep == 1) {
       //delay(200);
       b.pop();
-      update2();
+      update(true);
+      puffed = true;
       System.out.println("pufff");
       gamestep += 1;
     } else if(gamestep == 2) {
-      delay(200);
       if(b.fall() == false) {
         gamestep += 1; 
       }
@@ -143,14 +131,15 @@ void draw() {
         gamestep = 0; 
       }
     }
+    
+    if(puffed){
+      delay(100);
+      puffed = false;
+    }
   
     if (gamestep == 0 && run){
-      update();
-      delay(100);
+      //update();
       run = false;
-    } else if (gamestep == 1){
-      update();
-      delay(100);
     }
     b.updatecor(x,y);
     moving = true;
