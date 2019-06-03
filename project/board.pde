@@ -215,7 +215,7 @@ class Board {
       for (int j = 0; j < 9; j++){
         if(board[i][j] != null) {
           fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
-          ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
+          image(candies[board[i][j].id], board[i][j].xCor,board[i][j].yCor);
         } else {
           fill(75,0);
           rect(x + len * j,y,len,len);

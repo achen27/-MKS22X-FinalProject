@@ -44,6 +44,7 @@ void setup() {
   size(960, 540);
   for(int i=0;i<candies.length;i++){
     candies[i]=loadImage(str(i) + ".png");
+    candies[i].resize(0, 45);
   }
   b = new Board(9,9,50);
   bg = loadImage("background.jpg");
