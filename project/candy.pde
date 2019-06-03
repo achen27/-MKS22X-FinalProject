@@ -72,11 +72,11 @@ abstract class Candy{
         return true;
       }
       if(endY < yCor) {
-        yCor -= 10;
+        yCor -= 5;
         return true;
       }
       if(endY > yCor) {
-        yCor += 10;
+        yCor += 5;
         return true;
       }
       return false;

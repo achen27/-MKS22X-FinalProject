@@ -78,7 +78,6 @@ void update(boolean p) {
 void draw() {
   //delay(50);
   update(false);
-  
   if(puffed){
       update(true);
       puffed = false;
@@ -130,6 +129,7 @@ void draw() {
         gamestep = 1;
       } else {
         gamestep = 0; 
+        System.out.println(b.toString());
       }
     }
   
