@@ -61,7 +61,7 @@ class Board {
     return x == x1 && y == y1;
   }
   
-  void toDrawBoard(int x, int y, int x1, int y1, int x2, int y2, int c) {
+  void toDrawBoard(int x, int y, int x1, int y1, int x2, int y2) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
@@ -70,21 +70,15 @@ class Board {
         //System.out.println(highlight(x,y,x1,y1));
         if (highlight(i,j,x1,y1) || highlight(i,j,x2,y2)){
           System.out.println("highlight");
-          if (c == 0){
-            fill(240,150);
-          } else if (c == 1){
-            fill(0,255,0,150);
-          } else if (c == 2){
-            fill(255,0,0,150);
-          }
-        } else {
-          fill(75,150);
-        }
+          fill(240,150);
+         } else {
+           fill(75,150);
+         }
         rect(x,y,len,len);
         x += len;
       }
-      y += len;
-      x = oriX;
+       y += len;
+       x = oriX;
     }
   }
   
@@ -187,16 +181,16 @@ class Board {
   }
      
   boolean fall() {
-    delay(200);
+    delay(150);
     boolean output = false;
-    Candy temp;
+    //Candy temp;
       for(int i = 0; i < board[0].length; i++) {
         if(board[0][i] == null) {
           board[0][i] = randomCandy();
           board[0][i].endX = x + len/2 + len * i;
           board[0][i].endY = y + len/2;
           board[0][i].xCor = x + len/2 + len * i;
-          board[0][i].yCor = y + len/2 - 30;
+          board[0][i].yCor = y + len/2 - 50;
           output = true;
          }
          //toDrawCandy(x,y,len);
@@ -217,7 +211,7 @@ class Board {
         return output;
     }
   
-  void toDrawCandy(int x, int y) {
+  void toDrawCandy(int x, int y, PImage puff, boolean p) {
     int oriX = x;
     
     for (int i = 0; i < 9; i++){
@@ -226,31 +220,13 @@ class Board {
           fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
           ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
         } else {
-          //System.out.println("oijwnfdeionsdf");
           fill(75,0);
-          rect(x +  len * j,y,len,len);
-          //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
+          rect(x + len * j,y,len,len);
+          if (p){
+            image(puff, x +  len * j,y);
+          }
         }
         
-      }
-      y += len;
-      x = oriX;
-    }
-  }
-  
-  void toDrawCandy2(int x, int y, PImage puff) {
-    int oriX = x;
-    for (int i = 0; i < 9; i++){
-      for (int j = 0; j < 9; j++){
-        if(board[i][j] != null) {
-          fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
-          ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
-        } else {
-          //System.out.println("oijwnfdeionsdf");
-          //fill(190);
-          image(puff, x +  len * j,y);
-          //ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
-        }
       }
       y += len;
       x = oriX;
