@@ -38,6 +38,11 @@ abstract class Candy{
     return pop;
   }
   
+  abstract int special();
+  
+  
+  
+  
   /*
     getName() gets the value of name.
   */
@@ -54,13 +59,15 @@ abstract class Candy{
     return name;
   }
   
+  abstract Candy cloner();
+  
   boolean move() {
       if(endX > xCor) {
-        xCor += 5;
+        xCor += 1;
         return true;
       }
       if(endX < xCor) {
-        xCor -= 5;
+        xCor -= 1;
         return true;
       }
       if(endY < yCor) {
