@@ -45,12 +45,15 @@ class Board {
   void drawScoreBoard(PImage scoreboard){
     imageMode(CORNER);
     image(scoreboard,20,0);
-    textSize(20);
-    fill(255);
     textFont(font);
     textAlign(CENTER);
+    fill(0);
+    textSize(50);
+    text("shuffle", 120, 316);
+    fill(255);
     text(b.points, 120, 242);
-    text(b.moves, 120, 50);
+    textSize(70);
+    text(b.moves, 120, 55);
   }
   
   void fillempty() {

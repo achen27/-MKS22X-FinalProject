@@ -104,7 +104,7 @@ void draw() {
   }
   
   //delay(200);
-  fill(0);
+  /*fill(0);
   shapeMode(CORNER);
   rect(0,0,100,100);
   fill(255);
@@ -114,7 +114,7 @@ void draw() {
   text(swapy2, 20, 50);
   text(mouseX, 40, 20);
   text(mouseY, 40, 50);
-  text(mouseY, 40, 50);
+  text(mouseY, 40, 50);*/
   
   if (moving) {
     moving = b.move(5);
