@@ -1,6 +1,6 @@
 # MKS22X-FinalProject
-
-UPDATE FORMAT BEFORE HANDING IN PROJECT
+By: Amanda Chen and Kevin Chen
+***
 
 ## Final Project Log
 
