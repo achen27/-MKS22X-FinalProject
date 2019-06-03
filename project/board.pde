@@ -23,7 +23,10 @@ class Board {
           board[r][c].endY = y + len * r;
           board[r][c].xCor = x + len * c;
           board[r][c].yCor = y + len * r;
-          //if (board[r][c].id == 1 || board[r][c].id == 1
+          if (board[r][c].id == 1 || board[r][c].id == 2){
+            board[r][c].endX += 5;
+            board[r][c].xCor += 5;
+          }
         }
       }
     }
@@ -191,6 +194,10 @@ class Board {
           board[0][i].endY = y;
           board[0][i].xCor = x + len * i;
           board[0][i].yCor = y - 50;
+          if (board[0][i].id == 1 || board[0][i].id == 2){
+            board[0][i].endX += 5;
+            board[0][i].xCor += 5;
+          }
           output = true;
          }
          for(int r = 1; r < board.length; r++) {
@@ -292,6 +299,9 @@ class Board {
         if(board[r][c] != null) {
           board[r][c].endX = x + len * c;
           board[r][c].endY = y + len * r;
+          if (board[r][c].id == 1 || board[r][c].id == 2){
+            board[r][c].endX += 5;
+          }
         }
       }
     }
@@ -361,6 +371,5 @@ class Board {
      }
     }  
     }
-       
-  
+
 }
