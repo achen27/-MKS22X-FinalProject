@@ -25,7 +25,7 @@ void mouseClicked(){
     swapy1 = (mouseX - x) / 50;
     swapx1 = (mouseY - y) / 50;
     first = false;
-    update(0);
+    update();
   } else {
     swapy2 = (mouseX - x) / 50;
     swapx2 = (mouseY - y) / 50;
@@ -33,7 +33,7 @@ void mouseClicked(){
     fill(0);
     rect(0,0, 100,100);
     run = true;
-    update(0);
+    update();
   }
 }
 
@@ -44,9 +44,9 @@ void setup() {
   bg = loadImage("background.jpg");
   bg.resize(960, 540);
   background(bg);
-  fill(190);
+  fill(75,150);
   //square(50,80,52);
-  b.toDrawBoard(x,y, swapx1,swapy1,swapx2,swapy2,0);
+  b.toDrawBoard(x,y, swapx1,swapy1,swapx2,swapy2);
   b.fillempty();
   //b.toDrawCandy(x,y,len
   puff = loadImage("puffofsmoke.png");
@@ -55,10 +55,10 @@ void setup() {
 }
 
 
-void update(int t) {
+void update() {
   background(bg);
   fill(75,150);
-  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2,t);
+  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
   b.toDrawCandy(x,y);
   textSize(20);
   fill(255);
@@ -69,7 +69,7 @@ void update(int t) {
 void update2() {
   background(bg);
   fill(75,150);
-  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2,0);
+  b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
   textSize(20);
   fill(255);
   textFont(font);
@@ -79,7 +79,7 @@ void update2() {
 
 void draw() {
   if (gamestep != 0 && gamestep != 1){
-    update(0);
+    update();
   }
   
   if (gamestep == 1){
@@ -114,13 +114,13 @@ void draw() {
   else {
     if (gamestep == 0) {
     if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
-      update(1);
-      delay(200);
+      update();
+      delay(100);
       gamestep += 1;
       
     } else if (run){
-      update(2);
-      delay(200);
+      update();
+      delay(1000);
       swapx1 = -1;
       swapy1 = -1;
       swapx2 = -1;
@@ -144,11 +144,11 @@ void draw() {
     
   }
   if (gamestep == 0 && run){
-    update(2);
-    delay(200);
+    update();
+    delay(100);
     run = false;
   } else if (gamestep == 1){
-    update(1);
+    update();
     delay(200);
   }
   b.updatecor(x,y);
