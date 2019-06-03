@@ -53,6 +53,7 @@ void setup() {
   puff = loadImage("puffofsmoke.png");
   puff.resize(0,50);
   font = createFont("sweetlyBroken.ttf", 32);
+  b.updatecor(x,y);
 }
 
 

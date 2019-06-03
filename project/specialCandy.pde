@@ -2,8 +2,6 @@ class SpecialCandy extends Candy{
   
   int type;
   int colors;
-  int xCor;
-  int yCor;
   
   SpecialCandy(int typevalue, String scolor,int xcor,int ycor) {
     type = typevalue;
