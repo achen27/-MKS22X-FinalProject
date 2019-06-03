@@ -2,39 +2,51 @@ class Board {
   Candy[][] board;
   Random ran = new Random();
   int points;
-  Board(int rows,int cols) {
+  int len;
+  Board(int rows,int cols,int leng) {
+    len = leng;
     board = new Candy[rows][cols];
   }
-  
   void fillempty() {
     for(int row = 0; row < board.length; row++) {
       for(int col = 0; col < board[0].length; col++) {
         board[row][col] = randomCandy();
       }
     }
+    for(int r = 0; r < board.length;r++) {
+      for(int c = 0; c < board[0].length; c ++) {
+        if(board[r][c] != null) {
+        board[r][c].endX = x + len/2 + len * c;
+        board[r][c].endY = y + len * r +  len/2;
+        board[r][c].xCor = x + len/2 + len * c;
+        board[r][c].yCor = y + len * r +  len/2;
+      }
+     }
+    }
   }
   
   NormalCandy randomCandy(){
     int temp = ran.nextInt(6);
+    NormalCandy output = null;
     if (temp % 6 == 0){
-      return new NormalCandy("Red");
+      output = new NormalCandy("Red");
     }
     if (temp % 6 == 1) {
-      return new NormalCandy("Orange");
+      output = new NormalCandy("Orange");
     }
     if (temp % 6 == 2) {
-      return new NormalCandy("Yellow");
+      output = new NormalCandy("Yellow");
     }
     if (temp % 6 == 3) {
-      return new NormalCandy("Green");
+      output = new NormalCandy("Green");
     }
     if (temp % 6 == 4) {
-      return new NormalCandy("Blue");
+      output = new NormalCandy("Blue");
     }
     if (temp % 6 == 5) {
-      return new NormalCandy("Purple");
+      output = new NormalCandy("Purple");
     }
-    return null;
+    return output;
   }
   
   
@@ -46,7 +58,7 @@ class Board {
     return x == x1 && y == y1;
   }
   
-  void toDrawBoard(int x, int y, int len, int x1, int y1, int x2, int y2, int c) {
+  void toDrawBoard(int x, int y, int x1, int y1, int x2, int y2, int c) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
@@ -174,6 +186,10 @@ class Board {
       for(int i = 0; i < board[0].length; i++) {
         if(board[0][i] == null) {
            board[0][i] = randomCandy();
+           board[0][i].endX = x + len/2 + len * i;
+           board[0][i].endY = y + len/2;
+           board[0][i].xCor = x + len/2 + len * i;
+           board[0][i].yCor = y + len/2 - 30;
            output = true;
          }
          //toDrawCandy(x,y,len);
@@ -184,28 +200,25 @@ class Board {
               output = true;
               
               if (board[r - 1][c] != null) {
-                temp = new NormalCandy(board[r - 1][c].getName());
-                board[r][c] = temp;
+                board[r][c] = new NormalCandy(board[r - 1][c].name,board[r - 1][c].xCor,board[r - 1][c].yCor);
                 board[r - 1][c] = null;
-                output = true;
               }
-              
-            }
-          }
+   }
         }
+      }
       }
         //toDrawCandy(x,y,len);
         //delay(100);
         return output;
     }
   
-  void toDrawCandy(int x, int y, int len) {
+  void toDrawCandy(int x, int y) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
         if(board[i][j] != null) {
         fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
-        ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
+        ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
         } else {
           //System.out.println("oijwnfdeionsdf");
           fill(75,0);
@@ -218,13 +231,13 @@ class Board {
     }
   }
   
-  void toDrawCandy2(int x, int y, int len, PImage p) {
+  void toDrawCandy2(int x, int y,PImage p) {
     int oriX = x;
     for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
         if(board[i][j] != null) {
         fill(board[i][j].getColor()[0],board[i][j].getColor()[1],board[i][j].getColor()[2]);
-        ellipse(x+len/2 + len * j,y+len/2, len/2, len/2);
+        ellipse(board[i][j].xCor,board[i][j].yCor, len/2, len/2);
         } else {
           //System.out.println("oijwnfdeionsdf");
           //fill(190);
@@ -280,4 +293,36 @@ class Board {
       return false;
     }
   }
+  
+  boolean move() {
+    boolean output = false;
+     for(int r = 0; r < board.length; r++) {
+       for(int c = 0 ; c < board[0].length; c++) {
+          if(board[r][c] != null && board[r][c].move()) {
+           output = true; 
+          }
+       }
+     }
+     return output;
+  }
+  
+  void updatecor(int x, int y) {
+    for(int r = 0; r < board.length;r++) {
+      for(int c = 0; c < board[0].length; c ++) {
+        if(board[r][c] != null) {
+        board[r][c].endX = x + len/2 + len * c;
+        board[r][c].endY = y + len * r +  len/2;
+      }
+      }
+    }
+  }
+    
+    
+    
+    
+  
+  
+  
+  
+  
 }

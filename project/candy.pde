@@ -6,7 +6,10 @@ abstract class Candy{
       2. pop - A detection variable. It will be true if it will be removed in the future.
       3. color[] -  it stores a set of 3 colors (rbg values)
   */
-  
+  int xCor;
+  int yCor;
+  int endX;
+  int endY;
   String name;
   boolean pop;
   int[] colors = new int[3];
@@ -49,5 +52,25 @@ abstract class Candy{
   
   String toString() {
     return name;
+  }
+  
+  boolean move() {
+      if(endX > xCor) {
+        xCor += 5;
+        return true;
+      }
+      if(endX < xCor) {
+        xCor -= 5;
+        return true;
+      }
+      if(endY < yCor) {
+        yCor -= 5;
+        return true;
+      }
+      if(endY > yCor) {
+        yCor += 5;
+        return true;
+      }
+      return false;
   }
 }
