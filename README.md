@@ -1,13 +1,15 @@
-# <center> MKS22X-FinalProject </center>
-By: Amanda Chen and Kevin Chen
+# MKS22X-FinalProject 
+<center> Project: Candy Crush 🍬🍬🍬 </center>
+<center> Group Name: AK-47 🔫 </center>
+<center> By: Amanda Chen and Kevin Chen </center>
 ***
 ## 📑Table of Content
-   1. [Project Descriptions](https://github.com/achen27/MKS22X-FinalProject#project-descriptions)
-   2. [Directions](https://github.com/achen27/MKS22X-FinalProject#directions)
-   3. [Final Project Log](https://github.com/achen27/MKS22X-FinalProject#-final-project-log)
+   1. [🕹 Project Descriptions](https://github.com/achen27/MKS22X-FinalProject#project-descriptions)
+   2. [🧭 Directions](https://github.com/achen27/MKS22X-FinalProject#directions)
+   3. [📝 Final Project Log](https://github.com/achen27/MKS22X-FinalProject#-final-project-log)
 
 
-## Project Descriptions
+## 🕹 Project Descriptions
 
 ### Candy Crush
 🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬
@@ -23,7 +25,7 @@ Our project is very similar to Candy Crush. We designed the game without looking
 
 
 
-## Directions
+## 🧭 Directions
        1. Go to project folder.
        2. Open the game in processing
        3. Download the sound library in processing. Go to Sketch -> Import Library -> type in sound -> Download
