@@ -11,11 +11,11 @@ Kevin:
 
 Amanda: 
        Moved all the code to Processing and formatted it so it works properly. 
-       I also started the visual portion of the game by    creating the window, adding a background, and drawing the board.
+       Started the visual portion of the game: created the window, added a background, and drawed the board.
 
 ### Date: 05/21/19
 Amanda: 
-       I modeified some variables to add colors to the candies and had the candies show up on the board.
+       Modeified some variables to add colors to the candies and had the candies show up on the board.
 
 ### Date: 05/22/19
 Amanda: I started writing the swap code
