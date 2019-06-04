@@ -1,7 +1,8 @@
 # MKS22X-FinalProject
 By: Amanda Chen and Kevin Chen
 ***
-# Candy Crush
+# Project Description
+Candy Crush
 🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬
 
 ## 📝 Final Project Log
@@ -10,12 +11,13 @@ By: Amanda Chen and Kevin Chen
 Kevin: 
        The basic foundation was made. 
        Intital files, intital instance vairables, and constuctors. 
-       
-Details: Created the 
 
 Amanda: 
        Moved all the code to Processing and formatted it so it works properly. 
        Started the visual portion of the game: created the window, added a background, and drawed the board.
+       
+
+Details: Created the Board, Project, Candy, NormalCandy, and Special Candy files. Created a project folder for proccessing. Added all the instance variables located on the UML diagram. Created Constructors. We moved all the files into processing. Fixed the errors that processing gave us. Created our dimensions and imported pictures.
 
 ### Date: 05/21/19
 Kevin:
@@ -23,17 +25,23 @@ Kevin:
        Removed variables.
 Amanda: 
        Modeified some variables to add colors to the candies and had the candies show up on the board.
-
+       
+ Details: Noticed that many variables were redundant, so they got remvoed. Fixed the reset function accordingly. Added in a color array to input rbg values, because we realzie we couln't use hexicode. Decided to use circles to subsitute for candy for now. Have not completely decided on a theme for this game yet.
+ 
 ### Date: 05/22/19
 Amanda: 
        Started writing the swap code
 
 Kevin: 
        Added a Check Function that sets pop to true and fixed some broken code and merge errors
+
+Details: Swap code uses the current swap code that works on the board. We implemented it so that it would also work just by clicking on the board. Check function is fully implemented. It would just check the board to see if any orb should be poped.
        
 ### Date: 05/23/19
 Kevin: 
        Finished the pop() function.
+       
+Details: Pop function is used to remove the orbs that are checked by the check function.
 
 ### Date: 05/24/19
 Kevin: 
@@ -42,6 +50,8 @@ Kevin:
 Amanda: 
        Finished the swap function and fixed merge errors.
        Worked on Mouse click function.
+       
+Details: We realized the code doesn't work to well with the draw function so we had to rewrite all the other functions. We also rewrote the fall function, so that the orbs move down the board when there is an empty space avaliable. The swap function now fully uses the mouse click method. IT WORKS!!!!!! The base game is basically done at this point.
 
 ### Date: 05/28/19
 Kevin: 
@@ -49,9 +59,13 @@ Kevin:
        Fixed bug errros.
 Amanda: 
        Changed layout of board for easier animation in the future and fixed readibility of code.
+       
+Details: Went to start increase readability because we are mostly done with the main game. We began with notation in Normal and Special Candy. Also changed bracket notation for increase readibility. Some minor bug errors appeared that required quick fixes.
 
 ### Date: 05/29/19
 Amanda: Split game function into two so the board now shows empty squares before candy falls.
+
+Details: Game function split so we can show a state of empty squares. This allows the player to watch the orbs fall down the board.
 
 ### Date: 05/29/19
 Kevin:
@@ -61,6 +75,8 @@ Amanda:
         Puff of smoke appears when orbs are popped.
         Board is now transparent again.
         Selected squares are now highlighted and disappear after two clicks.
+        
+Details: Prototype animation. This creates kind of like a slide show that makes the orbs slowly fall down the screen. We also added puff smokes that indicate when a orb has been popped. We made a design choice to make the squares transparent to allow the player to see the background image. Started working on highlighting the square to increase visablity.
 
 ### Date: 05/30/19
 Amanda: 
