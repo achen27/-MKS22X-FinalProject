@@ -177,7 +177,7 @@ void draw() {
       
     } else if(gamestep == 3) {
       
-      if(b.check()) { //repeats if there are still combinations on the board
+      if(b.check()) { //repeats from pop if there are still combinations on the board
         gamestep = 1;
       } else {
         

@@ -6,15 +6,18 @@ abstract class Candy{
       2. pop - A detection variable. It will be true if it will be removed in the future.
       3. color[] -  it stores a set of 3 colors (rbg values)
   */
+  
   int xCor;
   int yCor;
   int endX;
   int endY;
+  
   String name;
   int id;
   boolean pop;
   int[] colors = new int[3];
   int link;
+  
   /*
     getColor is an accessor function. It is only used for testing.
   */
