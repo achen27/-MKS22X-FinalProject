@@ -1,16 +1,26 @@
 # MKS22X-FinalProject
 By: Amanda Chen and Kevin Chen
 ***
-## Project Description
-Candy Crush
+## Project Descriptions
+
+### Candy Crush
 🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬
+
+Our project is very similar to Candy Crush. We designed the game without looking at any of the existing match three code that already exist online, so our project may look strange compared to other match three projects. Our project consist of a board, colored candy, point values, and buttons for shuffle and reset. We also have a special candy that either pops the column, row, or 3x3. The goal is to get a set amount of points within a certain amount of moves.
+
+
+
+
+
+
+
 
 ## Directions
        1. Go to project folder.
        2. Open the game in processing
        3. Download the sound library in processing. Go to Sketch -> Import Library -> type in sound -> Download
        4. Press Play!
-       5. Click 2 candies to swap them.
+       5. Click 2 candies to swap and match them.
        6. If you can't find any moves press shuffle to suffle the board.
        7. Press Reset if you lose.
        8. Have FUN! 🥴
