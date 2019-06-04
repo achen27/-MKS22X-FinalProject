@@ -13,6 +13,19 @@ class Board {
     moves = 25;
   }
   
+  void drawEnd(){
+    fill(250,230,255);
+    stroke(230,100,150);
+    rect(375, 150, 200, 250,20,20,20,20);
+    textAlign(CENTER);
+    fill(55,135,210);
+    stroke(55,135,210);
+    rect(400, 300, 150, 50,10,10,10,10);
+    textSize(50);
+    fill(255);
+    text(b.points, 475, 340);
+  }
+  
   boolean shuffle(){
     if (moves >= 5){
       List<Candy> b = new ArrayList();

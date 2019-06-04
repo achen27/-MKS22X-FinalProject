@@ -10,19 +10,19 @@ PImage scoreboard;
 int x = 250;
 int y = 50;
 int len = 50;
-boolean end = false;
+boolean end;
 
-boolean moving = false;
-boolean puffed = false;
-boolean click = false;
+boolean moving;
+boolean puffed;
+boolean click;
 
-boolean first = true;
-boolean run = false;
-int swapx1 = -1;
-int swapy1 = -1;
-int swapx2 = -1;
-int swapy2 = -1;
-int gamestep = 1;
+boolean first;
+boolean run;
+int swapx1;
+int swapy1;
+int swapx2;
+int swapy2;
+int gamestep;
 PImage puff;
 PFont font;
 
@@ -95,7 +95,7 @@ void setup() {
   font = createFont("sweetlyBroken.ttf", 32);
   b.updatecor(x,y);
   update(false);
-  end = false;
+  end = true;
   moving = false;
   puffed = false;
   click = false;
@@ -135,7 +135,7 @@ void draw() {
   }
   
   //delay(200);
-  /*fill(0);
+  fill(0);
   shapeMode(CORNER);
   rect(0,0,100,100);
   fill(255);
@@ -146,7 +146,7 @@ void draw() {
   text(swapy2, 20, 50);
   text(mouseX, 40, 20);
   text(mouseY, 40, 50);
-  text(mouseY, 40, 50);*/
+  text(mouseY, 40, 50);
   
   if (moving) {
     moving = b.move(5);
@@ -197,5 +197,9 @@ void draw() {
     
     b.updatecor(x,y);
     moving = true;
+  }
+  
+  if (end){
+    b.drawEnd();
   }
 }
