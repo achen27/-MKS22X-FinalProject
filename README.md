@@ -1,5 +1,4 @@
 # MKS22X-FinalProject 
-<p align="center">
  
  Project: Candy Crush 🍬🍬🍬  
  
@@ -7,11 +6,10 @@
  
  By: Amanda Chen and Kevin Chen 
  
-</p align="center">
 
 ## 📑Table of Content
-   1. [🕹 Project Descriptions](https://github.com/achen27/MKS22X-FinalProject#project-descriptions)
-   2. [🧭 Directions](https://github.com/achen27/MKS22X-FinalProject#directions)
+   1. [🕹 Project Descriptions](https://github.com/achen27/MKS22X-FinalProject#-project-descriptions)
+   2. [🧭 Directions](https://github.com/achen27/MKS22X-FinalProject#-directions)
    3. [📝 Final Project Log](https://github.com/achen27/MKS22X-FinalProject#-final-project-log)
 
 
