@@ -1,10 +1,17 @@
 # MKS22X-FinalProject
 By: Amanda Chen and Kevin Chen
+***
+## 📑Table of Content
+   1. [Project Descriptions](https://github.com/achen27/MKS22X-FinalProject#project-descriptions)
+   2. [Directions](https://github.com/achen27/MKS22X-FinalProject#directions)
+   3. [Final Project Log](https://github.com/achen27/MKS22X-FinalProject#-final-project-log)
+
 
 ## Project Descriptions
 
 ### Candy Crush
 🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬
+
 
 Our project is very similar to Candy Crush. We designed the game without looking at any of the existing match three code that already exist online, so our project may look strange compared to other match three projects. Our project consist of a board, colored candy, point values, and buttons for shuffle and reset. We also have a special candy that either pops the column, row, or 3x3. The goal is to get a set amount of points within a certain amount of moves.
 
@@ -184,16 +191,3 @@ Kevin:
         
 Details:
        Designed the game so it looks like a proper game. We added a suffle mechanic. It uses the int[][] shuffle that already existed. We added a move counter. This gives the player a set amount of moves before the game was over. We added a penalty of 5 moves if the shuffle mechanic is used. We created a proper score screen. We added a reset method that resets the board. We added an endgame method that clears the board when the game is over. We began cleaning up code for the demo. We began tweaking some of the older methods to make it smoother. We added music to the game and SFX pop effects. These require a library and we are not sure if this is allowed, so we added a seperate file inside experiment, so we don't get flamed later. 🔥
-       
-### Date: 06/04/19
-Amanda: 
-
-        Fixed restart game bug.
-        Added pop-up after game ends showing score and number of stars gained based on end score.
-        
-Kevin:
-
-        
-        
-Details:
-       Last minute changes...
