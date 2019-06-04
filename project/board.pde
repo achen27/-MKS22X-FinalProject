@@ -10,7 +10,7 @@ class Board {
     len = leng;
     board = new Candy[rows][cols];
     points = 0;
-    moves = 20;
+    moves = 25;
   }
   
   boolean shuffle(){

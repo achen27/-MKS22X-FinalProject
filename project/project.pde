@@ -12,7 +12,6 @@ int y = 50;
 int len = 50;
 boolean end = false;
 
-boolean once = false;
 boolean moving = false;
 boolean puffed = false;
 boolean click = false;
@@ -28,7 +27,7 @@ PImage puff;
 PFont font;
 
 
-void mouseClicked(){
+void mousePressed(){
   if (click){
     if (!end){
       if (first){
