@@ -1,10 +1,20 @@
 # MKS22X-FinalProject
 By: Amanda Chen and Kevin Chen
 ***
-# Project Description
+## Project Description
 Candy Crush
 🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬
 
+## Directions
+       1. Go to project folder.
+       2. Open the game in processing
+       3. Download the sound library in processing. Go to Sketch -> Import Library -> type in sound -> Download
+       4. Press Play!
+       5. Click 2 candies to swap them.
+       6. If you can't find any moves press shuffle to suffle the board.
+       7. Press Reset if you lose.
+       8. Have FUN! 🥴
+       
 ## 📝 Final Project Log
 
 ### Date: 5/20/19
