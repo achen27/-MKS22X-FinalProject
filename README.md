@@ -95,7 +95,16 @@ Amanda:
        
 Details: We realized the code doesn't work to well with the draw function so we had to rewrite all the other functions. We also rewrote the fall function, so that the orbs move down the board when there is an empty space avaliable. The swap function now fully uses the mouse click method. IT WORKS!!!!!! The base game is basically done at this point.
 
-### Date: 05/28/19
+###
+
+
+
+
+
+
+
+
+### Date: 05/27/19
 Kevin: 
 
        Did commenting on the code.
@@ -107,7 +116,7 @@ Amanda:
        
 Details: Went to start increase readability because we are mostly done with the main game. We began with notation in Normal and Special Candy. Also changed bracket notation for increase readibility. Some minor bug errors appeared that required quick fixes. 
 
-### Date: 05/29/19
+### Date: 05/28/19
 Amanda: 
 
        Split game function into two so the board now shows empty squares before candy falls.
