@@ -14,16 +14,24 @@ class Board {
   }
   
   void drawEnd(){
+    strokeWeight(1);
     fill(250,230,255);
     stroke(230,100,150);
+    strokeWeight(10);
     rect(375, 150, 200, 250,20,20,20,20);
+    strokeWeight(1);
     textAlign(CENTER);
     fill(55,135,210);
-    stroke(55,135,210);
-    rect(400, 300, 150, 50,10,10,10,10);
+    stroke(75,170,245);
+    rect(400, 325, 150, 50,10,10,10,10);
+    textSize(50);
+    fill(55,130,200);
+    text("Score", 475, 300);
     textSize(50);
     fill(255);
-    text(b.points, 475, 340);
+    text(b.points, 475, 365);
+    
+    //text(b.points, 475, 340);
   }
   
   boolean shuffle(){
@@ -81,8 +89,10 @@ class Board {
   
   void drawRestart(){
     fill(235,70,250);
-    stroke(235,70,250);
+    stroke(0);
+    strokeWeight(1);
     rect(750, 250, 160, 60,20,20,20,20);
+    strokeWeight(1);
     textAlign(CENTER);
     fill(255);
     textSize(70);
