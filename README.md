@@ -1,8 +1,10 @@
+<p align="center">
 # MKS22X-FinalProject 
-<center> Project: Candy Crush 🍬🍬🍬 </center>
-<center> Group Name: AK-47 🔫 </center>
-<center> By: Amanda Chen and Kevin Chen </center>
-***
+ Project: Candy Crush 🍬🍬🍬  
+ Group Name: AK-47 🔫 
+ By: Amanda Chen and Kevin Chen 
+</p align="center">
+
 ## 📑Table of Content
    1. [🕹 Project Descriptions](https://github.com/achen27/MKS22X-FinalProject#project-descriptions)
    2. [🧭 Directions](https://github.com/achen27/MKS22X-FinalProject#directions)
