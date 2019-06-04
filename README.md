@@ -9,10 +9,12 @@ Candy Crush
 
 ### Date: 5/20/19
 Kevin: 
+
        ⋅⋅⋅The basic foundation was made. 
        ⋅⋅⋅Intital files, intital instance vairables, and constuctors. 
 
 Amanda: 
+
        ⋅⋅⋅Moved all the code to Processing and formatted it so it works properly. 
        ⋅⋅⋅Started the visual portion of the game: created the window, added a background, and drawed the board.
        
