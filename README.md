@@ -88,6 +88,8 @@ Kevin:
         Check2() and Check3() is used to calculate points.
         Fixed bugs that required math.
         
+Details: Puff of smoke represents an explsion for the orbs. There is a highlight method to show the player which orb they clicked on. This is implemented by making the background square a lighter color. Had to split the check funcuntion to calculate how many chains there are. Also implemented a points function to easily calucalte how many points the player should be awarded. This is calculated by 100 points for each orb popped that is under a chain of 3. Chains of 4 gets 500 points. Chains of 5 or more gets the link times 150 points.
+        
 ### Date: 05/31/19
 Amanda: 
         Changed location of score displayed on screen.
@@ -95,7 +97,7 @@ Amanda:
         
 Together:
         Brainstormed ideas on new animations, pictures and future features.
-        
+
 ### Date: 06/01/19
 Kevin: 
         Fixed full scale animation. It works like netlogo turtles.
@@ -103,6 +105,8 @@ Kevin:
        
 Together:
         Decided on the theme of the game we were going to make.
+
+Details for May 31 and June 1st. We kinda hit a wall. We implemented the majority of the base game. We talked about which theme we should take up. We also talked about which features we will implement in the next few days. We decided to work on special candy, fall animation, design, fonts, shuffle, restart and sound for now. More features after Wendesday.
 
 ### Date: 06/02/19
 Amanda: 
