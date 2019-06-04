@@ -10,16 +10,17 @@ Candy Crush
 ### Date: 5/20/19
 Kevin: 
 
-       ⋅⋅⋅The basic foundation was made. 
-       ⋅⋅⋅Intital files, intital instance vairables, and constuctors. 
+       The basic foundation was made. 
+       Intital files, intital instance vairables, and constuctors. 
 
 Amanda: 
 
-       ⋅⋅⋅Moved all the code to Processing and formatted it so it works properly. 
-       ⋅⋅⋅Started the visual portion of the game: created the window, added a background, and drawed the board.
+       Moved all the code to Processing and formatted it so it works properly. 
+       Started the visual portion of the game: created the window, added a background, and drawed the board.
        
 
-⋅⋅⋅Details: Created the Board, Project, Candy, NormalCandy, and Special Candy files. Created a project folder for proccessing. Added all the instance variables located on the UML diagram. Created Constructors. We moved all the files into processing. Fixed the errors that processing gave us. Created our dimensions and imported pictures.
+
+       ⋅⋅⋅Details: Created the Board, Project, Candy, NormalCandy, and Special Candy files. Created a project folder for proccessing. Added all the instance variables located on the UML diagram. Created Constructors. We moved all the files into processing. Fixed the errors that processing gave us. Created our dimensions and imported pictures.
 
 ### Date: 05/21/19
 Kevin:
