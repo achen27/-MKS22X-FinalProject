@@ -33,7 +33,7 @@ Amanda:
        Started writing the swap code
 
 Kevin: 
-       Added a Check Function that sets pop to true and fixed some broken code and merge errors
+       Added a Check Function that sets pop to true and fixed some broken code and merge errors ✔️
 
 Details: Swap code uses the current swap code that works on the board. We implemented it so that it would also work just by clicking on the board. Check function is fully implemented. It would just check the board to see if any orb should be poped.
        
@@ -46,21 +46,21 @@ Details: Pop function is used to remove the orbs that are checked by the check f
 ### Date: 05/24/19
 Kevin: 
        Candy now falls down the board.
-       Looped the entire game tother.
+       Looped the entire game tother. 🔁
 Amanda: 
        Finished the swap function and fixed merge errors.
-       Worked on Mouse click function.
+       Worked on mouse click function. 🐁
        
 Details: We realized the code doesn't work to well with the draw function so we had to rewrite all the other functions. We also rewrote the fall function, so that the orbs move down the board when there is an empty space avaliable. The swap function now fully uses the mouse click method. IT WORKS!!!!!! The base game is basically done at this point.
 
 ### Date: 05/28/19
 Kevin: 
        Did commenting on the code.
-       Fixed bug errros.
+       Fixed bug errros. 🐛
 Amanda: 
        Changed layout of board for easier animation in the future and fixed readibility of code.
        
-Details: Went to start increase readability because we are mostly done with the main game. We began with notation in Normal and Special Candy. Also changed bracket notation for increase readibility. Some minor bug errors appeared that required quick fixes.
+Details: Went to start increase readability because we are mostly done with the main game. We began with notation in Normal and Special Candy. Also changed bracket notation for increase readibility. Some minor bug errors appeared that required quick fixes. 
 
 ### Date: 05/29/19
 Amanda: Split game function into two so the board now shows empty squares before candy falls.
@@ -72,7 +72,7 @@ Kevin:
         Started fixing the animation. 
         Wokred on readability of code.
 Amanda: 
-        Puff of smoke appears when orbs are popped.
+        Puff of smoke appears when orbs are popped. 💭
         Board is now transparent again.
         Selected squares are now highlighted and disappear after two clicks.
         
@@ -80,13 +80,13 @@ Details: Prototype animation. This creates kind of like a slide show that makes 
 
 ### Date: 05/30/19
 Amanda: 
-        Added puff of smoke animation when orbs are popped.
+        Added puff of smoke animation when orbs are popped. 💭
         Wrote highlight method to highlight sqaures after clicking on them.
         
 Kevin: 
-        Seperated Check function.
-        Check2() and Check3() is used to calculate points.
-        Fixed bugs that required math.
+        Seperated Check function. ✔️
+        Check2() and Check3() is used to calculate points. ✔️
+        Fixed bugs that required math. 🐛
         
 Details: Puff of smoke represents an explsion for the orbs. There is a highlight method to show the player which orb they clicked on. This is implemented by making the background square a lighter color. Had to split the check funcuntion to calculate how many chains there are. Also implemented a points function to easily calucalte how many points the player should be awarded. This is calculated by 100 points for each orb popped that is under a chain of 3. Chains of 4 gets 500 points. Chains of 5 or more gets the link times 150 points.
         
@@ -96,26 +96,31 @@ Amanda:
         Downloaded all candy images into folder.
         
 Together:
-        Brainstormed ideas on new animations, pictures and future features.
+        Brainstormed ideas on new animations, pictures and future features. 🤯
 
 ### Date: 06/01/19
 Kevin: 
-        Fixed full scale animation. It works like netlogo turtles.
-        Fixed Bug errors.
+        Fixed full scale animation. It works like netlogo turtles. 🐢
+        Fixed Bug errors. 🐛
        
 Together:
-        Decided on the theme of the game we were going to make.
+        Decided on the theme of the game we were going to make. 🤯
 
-Details for May 31 and June 1st. We kinda hit a wall. We implemented the majority of the base game. We talked about which theme we should take up. We also talked about which features we will implement in the next few days. We decided to work on special candy, fall animation, design, fonts, shuffle, restart and sound for now. More features after Wendesday.
+Details for May 31 and June 1st: We kinda hit a wall. We implemented the majority of the base game. We talked about which theme we should take up. We also talked about which features we will implement in the next few days. We decided to work on special candy, fall animation, design, fonts, shuffle, restart and sound for now. More features after Wendesday.
 
 ### Date: 06/02/19
 Amanda: 
         Fixed fall animation.
         Rewrote and combined repititive method.
-        Fixed highlight,swap, and pop animation.
+        Fixed highlight, swap, and pop animation.
         Replaced all orbs with pictures of candy and adjusted code to fit change.
         
 Kevin:
+       Worked on a cloner method to fix fall.
+       Began working on special candies.
+       
+Details:
+       Fall animation was kinda cluncky. It was too slow, so we made it faster. We also combined some functions that we deemed unessary. We fixed the highlight animation. The highlight animation was very consistent before this change. We also fixed the pop animation. The puff clouds disappeared too fast. We also created a cloner method becuase the old method only worked with normal candy. We also started using pictures. These picutres were imported from candy crush. The speical Candy was a black circle before this change. 
 
 ### Date: 06/03/19
 Amanda: 
@@ -126,3 +131,10 @@ Amanda:
         Added restart game button.
         
 Kevin:
+        Clean up code.
+        Worked on changing the speeds of the candies. 
+        Fixed bugs relating to animations and fall. 🐛
+        Found and fixed bugs relating to special Candy. 
+        Added music into the game. 🎼
+Details:
+       Designed the game so it looks like a proper game. We added a suffle mechanic. It uses the int[][] shuffle that already existed. We added a move counter. This gives the player a set amount of moves before the game was over. We added a penalty of 5 moves if the shuffle mechanic is used. We created a proper score screen. We added a reset method that resets the board. We added an endgame method that clears the board when the game is over. We began cleaning up code for the demo. We began tweaking some of the older methods to make it smoother. We added music to the game and SFX pop effects. These require a library and we are not sure if this is allowed, so we added a seperate file inside experiment, so we don't get flamed later. 🔥
