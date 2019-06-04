@@ -12,6 +12,7 @@ By: Amanda Chen and Kevin Chen
 ### Candy Crush
 🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬
 
+[alt text](https://github.com/achen27/MKS22X-FinalProject/blob/master/project/p1.png)
 
 Our project is very similar to Candy Crush. We designed the game without looking at any of the existing match three code that already exist online, so our project may look strange compared to other match three projects. Our project consist of a board, colored candy, point values, and buttons for shuffle and reset. We also have a special candy that either pops the column, row, or 3x3. The goal is to get a set amount of points within a certain amount of moves.
 
