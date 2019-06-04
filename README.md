@@ -198,3 +198,28 @@ Kevin:
         
 Details:
        Designed the game so it looks like a proper game. We added a suffle mechanic. It uses the int[][] shuffle that already existed. We added a move counter. This gives the player a set amount of moves before the game was over. We added a penalty of 5 moves if the shuffle mechanic is used. We created a proper score screen. We added a reset method that resets the board. We added an endgame method that clears the board when the game is over. We began cleaning up code for the demo. We began tweaking some of the older methods to make it smoother. We added music to the game and SFX pop effects. These require a library and we are not sure if this is allowed, so we added a seperate file inside experiment, so we don't get flamed later. 🔥
+       
+### Date: 06/04/19
+
+Amanda: 
+
+      Added an end screen
+      Fixed Restart Method
+      Rearranged Code
+      Added More comments
+Kevin:
+
+      Created a new readme
+      Add a swap two special feature
+      Fixed audio load time
+      Added more comments
+      
+Details: The audio was adding a lot of load time, so we quickly fixed that. We made our readme look pretty. We addded a swap feature that allows for 2 specials to swap. We fixed the restart method. We added an end screen that gave different amount of stars to the player based on how many points they obtained. We rearranged code to make it more readable.
+
+
+
+
+
+
+
+   
