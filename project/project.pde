@@ -95,6 +95,17 @@ void setup() {
   font = createFont("sweetlyBroken.ttf", 32);
   b.updatecor(x,y);
   update(false);
+  end = false;
+  moving = false;
+  puffed = false;
+  click = false;
+  first = true;
+  run = false;
+  swapx1 = -1;
+  swapy1 = -1;
+  swapx2 = -1;
+  swapy2 = -1;
+  gamestep = 1;
 }
 
 
