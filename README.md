@@ -63,9 +63,12 @@ Details: We realized the code doesn't work to well with the draw function so we 
 
 ### Date: 05/28/19
 Kevin: 
+
        Did commenting on the code.
        Fixed bug errros. 🐛
+       
 Amanda: 
+
        Changed layout of board for easier animation in the future and fixed readibility of code.
        
 Details: Went to start increase readability because we are mostly done with the main game. We began with notation in Normal and Special Candy. Also changed bracket notation for increase readibility. Some minor bug errors appeared that required quick fixes. 
