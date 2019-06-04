@@ -1,4 +1,4 @@
-# MKS22X-FinalProject
+# <center> MKS22X-FinalProject </center>
 By: Amanda Chen and Kevin Chen
 ***
 ## 📑Table of Content
