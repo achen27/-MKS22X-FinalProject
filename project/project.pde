@@ -17,6 +17,7 @@ int x = 250; //upper left corner
 int y = 50;  //of board
 int len = 50; //length of each square
 
+boolean demo = false; //demo button to switch game mode
 boolean end; //game ending
 boolean moving; //fall animation
 boolean puffed; //pop animation
@@ -62,6 +63,12 @@ void mousePressed(){
         setup();
       }
     }
+    
+    if (mouseX >= 780 && mouseX <= 880 && mouseY >= 150 && mouseY <= 200){
+      demo = !demo;
+      setup();
+    }
+    
   }
 }
 
@@ -106,7 +113,6 @@ void setup() {
   b.updatecor(x,y);
   
   //updating instance variables
-  update(false);
   end = false;
   moving = false;
   puffed = false;
@@ -118,6 +124,8 @@ void setup() {
   swapx2 = -1;
   swapy2 = -1;
   gamestep = 1;
+  
+  update(false); //runs update to check board
 }
 
 
@@ -128,6 +136,7 @@ void update(boolean p) { //update board on screen
   b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
   b.toDrawCandy(x,y, puff, p, candies);
   b.drawRestart();
+  b.drawDemo();
 }
 
 void draw() {

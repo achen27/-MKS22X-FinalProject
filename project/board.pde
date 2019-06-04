@@ -16,7 +16,7 @@ class Board {
   }
   
   void fillempty() { //fills board at the start of the game
-  
+    
     for(int row = 0; row < board.length; row++) {
       for(int col = 0; col < board[0].length; col++) {
         board[row][col] = randomCandy();
@@ -37,7 +37,13 @@ class Board {
   }
   
   NormalCandy randomCandy(){ //random candy generator
-    int temp = ran.nextInt(6);
+    int temp;
+    if (demo){ //less candy for demonstration purposes
+      temp = ran.nextInt(3);
+    } else {
+      temp = ran.nextInt(6);
+    }
+    
     NormalCandy output = null;
     
     if (temp == 0){
@@ -498,7 +504,7 @@ class Board {
   }
   
   void drawRestart(){ //restart button
-    fill(235,70,250);
+    fill(235,70,250,220);
     stroke(0);
     strokeWeight(1);
     rect(750, 250, 160, 60,20,20,20,20);
@@ -507,6 +513,18 @@ class Board {
     fill(255);
     textSize(70);
     text("Restart", 830, 295);
+  }
+  
+  void drawDemo(){ //demo button
+    fill(0,200);
+    stroke(255);
+    strokeWeight(1);
+    rect(780, 150, 100, 50, 20,20,20,20);
+    strokeWeight(1);
+    textAlign(CENTER);
+    fill(255);
+    textSize(45);
+    text("Demo", 830, 189);
   }
 
   String toString() { //debugging string with color
