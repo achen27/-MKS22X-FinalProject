@@ -1,3 +1,4 @@
+import processing.sound.*;
 class Board {
   Candy[][] board;
   Random ran = new Random();

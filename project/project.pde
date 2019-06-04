@@ -2,7 +2,7 @@ import java.util.*;
 import processing.sound.*;
 
 SoundFile file;
-
+SoundFile pop;
 Board b;
 PImage bg;
 PImage[] candies = new PImage[25];
@@ -67,8 +67,9 @@ void setup() {
   if(file != null) {
     file.stop();
   }
-  file = new SoundFile(this, "music.mp3");
-  file.play();
+  file = new SoundFile(this, "loop1.mp3");
+  file.loop();
+  pop = new SoundFile(this, "pop.mp3");
   //frameRate(3);
   size(960, 540);
   for(int i=0;i<candies.length;i++){
@@ -153,6 +154,7 @@ void draw() {
       }
     } else if (gamestep == 1) {
       //delay(200);
+      pop.play();
       b.pop();
       puffed = true;
       //System.out.println("pufff");
