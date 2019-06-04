@@ -64,6 +64,7 @@ void mousePressed(){
 }
 
 void setup() {
+  gamestep = 1;
   if(file != null) {
     file.stop();
   }
