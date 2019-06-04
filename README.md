@@ -1,10 +1,24 @@
-# MKS22X-FinalProject
-By: Amanda Chen and Kevin Chen
-***
-## Project Descriptions
+# MKS22X-FinalProject 
+ 
+ Project: Candy Crush 🍬🍬🍬  
+ 
+ Group Name: AK-47 🔫 
+ 
+ By: Amanda Chen and Kevin Chen 
+ 
+
+## 📑Table of Content
+   1. [🕹 Project Descriptions](https://github.com/achen27/MKS22X-FinalProject#-project-descriptions)
+   2. [🧭 Directions](https://github.com/achen27/MKS22X-FinalProject#-directions)
+   3. [📝 Final Project Log](https://github.com/achen27/MKS22X-FinalProject#-final-project-log)
+
+
+## 🕹 Project Descriptions
 
 ### Candy Crush
 🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬
+
+![alt text](https://github.com/achen27/MKS22X-FinalProject/blob/master/project/p1.png)
 
 Our project is very similar to Candy Crush. We designed the game without looking at any of the existing match three code that already exist online, so our project may look strange compared to other match three projects. Our project consist of a board, colored candy, point values, and buttons for shuffle and reset. We also have a special candy that either pops the column, row, or 3x3. The goal is to get a set amount of points within a certain amount of moves.
 
@@ -15,7 +29,7 @@ Our project is very similar to Candy Crush. We designed the game without looking
 
 
 
-## Directions
+## 🧭 Directions
        1. Go to project folder.
        2. Open the game in processing
        3. Download the sound library in processing. Go to Sketch -> Import Library -> type in sound -> Download
