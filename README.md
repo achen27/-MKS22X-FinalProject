@@ -95,13 +95,11 @@ Amanda:
        
 Details: We realized the code doesn't work to well with the draw function so we had to rewrite all the other functions. We also rewrote the fall function, so that the orbs move down the board when there is an empty space avaliable. The swap function now fully uses the mouse click method. IT WORKS!!!!!! The base game is basically done at this point.
 
-###
+### Date: 05/25/19 and 05/26/19
+Together: 
 
-
-
-
-
-
+        Memorial Day Weekend. We were burned out by APs. We worked on java files, and came together to brainstorm ideas.
+        No substanial work done that needed to be commited. We worked on it on the Monday of the Memorial Day weekend.
 
 
 ### Date: 05/27/19
