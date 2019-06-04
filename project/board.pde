@@ -324,12 +324,18 @@ class Board {
   }
   
   boolean swap(int x1, int y1, int x2, int y2){
+    boolean output = false;
     if(x1 == x2 && y1 == y2){
       return false;
     }
     
     if ((x1 == x2 && Math.abs(y1-y2) == 1) || (y1 == y2 && Math.abs(x1-x2) == 1)){
-    
+      if(board[x1][y1].special() > 0 && board[x2][y2].special() > 0) {
+        board[x1][y1].pop = true;
+        board[x1][y1].pop = true;
+        moves--;
+        output = true;
+      }
       Candy temp = board[x1][y1];
       board[x1][y1] = board[x2][y2]; 
       board[x2][y2] = temp;
@@ -337,18 +343,13 @@ class Board {
         moves--;
         return true;
       }
-      if(board[x1][y1].special() > 0 && board[x2][y2].special() > 0) {
-        board[x1][y1].pop = true;
-        board[x1][y1].pop = true;
-        moves--;
-        return true;
-      }
+      
       temp = board[x1][y1];
       board[x1][y1] = board[x2][y2];
       board[x2][y2] = temp;
-      return false;
+      return output;
     } else {
-      return false;
+      return output;
     }
   }
   
