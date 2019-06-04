@@ -68,11 +68,11 @@ Details: Noticed that many variables were redundant, so they got remvoed. Fixed 
 ### Date: 05/22/19
 Amanda: 
 
-       Started writing the swap code
+       Started writing the swap code.
 
 Kevin: 
 
-       Added a Check Function that sets pop to true and fixed some broken code and merge errors ✔️
+       Added a Check Function that sets pop to true and fixed some broken code and merge errors. ✔️
 
 Details: Swap code uses the current swap code that works on the board. We implemented it so that it would also work just by clicking on the board. Check function is fully implemented. It would just check the board to see if any orb should be poped.
        
@@ -203,16 +203,18 @@ Details:
 
 Amanda: 
 
-      Added an end screen
-      Fixed Restart Method
-      Rearranged Code
-      Added More comments
+      Added an end screen.
+      Fixed restart method.
+      Rearranged code to make it more logical to read.
+      Added more comments to code.
+      Created a demo button and a demo mode.
+      
 Kevin:
 
-      Created a new readme
-      Add a swap two special feature
-      Fixed audio load time
-      Added more comments
+      Created a new README.
+      Add a swap two special candies feature.
+      Fixed audio load time.
+      Added more comments to code.
       
 Details: The audio was adding a lot of load time, so we quickly fixed that. We made our readme look pretty. We addded a swap feature that allows for 2 specials to swap. We fixed the restart method. We added an end screen that gave different amount of stars to the player based on how many points they obtained. We rearranged code to make it more readable.
 
