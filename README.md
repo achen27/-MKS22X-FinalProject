@@ -1,13 +1,17 @@
 # MKS22X-FinalProject
 By: Amanda Chen and Kevin Chen
 ***
+# Candy Crush
+🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬🍬
 
-## Final Project Log
+## 📝 Final Project Log
 
 ### Date: 5/20/19
 Kevin: 
        The basic foundation was made. 
-       Intital files, intital instance vairables, and constuctors.
+       Intital files, intital instance vairables, and constuctors. 
+       
+Details: Created the 
 
 Amanda: 
        Moved all the code to Processing and formatted it so it works properly. 
