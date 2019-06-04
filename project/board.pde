@@ -13,7 +13,7 @@ class Board {
     moves = 25;
   }
   
-  void drawEnd(){
+  void drawEnd(PImage[] stars){
     strokeWeight(1);
     fill(250,230,255);
     stroke(230,100,150);
@@ -23,15 +23,23 @@ class Board {
     textAlign(CENTER);
     fill(55,135,210);
     stroke(75,170,245);
-    rect(400, 325, 150, 50,10,10,10,10);
+    rect(400, 310, 150, 50,10,10,10,10);
     textSize(50);
     fill(55,130,200);
-    text("Score", 475, 300);
+    text("Score", 475, 280);
     textSize(50);
     fill(255);
-    text(b.points, 475, 365);
-    
-    //text(b.points, 475, 340);
+    text(b.points, 475, 352);
+    imageMode(CENTER);
+    if (points >= 5000){
+      image(stars[0], 420, 210);
+    }
+    if (points >= 10000){
+      image(stars[1], 475, 190);
+    }
+    if (points >= 15000){
+      image(stars[2], 530, 210);
+    }
   }
   
   boolean shuffle(){
@@ -84,7 +92,7 @@ class Board {
     textSize(90);
     text(b.moves, 120, 63);
     textSize(70);
-    text("20,000", 120, 165);
+    text("15,000", 120, 165);
   }
   
   void drawRestart(){

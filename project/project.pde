@@ -6,6 +6,7 @@ SoundFile pop;
 Board b;
 PImage bg;
 PImage[] candies = new PImage[25];
+PImage[] stars = new PImage[3];
 PImage scoreboard;
 int x = 250;
 int y = 50;
@@ -79,6 +80,10 @@ void setup() {
       candies[i].resize(0, 50);
     }
   }
+  for(int i=0;i<stars.length;i++){
+    stars[i]=loadImage(str(i+25) + ".png");
+    stars[i].resize(0, 50);
+  }
   scoreboard = loadImage("scoreboard.png");
   scoreboard.resize(200,400);
   b = new Board(9,9,50);
@@ -95,7 +100,7 @@ void setup() {
   font = createFont("sweetlyBroken.ttf", 32);
   b.updatecor(x,y);
   update(false);
-  end = true;
+  end = false;
   moving = false;
   puffed = false;
   click = false;
@@ -200,6 +205,6 @@ void draw() {
   }
   
   if (end){
-    b.drawEnd();
+    b.drawEnd(stars);
   }
 }
