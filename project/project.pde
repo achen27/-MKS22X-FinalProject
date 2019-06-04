@@ -64,6 +64,11 @@ void mouseClicked(){
 }
 
 void setup() {
+  if(file != null) {
+    file.stop();
+  }
+  file = new SoundFile(this, "music.mp3");
+  file.play();
   //frameRate(3);
   size(960, 540);
   for(int i=0;i<candies.length;i++){
@@ -90,8 +95,6 @@ void setup() {
   font = createFont("sweetlyBroken.ttf", 32);
   b.updatecor(x,y);
   update(false);
-  file = new SoundFile(this, "music.mp3");
-  file.play();
 }
 
 
