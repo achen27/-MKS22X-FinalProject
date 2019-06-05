@@ -38,7 +38,8 @@ Our project is very similar to Candy Crush. We designed the game without looking
        6. If you can't find any moves press shuffle to suffle the board.
        7. Press Reset if you lose.
        8. Have FUN! 🥴
-       9. [MORE INSTRUCTIONS](https://github.com/achen27/MKS22X-FinalProject/blob/master/Candy_Crush_Instructions)
+       
+[MORE INSTRUCTIONS](https://github.com/achen27/MKS22X-FinalProject/blob/master/Candy_Crush_Instructions)
        
 ## 📝 Final Project Log
 
