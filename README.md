@@ -20,15 +20,15 @@
 
 ![alt text](https://github.com/achen27/MKS22X-FinalProject/blob/master/project/p1.png)
 
-Our project is very similar to Candy Crush. We designed the game without looking at any of the existing match three code that already exist online, so our project may look strange compared to other match three projects. Our project consist of a board, colored candy, point values, and buttons for shuffle and reset. We also have a special candy that either pops the column, row, or 3x3. The goal is to get a set amount of points within a certain amount of moves.
+Our project is very similar to Candy Crush. We designed the game without looking at any of the existing match three code that already exist online, so our project may look strange compared to other match three projects. Our project consist of a board, colored candy, point values, and buttons for shuffle and reset. We also have a special candy that either pops the column, row, or 3x3. The goal is to get a set amount of points within a certain amount of moves. More deatils on our features are in the Directions!!!!
 
+###  🎰 Our Data Stucture  🎰:
 
-
-
-
-
-
-
+    We used:
+           1 dimension int[]s to store int values throughtout the program
+           2 dimension Object Matrixes to store our candies 
+           ArrayList for shuffling purposes
+           
 ## 🧭 Directions
        1. Go to project folder.
        2. Open the game in processing
@@ -38,6 +38,8 @@ Our project is very similar to Candy Crush. We designed the game without looking
        6. If you can't find any moves press shuffle to suffle the board.
        7. Press Reset if you lose.
        8. Have FUN! 🥴
+       
+[MORE INSTRUCTIONS](https://github.com/achen27/MKS22X-FinalProject/blob/master/Candy%20Crush%20Instructions.pdf)
        
 ## 📝 Final Project Log
 
