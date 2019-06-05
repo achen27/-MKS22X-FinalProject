@@ -1,69 +1,98 @@
 import java.util.*;
+//import processing.sound.*;
 
-Board b;
-PImage bg;
-PImage[] candies = new PImage[25];
+//SoundFile file; //music
+//SoundFile pop; //sfx
+
+Board b; // where our entire game is run 
+
+PImage bg; //background
+PImage[] candies = new PImage[25]; //candy images
+PImage[] stars = new PImage[3]; //star images
 PImage scoreboard;
-int x = 250;
-int y = 50;
-int len = 50;
-boolean end = false;
-
-boolean moving = false;
-boolean puffed = false;
-boolean click = false;
-
-boolean first = true;
-boolean run = false;
-int swapx1 = -1;
-int swapy1 = -1;
-int swapx2 = -1;
-int swapy2 = -1;
-int gamestep = 1;
-PImage puff;
+PImage puff; //pop animation
 PFont font;
 
+int x = 250; //upper left corner
+int y = 50;  //of board
+int len = 50; //length of each square
 
-void mouseClicked(){
-  if (click){
+boolean demo = false; //demo button to switch game mode
+boolean end; //game ending
+boolean moving; //fall animation
+boolean puffed; //pop animation
+boolean click; //restricting when player can click
+boolean first; //keeping track of first or second click
+boolean run; //after second click a check is run through the board
+
+int swapx1; //coordinates of two candies
+int swapy1;
+int swapx2;
+int swapy2;
+
+int gamestep; //separated game steps for animation purposes
+
+
+void mousePressed(){
+  if (click){ //check if player is allowed to click
     if (!end){
-      if (first){
+      if (first){ //updates first candy coordinates
         swapy1 = (mouseX - x) / 50;
         swapx1 = (mouseY - y) / 50;
         first = false;
         update(false);
-      } else {
+      } else { //updates second candy coordinates
         swapy2 = (mouseX - x) / 50;
         swapx2 = (mouseY - y) / 50;
         first = true;
-        fill(0);
-        rect(0,0, 100,100);
         run = true;
         update(false);
       }
-      if (mouseX >= 80 && mouseX <= 160 && mouseY >= 275 && mouseY <= 350){
+      if (mouseX >= 80 && mouseX <= 160 && mouseY >= 275 && mouseY <= 350){ //shuffle button
         click = false;
-        b.shuffle();
+        b.shuffle(); // java's shuffle for arrays
         gamestep = 1;
       }
-      if (mouseX >= 750 && mouseX <= 910 && mouseY >= 250 && mouseY <= 310){
+      if (mouseX >= 750 && mouseX <= 910 && mouseY >= 250 && mouseY <= 310){ //restart button
         click = false;
-        setup();
+        setup(); // restarts the game
       }
     } else {
-      if (mouseX >= 750 && mouseX <= 910 && mouseY >= 250 && mouseY <= 310){
+      if (mouseX >= 750 && mouseX <= 910 && mouseY >= 250 && mouseY <= 310){ //restart button
         click = false;
-        setup();
+        setup(); // restarts the game
       }
     }
+    
+    if (mouseX >= 780 && mouseX <= 880 && mouseY >= 150 && mouseY <= 200){
+      demo = !demo;
+      setup(); // demo just lowers the amount of colors on the board
+    }
+    
   }
 }
 
 void setup() {
-  
-  //frameRate(3);
-  size(960, 540);
-  for(int i=0;i<candies.length;i++){
+  size(960, 540); //size of game
+  /*
+  //loading sounds
+  if(file != null) { 
+    file.stop(); //stops the music if there is music playing;
+  }
+  file = new SoundFile(this, "loop1.mp3"); //loads the music
+  file.loop(); // plays the music repeatly
+  pop = new SoundFile(this, "pop.mp3"); // loads the SFX
+  */
+  //loading images and fonts
+  scoreboard = loadImage("scoreboard.png"); // loads the scoreboard
+  scoreboard.resize(200,400);
+  bg = loadImage("background.jpg"); // loads the background
+  bg.resize(960, 540); 
+  background(bg); //sets the background to bg
+  puff = loadImage("puffofsmoke.png"); // loads the smokeclouds
+  puff.resize(0,50);
+  font = createFont("sweetlyBroken.ttf", 32); // our font
+  for(int i=0;i<candies.length;i++){ // different candy files need different resizes
     candies[i]=loadImage(str(i) + ".png");
     if ((i-1) % 4 == 0){
       candies[i].resize(0, 37);
@@ -71,71 +100,69 @@ void setup() {
       candies[i].resize(0, 50);
     }
   }
-  scoreboard = loadImage("scoreboard.png");
-  scoreboard.resize(200,400);
-  b = new Board(9,9,50);
-  bg = loadImage("background.jpg");
-  bg.resize(960, 540);
-  background(bg);
+  for(int i=0;i<stars.length;i++){ // our end game stars
+    stars[i]=loadImage(str(i+25) + ".png");
+    stars[i].resize(0, 50);
+  }
+  
+  //creating and drawing new board
+  b = new Board(9,9,50); // rows is 9, col is 9, length is 50 units
   fill(75,150);
-  //square(50,80,52);
   b.toDrawBoard(x,y, swapx1,swapy1,swapx2,swapy2);
-  b.fillempty();
-  //b.toDrawCandy(x,y,len
-  puff = loadImage("puffofsmoke.png");
-  puff.resize(0,50);
-  font = createFont("sweetlyBroken.ttf", 32);
-  b.updatecor(x,y);
-  update(false);
+  b.fillempty(); // fills in the null in the board for start game purposes
+  b.updatecor(x,y); // updates the cordinates of the x and y of the candies
+  
+  //updating instance variables
+  end = false;
+  moving = false;
+  puffed = false;
+  click = false;
+  first = true;
+  run = false;
+  swapx1 = -1;
+  swapy1 = -1;
+  swapx2 = -1;
+  swapy2 = -1;
+  gamestep = 1;
+  
+  update(false); //runs update to check board
 }
 
 
-void update(boolean p) {
+void update(boolean p) { //update board on screen and draws it;
   background(bg);
   fill(75,150);
   b.drawScoreBoard(scoreboard);
   b.toDrawBoard(x,y,swapx1,swapy1,swapx2,swapy2);
   b.toDrawCandy(x,y, puff, p, candies);
   b.drawRestart();
+  b.drawDemo();
 }
 
 void draw() {
-  //delay(50);
-  System.out.println(click);
   update(false);
-  if(puffed){
+  
+  if(puffed){ //runs update with pop animation
       update(true);
       puffed = false;
    }
   
-  if (gamestep == 1){
+  if (gamestep == 1){ //resets coordinates
     swapx1 = -1;
     swapy1 = -1;
     swapx2 = -1;
     swapy2 = -1;
   }
   
-  //delay(200);
-  /*fill(0);
-  shapeMode(CORNER);
-  rect(0,0,100,100);
-  fill(255);
-  textSize(20);
-  text(swapx1, 10, 20);
-  text(swapy1, 10, 50);
-  text(swapx2, 20, 20);
-  text(swapy2, 20, 50);
-  text(mouseX, 40, 20);
-  text(mouseY, 40, 50);
-  text(mouseY, 40, 50);*/
-  
-  if (moving) {
-    moving = b.move(5);
+  if (moving) { // our moving variable tells the program if there is still candies that needs to be moved
+    moving = b.move(5); //fall animation
   } else {
-    if (gamestep == 0) {
+    
+    if (gamestep == 0) { // gamestep 0 is when the player clicks onto the board
       click = true;
-      if (b.swap(swapx1,swapy1,swapx2,swapy2)) {
-        gamestep += 1;
+      
+      if (b.swap(swapx1,swapy1,swapx2,swapy2)) { //check if candies can swap
+        gamestep += 1; // goes to gamestep 1
         click = false;
       } else if (run){
         swapx1 = -1;
@@ -143,39 +170,46 @@ void draw() {
         swapx2 = -1;
         swapy2 = -1;
       }
-    } else if (gamestep == 1) {
-      //delay(200);
+      
+    } else if (gamestep == 1) { //game step 1 pops candy
+    
+      //pop.play();
       b.pop();
       puffed = true;
-      //System.out.println("pufff");
       gamestep += 1;
-    } else if(gamestep == 2) {
-      if(b.fall() == false) {
+      
+    } else if(gamestep == 2) { //game step 2 makes the candies fall 
+      
+      if(b.fall() == false) { 
         gamestep += 1; 
       }
-    } else if(gamestep == 3) {
-      if(b.check()) {
+      
+    } else if(gamestep == 3) { //game step 3 checks the board
+      
+      if(b.check()) { //repeats from pop if there are still combinations on the board
         gamestep = 1;
       } else {
-        if (b.moves == 0){
-          b.endgame();
+        
+        if (b.moves == 0){ //ends game if no moves left
+          b.endgame(); 
           end = true;
-          System.out.println("end");
         }
+        
         gamestep = 0; 
-        //System.out.println(b.toString());
       }
+      
     }
   
-    if (gamestep == 0 && run){
-      //update();
+    if (gamestep == 0 && run){ //stops running check
       run = false;
       click = true;
     }
     
-    //System.out.println(gamestep);
-    
-    b.updatecor(x,y);
+    b.updatecor(x,y); //updates coordinates of candies
     moving = true;
+  }
+  
+  if (end){ //draw ending pop-up
+    b.drawEnd(stars);
   }
 }
