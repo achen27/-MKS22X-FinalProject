@@ -4,7 +4,7 @@ import processing.sound.*;
 SoundFile file; //music
 SoundFile pop; //sfx
 
-Board b;
+Board b; // where our entire game is run 
 
 PImage bg; //background
 PImage[] candies = new PImage[25]; //candy images
@@ -50,23 +50,23 @@ void mousePressed(){
       }
       if (mouseX >= 80 && mouseX <= 160 && mouseY >= 275 && mouseY <= 350){ //shuffle button
         click = false;
-        b.shuffle();
+        b.shuffle(); // java's shuffle for arrays
         gamestep = 1;
       }
       if (mouseX >= 750 && mouseX <= 910 && mouseY >= 250 && mouseY <= 310){ //restart button
         click = false;
-        setup();
+        setup(); // restarts the game
       }
     } else {
       if (mouseX >= 750 && mouseX <= 910 && mouseY >= 250 && mouseY <= 310){ //restart button
         click = false;
-        setup();
+        setup(); // restarts the game
       }
     }
     
     if (mouseX >= 780 && mouseX <= 880 && mouseY >= 150 && mouseY <= 200){
       demo = !demo;
-      setup();
+      setup(); // demo just lowers the amount of colors on the board
     }
     
   }
@@ -77,22 +77,22 @@ void setup() {
   
   //loading sounds
   if(file != null) { 
-    file.stop();
+    file.stop(); //stops the music if there is music playing;
   }
-  file = new SoundFile(this, "loop1.mp3");
-  file.loop();
-  pop = new SoundFile(this, "pop.mp3");
+  file = new SoundFile(this, "loop1.mp3"); //loads the music
+  file.loop(); // plays the music repeatly
+  pop = new SoundFile(this, "pop.mp3"); // loads the SFX
   
   //loading images and fonts
-  scoreboard = loadImage("scoreboard.png");
+  scoreboard = loadImage("scoreboard.png"); // loads the scoreboard
   scoreboard.resize(200,400);
-  bg = loadImage("background.jpg");
-  bg.resize(960, 540);
-  background(bg);
-  puff = loadImage("puffofsmoke.png");
+  bg = loadImage("background.jpg"); // loads the background
+  bg.resize(960, 540); 
+  background(bg); //sets the background to bg
+  puff = loadImage("puffofsmoke.png"); // loads the smokeclouds
   puff.resize(0,50);
-  font = createFont("sweetlyBroken.ttf", 32);
-  for(int i=0;i<candies.length;i++){ 
+  font = createFont("sweetlyBroken.ttf", 32); // our font
+  for(int i=0;i<candies.length;i++){ // different candy files need different resizes
     candies[i]=loadImage(str(i) + ".png");
     if ((i-1) % 4 == 0){
       candies[i].resize(0, 37);
@@ -100,17 +100,17 @@ void setup() {
       candies[i].resize(0, 50);
     }
   }
-  for(int i=0;i<stars.length;i++){
+  for(int i=0;i<stars.length;i++){ // our end game stars
     stars[i]=loadImage(str(i+25) + ".png");
     stars[i].resize(0, 50);
   }
   
   //creating and drawing new board
-  b = new Board(9,9,50);
+  b = new Board(9,9,50); // rows is 9, col is 9, length is 50 units
   fill(75,150);
   b.toDrawBoard(x,y, swapx1,swapy1,swapx2,swapy2);
-  b.fillempty();
-  b.updatecor(x,y);
+  b.fillempty(); // fills in the null in the board for start game purposes
+  b.updatecor(x,y); // updates the cordinates of the x and y of the candies
   
   //updating instance variables
   end = false;
@@ -129,7 +129,7 @@ void setup() {
 }
 
 
-void update(boolean p) { //update board on screen
+void update(boolean p) { //update board on screen and draws it;
   background(bg);
   fill(75,150);
   b.drawScoreBoard(scoreboard);
@@ -154,15 +154,15 @@ void draw() {
     swapy2 = -1;
   }
   
-  if (moving) {
+  if (moving) { // our moving variable tells the program if there is still candies that needs to be moved
     moving = b.move(5); //fall animation
   } else {
     
-    if (gamestep == 0) {
+    if (gamestep == 0) { // gamestep 0 is when the player clicks onto the board
       click = true;
       
       if (b.swap(swapx1,swapy1,swapx2,swapy2)) { //check if candies can swap
-        gamestep += 1;
+        gamestep += 1; // goes to gamestep 1
         click = false;
       } else if (run){
         swapx1 = -1;
@@ -171,27 +171,27 @@ void draw() {
         swapy2 = -1;
       }
       
-    } else if (gamestep == 1) { //pops candy
+    } else if (gamestep == 1) { //game step 1 pops candy
     
       pop.play();
       b.pop();
       puffed = true;
       gamestep += 1;
       
-    } else if(gamestep == 2) { //fall animation
+    } else if(gamestep == 2) { //game step 2 makes the candies fall 
       
       if(b.fall() == false) { 
         gamestep += 1; 
       }
       
-    } else if(gamestep == 3) {
+    } else if(gamestep == 3) { //game step 3 checks the board
       
       if(b.check()) { //repeats from pop if there are still combinations on the board
         gamestep = 1;
       } else {
         
         if (b.moves == 0){ //ends game if no moves left
-          b.endgame();
+          b.endgame(); 
           end = true;
         }
         
