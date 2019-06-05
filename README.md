@@ -39,7 +39,7 @@ Our project is very similar to Candy Crush. We designed the game without looking
        7. Press Reset if you lose.
        8. Have FUN! 🥴
        
-[MORE INSTRUCTIONS](https://github.com/achen27/MKS22X-FinalProject/blob/master/Candy_Crush_Instructions)
+[MORE INSTRUCTIONS](https://github.com/achen27/MKS22X-FinalProject/blob/master/Candy%20Crush%20Instructions.pdf)
        
 ## 📝 Final Project Log
 
